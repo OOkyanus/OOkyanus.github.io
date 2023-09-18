@@ -19,7 +19,7 @@
   
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" type="image/png" href="images/SmilingUltrasonicTransducer.jpg">
+  <link rel="icon" type="image/png" href="images/fly-black.png">
   <title>Okyanus Oral</title>
 </head>
 
@@ -90,19 +90,23 @@
           <tr onmouseout="rna_stop()" onmouseover="rna_start()">
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
-                <div class="two" id="rna_image" style="opacity: 0;"><video width="120%" height="72%" muted="" autoplay="" loop="">
-                <source src="images/rna.m4v" type="video/mp4">
+                <div class="two" id="rna_image" style="opacity: 0;"><video width="160" height="160" muted="" autoplay="" loop="">
+                <source src="images/PnPregOnMag - Made with Clipchamp.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video></div>
-                <img src="images/rna.png" width="192">
+                <img src="images/PnPregOnMag.PNG" width="160">
               </div>
               <script type="text/javascript">
                 function rna_start() {
                   document.getElementById('rna_image').style.opacity = "1";
+                  document.getElementById('rna_image').currentTime = 0; // Seek to the beginning
+                  document.getElementById('rna_image').play(); 
+
                 }
 
                 function rna_stop() {
                   document.getElementById('rna_image').style.opacity = "0";
+                  document.getElementById('rna_image').pause(); 
                 }
                 rna_stop()
               </script>
@@ -131,10 +135,10 @@
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
                 <div class="two" id="cc3d_image" style="opacity: 0;"><video width="100%" height="100%" muted="" autoplay="" loop="">
-                <source src="images/3dcc_teaser.m4v" type="video/mp4">
+                <source src="images/DSP.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video></div>
-                <img src="images/3dcc_teaser.png" width="160">
+                <img src="images/DSP.PNG" width="160">
               </div>
               <script type="text/javascript">
                 function cc3d_start() {
