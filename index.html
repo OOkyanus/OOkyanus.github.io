@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okyanus Oral</title>
+    <link rel="icon" href="images/fly-black.ico" type="image/x-icon">
+    <style>
+        /* Basic styles for the webpage */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+        }
+
+        .container {
+            max-width: 1080px;
+            width: 100%;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            padding: 20px;
+            display: flex; /* Use flexbox to align image and title */
+            align-items: center; /* Vertically align items */
+        }
+
+        header img {
+            width: 70px; /* Adjust the width as needed */
+            height: auto;
+            margin-right: 10px; /* Add spacing between image and title */
+        }
+
+        .header-title {
+            flex: 1; /* Allow the title to grow and take remaining space */
+        }
+
+        header h1 {
+            font-size: 38px; /* Adjust the font size as needed */
+            margin: 0; /* Reset margin to remove extra spacing */
+        }
+
+        .header-links {
+             text-align: center; /* Center-align the links horizontally */
+             font-size: 20px;
+             margin: 10px;
+        }
+
+        .header-link {
+            color: #ffb4b4;
+            text-decoration: none; /* Remove underlines from links */
+            margin: 0 10px; /* Add spacing between links */
+            display: inline-block; /* Display links inline */
+            transition: transform 0.2s; /* Apply hover effect */
+        }
+
+        .header-link:hover {
+          transform: scale(1.05);
+        }
+
+        /* Style for the sections */
+        .section {
+            margin-top: 20px; /* Reduce top margin for sections */
+            padding-left: 0px; /* Add left padding for titles */
+        }
+
+        .section h2 {
+            color:  #911111;
+            font-size: 25px;
+            margin-bottom: 1px;
+        }
+
+        /* Style for the publications list */
+        .publications-under-review {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0; /* Adjust margin to align the list to the left */
+            counter-reset: under-review-counter; /* Increment the counter for published items */
+        }
+
+        .publications-published {
+            list-style-type: none;
+            padding: 20px;
+            margin: 0; /* Adjust margin to align the list to the left */
+            counter-reset: published-counter; /* Increment the counter for published items */
+        }
+
+        .publication {
+            display: flex;
+            align-items: top;
+            margin: 10px 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-size: 18px;
+        }
+
+        /* Style for publication items without hover (under-review or submitted) */
+        .publication.under-review {
+            cursor: default; /* Remove hover cursor */
+            transition: none; /* Remove hover effect */
+        }
+
+        /* Style for publication items with hover (published or accepted) */
+        .publication.published {
+            cursor:grab;
+            transition: transform 0.2s;
+        }
+
+        .publication.published:hover {
+            transform: scale(1.005);
+            color: #0084ff;
+        }
+
+        .publication .publication-sep {
+            margin-right: 10px;
+        }
+        .publication .publication-title {
+            margin-right: 0px;
+        }
+
+        /* Style for section separators */
+        .section:not(:first-child) {
+            border-top: 3px solid #ccc;
+            padding-top: 0px; /* Add space above the line */
+        }
+
+        /* Automatic numbering for publication items */
+        .publication[data-status="published"] .publication-sep::before {
+            content: "[" counter(published-counter) "] "; /* Use counter for published items */
+            font-weight: bold;
+            counter-increment: published-counter; /* Increment the counter for published items */
+            margin-right: 5px; /* Add spacing between the counter and title */
+        }
+
+        .publication[data-status="under-review"] .publication-sep::before {
+            content: "[" counter(under-review-counter) "] "; /* Use counter for under-review items */
+            font-weight: bold;
+            counter-increment: under-review-counter; /* Increment the counter for under-review items */
+            margin-right: 5px; /* Add spacing between the counter and title */
+        }
+
+        .publication-link {
+            color: inherit; /* Inherit text color from parent element */
+            text-decoration: none; /* Remove underline */   
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="images/profile_photo.png" alt="Logo"> <!-- Replace with the path to your image -->
+        <div class="header-title">
+            <h1>Okyanus Oral</h1>
+        </div>
+        <div class="header-links">
+            <div class="header-links">
+                <a href="https://drive.google.com/file/d/1d1q2lwJAYCsF-PWi-gkRaWXq95S5VN-A/view?usp=sharing" class="header-link">CV</a>
+                <a href="https://github.com/OOkyanus" class="header-link">GitHub</a>
+                <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao" class="header-link">Google Scholar</a>
+            </div>
+        </div>
+    </header>
+
+
+    <p style="text-align: left; font-size: 18px; color:  #222222">
+        Welcome to my personal webpage. I am a M.Sc. student at the department of Electrical and Electronics Engineering, METU, specializing in the signal processing area.
+    </p>
+    <strong style="text-align: left; font-size: 18px; color:  #222222"> My research interests are;</strong>
+    <nb>
+        <table>
+            <tr>
+                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color:  #222222;">Inverse problems</strong></td>
+                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color:  #222222;">Optimization</strong></td>
+                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color:  #222222;">Computational Imaging</strong></td>
+            </tr>
+            <tr>
+                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color: #222222;">Deep Learning</strong></td>
+                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color: #222222;">Machine Learning</strong></td>
+                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color: #222222;">Statistical Signal Processing</strong></td>
+            </tr>
+        </table>
+    </nb>
+    <p style="text-align: left; font-size: 18px; color: #222222">
+        Currently, my thesis studies focus on near-field MIMO Radar imaging using physics-based deep neural networks, which I am supervised by Assoc. Prof. <a href="https://blog.metu.edu.tr/figeno/">Figen S. Oktem</a>.
+    </p>
+
+
+    <section class="section">
+        <h2>Education</h2>
+        <nb>
+            <table>
+                <tr>
+                    <td width=700px>&bull; <strong style="text-align: left; font-size: 18px; color:  #222222;">M.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
+                    <td width=350px><strong style="text-align: left; font-size: 18px; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 18px;">/ 4.00</t> <a href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing">[transcript]</a></td>
+                    <td width=200px><i style="text-align: left; font-size: 18px; color:  #222222;">(2021 - Present)</i></td>
+                </tr>
+                <tr>
+                    <td width=700px>&bull; <strong style="text-align: left; font-size: 18px; color:  #222222;">B.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
+                    <td width=350px><strong style="text-align: left; font-size: 18px; color:  #222222;">CGPA: 3.80</strong> <t style="font-size: 18px;">/ 4.00 </t> <a href="https://drive.google.com/file/d/1KfanzkD_ZG1twokosUq4dIfOnNWFrzax/view?usp=sharing">[transcript]</a></strong></td>
+                    <td width=200px><i style="text-align: left; font-size: 18px; color:  #222222;">(2017 - 2021)</i></td>
+                </tr>
+            </table>
+        </nb>
+     </section>
+
+    <section class="section">
+        <h2>Publications (Submitted / Under Review)</h2>
+        <ul class="publications-under-review">
+
+            <!-- Publication items go here -->
+
+            <li class="publication under-review" data-status="under-review">
+                <div class="publication-sep"></div>
+                <div class="publication-title">
+                    <strong>O. Oral</strong> and F. S. Oktem, 
+                    “Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging”
+                    <i>in IEEE Transactions on Computational Imaging</i>, 2023 
+                <strong>(Submitted)</strong>
+                </div>
+            </li>
+
+            <li class="publication under-review" data-status="under-review">
+                <div class="publication-sep"></div>
+                <div class="publication-title">
+                    I. Manisali, <strong>O. Oral</strong> and F. S. Oktem,
+                    “Efficient Physics-Based Learned Reconstruction Method for 3D Near-Field MIMO Radar Imaging”
+                    <i>Digital Signal Processing</i>, 2023 
+                <strong>(Under Review)</strong>
+                </div>
+            </li>
+
+            <li class="publication under-review" data-status="under-review">
+                <div class="publication-sep"></div>
+                <div class="publication-title">
+                    <strong>O. Oral</strong> M Kiran and BM Ozyildirim,
+                    “HPS-RL: A Library for Evolutionary Search for Hyper-parameter Search for Optimum Deep Reinforcement Applications”
+                    <i>Neural Networks</i>, 2022 
+                <strong>(Under Review)</strong>
+                </div>
+            </li>
+        </ul>
+
+        <h2>Publications (Accepted / Published)</h2>
+        <ul class="publications-published">
+
+            <!-- Publication items go here -->
+            <!-- Publication item 1 -->
+            <!-- Publication item for published or accepted papers (with hover) -->
+            <li class="publication published" data-status="published">
+                <div class="publication-sep"></div>
+                <div class="publication-title">
+                    <a href="https://cmsworkshops.com/EUSIPCO2023/view_paper.php?PaperNum=1578" target="_blank" class="publication-link">
+                        <strong>O. Oral</strong> and F. S. Oktem, 
+                        “Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging”,
+                        <i> 2023 31th European Signal Processing Conference (EUSIPCO)</i>, Helsinki, Finland, 2023.
+                    </a>
+                </div>
+            </li>
+
+            <li class="publication published" data-status="published">
+                <div class="publication-sep"></div>
+                <div class="publication-title">
+                    <a href="https://dergipark.org.tr/en/pub/cukurovaumfd/issue/62310/933867" target="_blank" class="publication-link">
+                        <strong>O. Oral</strong> E. L. Oral, and M. S. Andac, 
+                        ”Comparison of the Performance of K-Nearest Neigh-
+                        bours and Generalized Neural Network in Construction Crew Productivity Prediction”,
+                        <i> Cukurova University Journal of the Faculty of Engineering</i>, vol. 36, no. 1, pp. 131-140, 2021. doi:
+                        10.21605/cukurovaumfd.933867
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Projects</h2>
+        <!-- Add content for the Projects section as needed -->
+    </section>
+
+    <section class="section">
+        <h2>Misc</h2>
+        <!-- Add content for the Misc section as needed -->
+    </section>
+
+    <section class="section">
+        <h2>Teaching</h2>
+    </section>
+</div>
+</body>
+</html>
