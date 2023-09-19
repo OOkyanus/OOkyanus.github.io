@@ -16,23 +16,23 @@
         }
 
         .container {
-            max-width: 100%;
-            width: 95%;
+            max-width: 100vw;
+            width: 80vw;
         }
 
         header {
             background-color: #333;
             color: #fff;
             text-align: left;
-            padding: 1%;
+            padding: 1vw;
             display: flex; /* Use flexbox to align image and title */
             align-items: center; /* Vertically align items */
         }
 
         header img {
-            width: 7%; /* Adjust the width as needed */
+            width: 6vw; /* Adjust the width as needed */
             height: auto;
-            margin-right: 1.2%; /* Add spacing between image and title */
+            margin-right: 1.2vw; /* Add spacing between image and title */
         }
 
         .header-title {
@@ -40,20 +40,20 @@
         }
 
         header h1 {
-            font-size: 300% ; /* Adjust the font size as needed */
+            font-size: 3vw ; /* Adjust the font size as needed */
             margin: 0; /* Reset margin to remove extra spacing */
         }
 
         .header-links {
              text-align: left; /* Center-align the links horizontally */
-             font-size: 125%;
-             margin:0.001%
+             font-size: 2vw;
+             margin: 1vw
         }
 
         .header-link {
             color: #ffb4b4;
             text-decoration: none; /* Remove underlines from links */
-            margin: 0 12px; /* Add spacing between links */
+            margin: 0 1vw; /* Add spacing between links */
             display: inline-block; /* Display links inline */
             transition: transform 0.2s; /* Apply hover effect */
         }
@@ -64,38 +64,39 @@
 
         /* Style for the sections */
         .section {
-            margin-top: 3%; /* Reduce top margin for sections */
-            padding-left: 0%; /* Add left padding for titles */
+            margin-top: 1vw; /* Reduce top margin for sections */
+            padding-left: 0; /* Add left padding for titles */
         }
 
         .section h2 {
             color:  #911111;
-            font-size: 200%;
-            margin-bottom: 1%;
+            font-size: 2vw;
+            margin-bottom: 1vw;
         }
 
         /* Style for the publications list */
         .publications-under-review {
             list-style-type: none;
-            padding: 0%;
-            margin: 1%; /* Adjust margin to align the list to the left */
+            padding: 0;
+            margin: 1vw; /* Adjust margin to align the list to the left */
             counter-reset: under-review-counter; /* Increment the counter for published items */
         }
 
         .publications-published {
             list-style-type: none;
-            padding: 0%;
-            margin: 1%; /* Adjust margin to align the list to the left */
+            padding: 0;
+            margin: 1vw; /* Adjust margin to align the list to the left */
             counter-reset: published-counter; /* Increment the counter for published items */
         }
 
         .publication {
             display: flex;
             align-items: top;
-            margin: 1% 1%;
+            margin-left: 1vw;
+            margin-bottom: 1vw;
             cursor: pointer;
             transition: transform 0.2s;
-            font-size: 130%;
+            font-size: 1.5vw;
         }
 
         /* Style for publication items without hover (under-review or submitted) */
@@ -116,16 +117,16 @@
         }
 
         .publication .publication-sep {
-            margin-right: 0.1%;
+            margin-right: 0.1vw;
         }
         .publication .publication-title {
-            margin-right: 0.1%;
+            margin-right: 0.1vw;
         }
 
         /* Style for section separators */
         .section:not(:first-child) {
             border-top: solid #5a5a5a3e;
-            padding-top: 0px; /* Add space above the line */
+            padding-top: 0; /* Add space above the line */
         }
 
         /* Automatic numbering for publication items */
@@ -133,14 +134,14 @@
             content: "[" counter(published-counter) "] "; /* Use counter for published items */
             font-weight: bold;
             counter-increment: published-counter; /* Increment the counter for published items */
-            margin-right: 5px; /* Add spacing between the counter and title */
+            margin-right: 1vw; /* Add spacing between the counter and title */
         }
 
         .publication[data-status="under-review"] .publication-sep::before {
             content: "[" counter(under-review-counter) "] "; /* Use counter for under-review items */
             font-weight: bold;
             counter-increment: under-review-counter; /* Increment the counter for under-review items */
-            margin-right: 5px; /* Add spacing between the counter and title */
+            margin-right: 1vw; /* Add spacing between the counter and title */
         }
 
         .publication-link {
@@ -166,23 +167,23 @@
     </header>
 
 
-    <p style="text-align: left; font-size: 130%; color:  #222222">
+    <p style="text-align: left; font-size: 1.5vw; color:  #222222">
         Welcome to my personal webpage. I am a M.Sc. student at the department of Electrical and Electronics Engineering, METU, specializing in the signal processing area.
     </p>
-    <p style="text-align: left; font-size: 130%; color:  #222222"> My research interests are;</p>
+    <p style="text-align: left; font-size: 1.5vw; color:  #222222"> My research interests are;</p>
         <table>
             <tr>
-                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color:  #222222;">Inverse problems</strong></td>
-                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color:  #222222;">Optimization</strong></td>
-                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color:  #222222;">Computational Imaging</strong></td>
+                <td width=300vw>&bull; <strong style="text-align: left; font-size: 1.4vw; color:  #222222;">Inverse problems</strong></td>
+                <td width=300vw>&bull; <strong style="text-align: left; font-size: 1.4vw; color:  #222222;">Optimization</strong></td>
+                <td width=300vw>&bull; <strong style="text-align: left; font-size: 1.4vw; color:  #222222;">Computational Imaging</strong></td>
             </tr>
             <tr>
-                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color: #222222;">Deep Learning</strong></td>
-                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color: #222222;">Machine Learning</strong></td>
-                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color: #222222;">Statistical Signal Processing</strong></td>
+                <td >&bull; <strong style="text-align: left; font-size: 1.4vw; color: #222222;">Deep Learning</strong></td>
+                <td >&bull; <strong style="text-align: left; font-size: 1.4vw; color: #222222;">Machine Learning</strong></td>
+                <td >&bull; <strong style="text-align: left; font-size: 1.4vw; color: #222222;">Statistical Signal Processing</strong></td>
             </tr>
         </table>
-    <p style="text-align: left; font-size: 130%; color: #222222">
+    <p style="text-align: left; font-size: 1.5vw; color: #222222">
         Currently, my thesis studies focus on near-field MIMO Radar imaging using physics-based deep neural networks, which I am supervised by Assoc. Prof. <a href="https://blog.metu.edu.tr/figeno/">Figen S. Oktem</a>.
     </p>
 
@@ -192,14 +193,15 @@
         <nb>
             <table>
                 <tr>
-                    <td width=45%>&bull; <strong style="text-align: left; font-size: 130%; color:  #222222;">M.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
-                    <td width=20%><strong style="text-align: left; font-size: 130%; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 130%;">/ 4.00</t> <a href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing">[transcript]</a></td>
-                    <td width=20%><i style="text-align: left; font-size: 130%; color:  #222222;">(2021 - Present)</i></td>
+                    <td width=540vw>&bull; <strong style="text-align: left; font-size: 1.5vw; color:  #222222;">M.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
+                    <td width=250vw><strong style="text-align: left; font-size: 1.5vw; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 1.5vw;">/ 4.00</t> <a href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing">[transcript]</a></td>
+                    <td width=140vw><i style="text-align: left; font-size: 1.5vw; color:  #222222;">(2021 - Present)</i></td>
                 </tr>
+                
                 <tr>
-                    <td width=45%>&bull; <strong style="text-align: left; font-size: 130%; color:  #222222;">B.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
-                    <td width=20%><strong style="text-align: left; font-size: 130%; color:  #222222;">CGPA: 3.80</strong> <t style="font-size: 130%;">/ 4.00 </t> <a href="https://drive.google.com/file/d/1KfanzkD_ZG1twokosUq4dIfOnNWFrzax/view?usp=sharing">[transcript]</a></strong></td>
-                    <td width=20%><i style="text-align: left; font-size: 130%; color:  #222222;">(2017 - 2021)</i></td>
+                    <td >&bull; <strong style="text-align: left; font-size: 1.5vw; color:  #222222;">B.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
+                    <td ><strong style="text-align: left; font-size: 1.5vw; color:  #222222;">CGPA: 3.80</strong> <t style="font-size: 1.5vw;">/ 4.00 </t> <a href="https://drive.google.com/file/d/1KfanzkD_ZG1twokosUq4dIfOnNWFrzax/view?usp=sharing">[transcript]</a></strong></td>
+                    <td><i style="text-align: left; font-size: 1.5vw; color:  #222222;">(2017 - 2021)</i></td>
                 </tr>
             </table>
         </nb>
