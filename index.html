@@ -16,23 +16,23 @@
         }
 
         .container {
-            max-width: 1080px;
-            width: 100%;
+            max-width: 100%;
+            width: 95%;
         }
 
         header {
             background-color: #333;
             color: #fff;
             text-align: left;
-            padding: 20px;
+            padding: 1%;
             display: flex; /* Use flexbox to align image and title */
             align-items: center; /* Vertically align items */
         }
 
         header img {
-            width: 70px; /* Adjust the width as needed */
+            width: 7%; /* Adjust the width as needed */
             height: auto;
-            margin-right: 10px; /* Add spacing between image and title */
+            margin-right: 1.2%; /* Add spacing between image and title */
         }
 
         .header-title {
@@ -40,20 +40,20 @@
         }
 
         header h1 {
-            font-size: 38px; /* Adjust the font size as needed */
+            font-size: 300% ; /* Adjust the font size as needed */
             margin: 0; /* Reset margin to remove extra spacing */
         }
 
         .header-links {
-             text-align: center; /* Center-align the links horizontally */
-             font-size: 20px;
-             margin: 10px;
+             text-align: left; /* Center-align the links horizontally */
+             font-size: 125%;
+             margin:0.001%
         }
 
         .header-link {
             color: #ffb4b4;
             text-decoration: none; /* Remove underlines from links */
-            margin: 0 10px; /* Add spacing between links */
+            margin: 0 12px; /* Add spacing between links */
             display: inline-block; /* Display links inline */
             transition: transform 0.2s; /* Apply hover effect */
         }
@@ -64,38 +64,38 @@
 
         /* Style for the sections */
         .section {
-            margin-top: 20px; /* Reduce top margin for sections */
-            padding-left: 0px; /* Add left padding for titles */
+            margin-top: 3%; /* Reduce top margin for sections */
+            padding-left: 0%; /* Add left padding for titles */
         }
 
         .section h2 {
             color:  #911111;
-            font-size: 25px;
-            margin-bottom: 1px;
+            font-size: 200%;
+            margin-bottom: 1%;
         }
 
         /* Style for the publications list */
         .publications-under-review {
             list-style-type: none;
-            padding: 20px;
-            margin: 0; /* Adjust margin to align the list to the left */
+            padding: 0%;
+            margin: 1%; /* Adjust margin to align the list to the left */
             counter-reset: under-review-counter; /* Increment the counter for published items */
         }
 
         .publications-published {
             list-style-type: none;
-            padding: 20px;
-            margin: 0; /* Adjust margin to align the list to the left */
+            padding: 0%;
+            margin: 1%; /* Adjust margin to align the list to the left */
             counter-reset: published-counter; /* Increment the counter for published items */
         }
 
         .publication {
             display: flex;
             align-items: top;
-            margin: 10px 10px;
+            margin: 1% 1%;
             cursor: pointer;
             transition: transform 0.2s;
-            font-size: 18px;
+            font-size: 130%;
         }
 
         /* Style for publication items without hover (under-review or submitted) */
@@ -116,15 +116,15 @@
         }
 
         .publication .publication-sep {
-            margin-right: 10px;
+            margin-right: 0.1%;
         }
         .publication .publication-title {
-            margin-right: 0px;
+            margin-right: 0.1%;
         }
 
         /* Style for section separators */
         .section:not(:first-child) {
-            border-top: 3px solid #ccc;
+            border-top: solid #5a5a5a3e;
             padding-top: 0px; /* Add space above the line */
         }
 
@@ -166,25 +166,23 @@
     </header>
 
 
-    <p style="text-align: left; font-size: 18px; color:  #222222">
+    <p style="text-align: left; font-size: 130%; color:  #222222">
         Welcome to my personal webpage. I am a M.Sc. student at the department of Electrical and Electronics Engineering, METU, specializing in the signal processing area.
     </p>
-    <strong style="text-align: left; font-size: 18px; color:  #222222"> My research interests are;</strong>
-    <nb>
+    <p style="text-align: left; font-size: 130%; color:  #222222"> My research interests are;</p>
         <table>
             <tr>
-                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color:  #222222;">Inverse problems</strong></td>
-                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color:  #222222;">Optimization</strong></td>
-                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color:  #222222;">Computational Imaging</strong></td>
+                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color:  #222222;">Inverse problems</strong></td>
+                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color:  #222222;">Optimization</strong></td>
+                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color:  #222222;">Computational Imaging</strong></td>
             </tr>
             <tr>
-                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color: #222222;">Deep Learning</strong></td>
-                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color: #222222;">Machine Learning</strong></td>
-                <td width=250px>&bull; <strong style="text-align: left; font-size: 16px; color: #222222;">Statistical Signal Processing</strong></td>
+                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color: #222222;">Deep Learning</strong></td>
+                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color: #222222;">Machine Learning</strong></td>
+                <td width=33%>&bull; <strong style="text-align: left; font-size: 120%; color: #222222;">Statistical Signal Processing</strong></td>
             </tr>
         </table>
-    </nb>
-    <p style="text-align: left; font-size: 18px; color: #222222">
+    <p style="text-align: left; font-size: 130%; color: #222222">
         Currently, my thesis studies focus on near-field MIMO Radar imaging using physics-based deep neural networks, which I am supervised by Assoc. Prof. <a href="https://blog.metu.edu.tr/figeno/">Figen S. Oktem</a>.
     </p>
 
@@ -194,14 +192,14 @@
         <nb>
             <table>
                 <tr>
-                    <td width=700px>&bull; <strong style="text-align: left; font-size: 18px; color:  #222222;">M.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
-                    <td width=350px><strong style="text-align: left; font-size: 18px; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 18px;">/ 4.00</t> <a href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing">[transcript]</a></td>
-                    <td width=200px><i style="text-align: left; font-size: 18px; color:  #222222;">(2021 - Present)</i></td>
+                    <td width=45%>&bull; <strong style="text-align: left; font-size: 130%; color:  #222222;">M.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
+                    <td width=20%><strong style="text-align: left; font-size: 130%; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 130%;">/ 4.00</t> <a href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing">[transcript]</a></td>
+                    <td width=20%><i style="text-align: left; font-size: 130%; color:  #222222;">(2021 - Present)</i></td>
                 </tr>
                 <tr>
-                    <td width=700px>&bull; <strong style="text-align: left; font-size: 18px; color:  #222222;">B.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
-                    <td width=350px><strong style="text-align: left; font-size: 18px; color:  #222222;">CGPA: 3.80</strong> <t style="font-size: 18px;">/ 4.00 </t> <a href="https://drive.google.com/file/d/1KfanzkD_ZG1twokosUq4dIfOnNWFrzax/view?usp=sharing">[transcript]</a></strong></td>
-                    <td width=200px><i style="text-align: left; font-size: 18px; color:  #222222;">(2017 - 2021)</i></td>
+                    <td width=45%>&bull; <strong style="text-align: left; font-size: 130%; color:  #222222;">B.Sc. in Electrical and Electronics Engineering - METU,</strong></td>
+                    <td width=20%><strong style="text-align: left; font-size: 130%; color:  #222222;">CGPA: 3.80</strong> <t style="font-size: 130%;">/ 4.00 </t> <a href="https://drive.google.com/file/d/1KfanzkD_ZG1twokosUq4dIfOnNWFrzax/view?usp=sharing">[transcript]</a></strong></td>
+                    <td width=20%><i style="text-align: left; font-size: 130%; color:  #222222;">(2017 - 2021)</i></td>
                 </tr>
             </table>
         </nb>
