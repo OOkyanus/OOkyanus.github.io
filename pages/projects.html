@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Okyanus Oral</title>
-    <link rel="icon" href="images/fly-black.ico" type="image/x-icon">
+    <link rel="icon" href="../images/fly-black.ico" type="image/x-icon">
     <style>
         /* Basic styles for the webpage */
         body {
@@ -19,7 +19,7 @@
             max-width: 100vw;
             width: 70vw;
         }
-        
+
         header {
             background-color: #333;
             color: #ffffff;            
@@ -30,11 +30,11 @@
             padding-bottom: 0vw; /* Decrease the bottom padding */
             display: flex; /* Use flexbox to align image and title */
             align-items: center; /* Vertically align items */
-            line-height: 2.4vw;
+            line-height: 0.1vw;
         }
 
         header img {
-            width: 4vw; /* Adjust the width as needed */
+            width: 3vw; /* Adjust the width as needed */
             height: auto;
             margin-right: 1vw; /* Add spacing between image and title */
         }
@@ -46,24 +46,20 @@
         header h1 {
             font-size: 1.8vw ; /* Adjust the font size as needed */
             margin: 0; /* Reset margin to remove extra spacing */
-            vertical-align: bottom; /* Center-align the links horizontally */
-            margin-bottom: -1vw; 
-            margin-top: 1vw; 
-
         }
 
+        .header-links {
+             text-align: left; /* Center-align the links horizontally */
+             font-size: 1.4vw;
+             margin: 1vw
+        }
 
         .header-link {
             color: #ffb4b4;
             text-decoration: none; /* Remove underlines from links */
-            
-            margin-top: 1vw;
-            margin-right: 1vw; 
-            margin-left: 0.2vw; /* Add spacing between links */
+            margin: 0 1vw; /* Add spacing between links */
             display: inline-block; /* Display links inline */
             transition: transform 0.2s; /* Apply hover effect */
-            font-size: 1.4vw;
-            text-align: bottom; /* Center-align the links horizontally */
         }
 
         .header-link:hover {
@@ -156,61 +152,22 @@
             color: inherit; /* Inherit text color from parent element */
             text-decoration: none; /* Remove underline */   
         }
-
-                /* Style for the navigation bar */
-        .navbar {
-            display: flex; /* Display navbar items horizontally */
-            align-items: center;
-            margin-right: 1vw;
-        }
-
-        .navbar-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex; /* Display navbar items horizontally */
-        }
-
-        .navbar-item {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
-
-        .navbar-item:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-item a {
-            color: #d3dae2;
-            text-decoration: none;
-            font-size: 1.4vw;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-item a:hover {
-            color: #0084ff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-        }
     </style>
 </head>
 <body>
 <div class="container">
     <header>
-        <img src="images/profile_photo.png" alt="Logo"> <!-- Replace with the path to your image -->
+        <img src="../images/profile_photo.png" alt="Logo"> <!-- Replace with the path to your image -->
         <div class="header-title">
             <h1>Okyanus Oral</h1>
+        </div>
+        <div class="header-links">
             <div class="header-links">
                 <a href="https://drive.google.com/file/d/1d1q2lwJAYCsF-PWi-gkRaWXq95S5VN-A/view?usp=sharing"  target="_blank" class="header-link">CV</a>
                 <a href="https://github.com/OOkyanus"  target="_blank" class="header-link">GitHub</a>
                 <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao"  target="_blank" class="header-link">Google Scholar</a>
             </div>
         </div>
-        <nav class="navbar">
-            <ul class="navbar-list">
-                <li class="navbar-item"><a href="https:://ookyanus.github.io/index.html">About</a></li>
-                <li class="navbar-item"><a href="https:://ookyanus.github.io/pages/projects.html">Projects</a></li>
-                <li class="navbar-item"><a href="https:://ookyanus.github.io/pages/misc.html">Miscellaneous</a></li>
-            </ul>
-        </nav>
     </header>
 
 
@@ -323,7 +280,17 @@
     </section>
 
     <section class="section">
-       
+        <h2>Projects</h2>
+        <!-- Add content for the Projects section as needed -->
+    </section>
+
+    <section class="section">
+        <h2>Misc</h2>
+        <!-- Add content for the Misc section as needed -->
+    </section>
+
+    <section class="section">
+        <h2>Teaching</h2>
     </section>
 </div>
 </body>
