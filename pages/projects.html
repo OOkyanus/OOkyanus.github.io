@@ -34,43 +34,6 @@
             line-height: 2.4vw;
         }
 
-        header img {
-            width: 4vw; /* Adjust the width as needed */
-            height: auto;
-            margin-right: 1vw; /* Add spacing between image and title */
-        }
-
-        .header-title {
-            flex: 1; /* Allow the title to grow and take remaining space */
-        }
-
-        header h1 {
-            font-size: 1.8vw ; /* Adjust the font size as needed */
-            margin: 0; /* Reset margin to remove extra spacing */
-            vertical-align: bottom; /* Center-align the links horizontally */
-            margin-bottom: -1vw; 
-            margin-top: 1vw; 
-        }
-
-
-        .header-link {
-            color: rgba(255, 255, 255, 0.594);
-            text-decoration: none; /* Remove underlines from links */
-            
-            margin-top: 1vw;
-            margin-right: 1vw; 
-            margin-left: 0.2vw; /* Add spacing between links */
-            display: inline-block; /* Display links inline */
-            transition: transform 0.2s; /* Apply hover effect */
-            font-size: 1.4vw;
-            text-align: bottom; /* Center-align the links horizontally */
-        }
-
-        .header-link:hover {
-        /*transform: scale(1.05);*/
-        color: #ffffff;
-        }
-
 
         /* Style for the navigation bar */
         .navbar {
@@ -154,22 +117,16 @@
             margin-bottom: 1vw;
         }
 
-        /* Style for the publications list */
-        .publications-under-review {
-            list-style-type: none;
+
+
+        /* Style for the projects list */
+        .projects {
+            list-style-type:none;
             padding: 0;
             margin: 1vw; /* Adjust margin to align the list to the left */
-            counter-reset: under-review-counter; /* Increment the counter for published items */
         }
 
-        .publications-published {
-            list-style-type: none;
-            padding: 0;
-            margin: 1vw; /* Adjust margin to align the list to the left */
-            counter-reset: published-counter; /* Increment the counter for published items */
-        }
-
-        .publication {
+        .project {
             display: flex;
             align-items: top;
             margin-left: 1vw;
@@ -177,58 +134,21 @@
             cursor: pointer;
             transition: transform 0.2s;
             font-size: 1.2vw;
+            color: #000; /* Set the default text color */
+            text-decoration: none; /* Remove underlines from links */
         }
 
-        /* Style for publication items without hover (under-review or submitted) */
-        .publication.under-review {
-            cursor: default; /* Remove hover cursor */
-            transition: none; /* Remove hover effect */
-        }
-
-        /* Style for publication items with hover (published or accepted) */
-        .publication.published {
-            cursor:grab;
-            transition: transform 0.2s;
-        }
-
-        .publication.published:hover {
+        .project:hover {
             /* transform: scale(1.005);*/
             color: #0084ff;
         }
 
-        .publication .publication-sep {
-            margin-right: 0.1vw;
-        }
-        .publication .publication-title {
-            margin-right: 0.1vw;
-        }
 
         /* Style for section separators */
         .section:not(:first-child) {
             border-top: solid #5a5a5a3e;
             padding-top: 0; /* Add space above the line */
         }
-
-        /* Automatic numbering for publication items */
-        .publication[data-status="published"] .publication-sep::before {
-            content: "[" counter(published-counter) "] "; /* Use counter for published items */
-            font-weight: bold;
-            counter-increment: published-counter; /* Increment the counter for published items */
-            margin-right: 1vw; /* Add spacing between the counter and title */
-        }
-
-        .publication[data-status="under-review"] .publication-sep::before {
-            content: "[" counter(under-review-counter) "] "; /* Use counter for under-review items */
-            font-weight: bold;
-            counter-increment: under-review-counter; /* Increment the counter for under-review items */
-            margin-right: 1vw; /* Add spacing between the counter and title */
-        }
-
-        .publication-link {
-            color: inherit; /* Inherit text color from parent element */
-            text-decoration: none; /* Remove underline */   
-        }
-
 
         /* Define the styles for normal hyperlinks */
         .ordinary-link {
@@ -242,9 +162,33 @@
         .ordinary-link:hover {
             color: #0084ff;
         }
+        table {
+            border-collapse: collapse; /* Collapse borders to avoid double borders */
+            width: 100%; /* Set the table width to 100% for responsiveness */
+        }
 
+
+        td:nth-child(even) tr {
+            border-right: 1px solid #000000d0; /* Add a bottom border to cells in even rows */
+        }
+        table td {
+            border: 1px solid #00000030; /* Add a border to all table cells */
+            padding: 8px; /* Add padding to the cells for spacing */
+            text-align: center; /* Center-align the cell content */
+        }
     </style>
 
+<script>
+    
+    function changeImage(imgElement, newImageSrc) {
+        imgElement.src = newImageSrc;
+    }
+
+    function changeImageById(elementId, newImageSrc) {
+        const textElement = document.getElementById(elementId);
+        textElement.src = newImageSrc;
+    }
+  </script>
 
 </head>
 <body>
@@ -265,6 +209,57 @@
    
     <section class="section">
         <h2>Projects</h2>
+        <table>
+            <tr>
+                <td width="10%">    
+                    <img id="EE584" width="100%" 
+                    src="../images/EE584/1.png" alt="Image 1" 
+                    onmouseover="changeImage(this, '../images/EE584/2.png')" 
+                    onmouseout="changeImage(this,'../images/EE584/1.png')">
+                </td>
+                <td width="90%" style="text-align: left;">
+                    <a  class=ordinary-link href=""
+                        onmouseover="changeImageById('EE584', '../images/EE584/2.png')"
+                        onmouseout="changeImageById('EE584','../images/EE584/1.png')">
+                        <strong style="font-size: 1.2vw;" >EE584 - Machine Vision:.</strong>
+                       Vision Transformers for Dense Prediction - Monocular Depth Estimation (a short review)
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">    
+                    <img id="EE553" width="100%" 
+                    src="../images/EE553/1.png" alt="Image 1" 
+                    onmouseover="changeImage(this, '../images/EE553/2.png')" 
+                    onmouseout="changeImage(this,'../images/EE553/1.png')">
+                </td>
+                <td width="90%" style="text-align: left;">
+                    <a  class=ordinary-link href=""
+                        onmouseover="changeImageById('EE553', '../images/EE553/2.png')"
+                        onmouseout="changeImageById('EE553','../images/EE553/1.png')">
+                        <strong style="font-size: 1.2vw;" >EE553 - Optimization:</strong>
+                        Comparison of Meta-Optimizers on Optimization of Substitution Permutations for Integer Wavelet Transformation based Image Steganography
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">    
+                    <img id="EE583" width="100%" 
+                    src="../images/EE583/1.png" alt="Image 1" 
+                    onmouseover="changeImage(this, '../images/EE583/2.png')" 
+                    onmouseout="changeImage(this,'../images/EE583/1.png')">
+                </td>
+                <td width="90%" style="text-align: left;">
+                    <a  class=ordinary-link href=""
+                        onmouseover="changeImageById('EE583', '../images/EE583/2.png')"
+                        onmouseout="changeImageById('EE583','../images/EE583/1.png')">
+                        <strong style="font-size: 1.2vw;" >EE583 - Pattern Recognition:</strong>
+                        Review of Self-Organizing Map Oversampling for Imbalanced Dataset Learning
+                    </a>
+                </td>
+            </tr>
+        </table>
+
     </section>
 
     <section class="section">
