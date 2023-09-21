@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okyanus Oral</title>
-    <link rel="icon" href="../images/fly-black.ico" type="image/x-icon">
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Okyanus Oral</title>
+        <link rel="icon" href="../images/fly-black.ico" type="image/x-icon">
+        <style>
             /* Basic styles for the webpage */
             body {
             font-family:Arial, Helvetica, sans-serif;
@@ -67,8 +67,80 @@
         }
 
         .header-link:hover {
-          transform: scale(1.05);
+        /*transform: scale(1.05);*/
+        color: #ffffff;
         }
+
+
+        /* Style for the navigation bar */
+        .navbar {
+            margin-left: auto;
+            display: flex; /* Display navbar items horizontally */
+            align-items: center;
+            margin-right: 1vw;
+            justify-content: flex-end; /* Push the navbar to the right */
+        }
+        /* Style for the navigation bar */
+
+        .navbar-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Display navbar items horizontally */
+        }
+
+        .navbar-item {
+            margin-right: 1.5vw; /* Adjust the margin between navbar items */
+        }
+
+        .navbar-item:last-child {
+            margin-right: 0; /* Remove right margin from the last navbar item */
+        }
+
+        .navbar-item a {
+            color: rgba(255, 255, 255, 0.392);
+            text-decoration: none;
+            font-size: 1.4vw;
+            font-variant-caps: all-petite-caps;
+        }
+
+        /* Style the navbar links on hover */
+        .navbar-item a:hover {
+            color: #ffffff;
+            transition: color 0.2s; /* Add a smooth transition effect */
+
+        }
+
+        .navbar-current {
+            margin-right: 1.5vw; /* Adjust the margin between navbar items */
+        }
+
+        .navbar-current:last-child {
+            margin-right: 0; /* Remove right margin from the last navbar item */
+        }
+
+        .navbar-current a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.4vw;
+            font-variant-caps: all-petite-caps;
+            font-weight: 700;
+        }
+
+        /* Style the navbar links on hover */
+        .navbar-current a:hover {
+            color: #ffffff;
+            transition: color 0.2s; /* Add a smooth transition effect */
+        }
+
+
+        /* Style the navbar links on hover */
+        .navbar-current a:hover {
+            color: #ffffff;
+            transition: color 0.2s; /* Add a smooth transition effect */
+        }
+        
+
 
         /* Style for the sections */
         .section {
@@ -120,7 +192,7 @@
         }
 
         .publication.published:hover {
-            transform: scale(1.005);
+            /* transform: scale(1.005);*/
             color: #0084ff;
         }
 
@@ -158,67 +230,21 @@
         }
 
 
-                /* Style for the navigation bar */
-        .navbar {
-            margin-left: auto;
-            display: flex; /* Display navbar items horizontally */
-            align-items: center;
-            margin-right: 1vw;
-            justify-content: flex-end; /* Push the navbar to the right */
+        /* Define the styles for normal hyperlinks */
+        .ordinary-link {
+            color: #000; /* Set the default text color */
+            text-decoration: none; /* Remove underlines from links */
+            font-size: 1.2vw; /* Set the default font size */
+            transition: transform 0.2s;
         }
 
-        .navbar-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex; /* Display navbar items horizontally */
-        }
-
-        .navbar-item {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
-
-        .navbar-item:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-item a {
-            color: rgba(255, 255, 255, 0.392);
-            text-decoration: none;
-            font-size: 1.4vw;
-            font-variant-caps: all-petite-caps;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-item a:hover {
+        /* Define the styles for hovered hyperlinks */
+        .ordinary-link:hover {
             color: #0084ff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-
         }
 
-        .navbar-current {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
+    </style>
 
-        .navbar-current:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-current a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.4vw;
-            font-variant-caps: all-petite-caps;
-            font-weight: 700;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-current a:hover {
-            color: #ffffff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-        }
-        
-</style>
 
 </head>
 <body>
@@ -234,76 +260,11 @@
     </header>
 
     <p style="text-align: left; font-size: 1.2vw; color:  #222222">
-    You can find my selected term project reports below <i>(All codes are stripped from the pdfs)</i>.
+    You can find my selected term project reports below <i>(All codes are stripped from the PDFs)</i>.
     </p>
    
     <section class="section">
-        <h2>Publications (Submitted / Under Review)</h2>
-        <ul class="publications-under-review">
-
-            <!-- Publication items go here -->
-
-            <li class="publication under-review" data-status="under-review">
-                <div class="publication-sep"></div>
-                <div class="publication-title">
-                    <strong>O. Oral</strong> and F. S. Oktem, 
-                    “Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging”
-                    <i>in IEEE Transactions on Computational Imaging</i>, 2023 
-                <strong>(Submitted)</strong>
-                </div>
-            </li>
-
-            <li class="publication under-review" data-status="under-review">
-                <div class="publication-sep"></div>
-                <div class="publication-title">
-                    I. Manisali, <strong>O. Oral</strong> and F. S. Oktem,
-                    “Efficient Physics-Based Learned Reconstruction Method for 3D Near-Field MIMO Radar Imaging”
-                    <i>Digital Signal Processing</i>, 2023 
-                <strong>(Under Review)</strong>
-                </div>
-            </li>
-
-            <li class="publication under-review" data-status="under-review">
-                <div class="publication-sep"></div>
-                <div class="publication-title">
-                    <strong>O. Oral</strong> M Kiran and BM Ozyildirim,
-                    “HPS-RL: A Library for Evolutionary Search for Hyper-parameter Search for Optimum Deep Reinforcement Applications”
-                    <i>Neural Networks</i>, 2022 
-                <strong>(Under Review)</strong>
-                </div>
-            </li>
-        </ul>
-
-        <h2>Publications (Accepted / Published)</h2>
-        <ul class="publications-published">
-
-            <!-- Publication items go here -->
-            <!-- Publication item 1 -->
-            <!-- Publication item for published or accepted papers (with hover) -->
-            <li class="publication published" data-status="published">
-                <div class="publication-sep"></div>
-                <div class="publication-title">
-                    <a href="https://cmsworkshops.com/EUSIPCO2023/view_paper.php?PaperNum=1578" target="_blank" class="publication-link">
-                        <strong>O. Oral</strong> and F. S. Oktem, 
-                        “Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging”,
-                        <i> 2023 31th European Signal Processing Conference (EUSIPCO)</i>, Helsinki, Finland, 2023.
-                    </a>
-                </div>
-            </li>
-
-            <li class="publication published" data-status="published">
-                <div class="publication-sep"></div>
-                <div class="publication-title">
-                    <a href="https://dergipark.org.tr/en/pub/cukurovaumfd/issue/62310/933867" target="_blank" class="publication-link">
-                        <strong>O. Oral</strong> E. L. Oral, and M. S. Andac, 
-                        ”Comparison of the Performance of K-Nearest Neigh-
-                        bours and Generalized Neural Network in Construction Crew Productivity Prediction”,
-                        <i> Cukurova University Journal of the Faculty of Engineering</i>, vol. 36, no. 1, pp. 131-140, 2021. doi:
-                        10.21605/cukurovaumfd.933867
-                    </a>
-                </div>
-            </li>
-        </ul>
+        <h2>Projects</h2>
     </section>
 
     <section class="section">

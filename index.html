@@ -67,8 +67,71 @@
         }
 
         .header-link:hover {
-          transform: scale(1.05);
+          /*transform: scale(1.05);*/
+           color: #ffffff;
         }
+
+
+
+        /* Style for the navigation bar */
+        .navbar {
+            display: flex; /* Display navbar items horizontally */
+            align-items: center;
+            margin-right: 1vw;
+            justify-content: flex-end; /* Push the navbar to the right */
+        }
+
+        .navbar-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Display navbar items horizontally */
+        }
+
+        .navbar-item {
+            margin-right: 1.5vw; /* Adjust the margin between navbar items */
+        }
+
+        .navbar-item:last-child {
+            margin-right: 0; /* Remove right margin from the last navbar item */
+        }
+
+        .navbar-item a {
+            color: rgba(255, 255, 255, 0.392);
+            text-decoration: none;
+            font-size: 1.4vw;
+            font-variant-caps: all-petite-caps;
+        }
+
+        /* Style the navbar links on hover */
+        .navbar-item a:hover {
+            color: #ffffff;
+            transition: color 0.2s; /* Add a smooth transition effect */
+        }
+
+        .navbar-current {
+            margin-right: 1.5vw; /* Adjust the margin between navbar items */
+        }
+
+        .navbar-current:last-child {
+            margin-right: 0; /* Remove right margin from the last navbar item */
+        }
+
+        .navbar-current a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.4vw;
+            font-variant-caps: all-petite-caps;
+            font-weight: 700;
+        }
+
+        /* Style the navbar links on hover */
+        .navbar-current a:hover {
+            color: #ffffff;
+            transition: color 0.2s; /* Add a smooth transition effect */
+        }
+        
+
 
         /* Style for the sections */
         .section {
@@ -120,7 +183,7 @@
         }
 
         .publication.published:hover {
-            transform: scale(1.005);
+            /* transform: scale(1.005);*/
             color: #0084ff;
         }
 
@@ -158,66 +221,18 @@
         }
 
 
-                /* Style for the navigation bar */
-        .navbar {
-            display: flex; /* Display navbar items horizontally */
-            align-items: center;
-            margin-right: 1vw;
-            justify-content: flex-end; /* Push the navbar to the right */
+        /* Define the styles for normal hyperlinks */
+        .ordinary-link {
+            color: #000; /* Set the default text color */
+            text-decoration: none; /* Remove underlines from links */
+            font-size: 1.2vw; /* Set the default font size */
+            transition: transform 0.2s;
         }
 
-        .navbar-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex; /* Display navbar items horizontally */
-        }
-
-        .navbar-item {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
-
-        .navbar-item:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-item a {
-            color: rgba(255, 255, 255, 0.392);
-            text-decoration: none;
-            font-size: 1.4vw;
-            font-variant-caps: all-petite-caps;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-item a:hover {
+        /* Define the styles for hovered hyperlinks */
+        .ordinary-link:hover {
             color: #0084ff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-
         }
-
-        .navbar-current {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
-
-        .navbar-current:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-current a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.4vw;
-            font-variant-caps: all-petite-caps;
-            font-weight: 700;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-current a:hover {
-            color: #ffffff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-        }
-        
-
 
 </style>
 
@@ -271,17 +286,54 @@
             <table>
                 <tr>
                     <td width=44%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">&bull; M.Sc. Electrical and Electronics Engineering - METU,</strong></td>
-                    <td width=22%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 1.2vw;">/ 4.00</t> <a style="font-size: 1.1vw;" href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing"  target="_blank" >[transcript]</a></td>
+                    <td width=22%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 1.2vw;">/ 4.00</t> <a style="font-size: 1.1vw;" href="https://drive.google.com/file/d/1ixAYAcnRiXI3ClS3sJphtQxtlmcbEonF/view?usp=sharing"  target="_blank" >[transcript]</a></td>
                     <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(2021 - Present)</i></td>
                 </tr>
                 <tr>
                     <td width=44% ><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">&bull;  B.Sc. Electrical and Electronics Engineering - METU,</strong></td>
-                    <td width=22%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">CGPA: 3.80</strong> <t  style="font-size: 1.2vw;">/ 4.00 </t> <a style="font-size: 1.1vw;"href="https://drive.google.com/file/d/1KfanzkD_ZG1twokosUq4dIfOnNWFrzax/view?usp=sharing" target="_blank" >[transcript]</a></strong></td>
+                    <td width=22%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">CGPA: 3.80</strong> <t  style="font-size: 1.2vw;">/ 4.00 </t> <a style="font-size: 1.1vw;"href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing" target="_blank" >[transcript]</a></strong></td>
                     <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(2017 - 2021)</i></td>
                 </tr>
             </table>
         </nb>
      </section>
+
+     <section class="section">
+        <h2>Experience <t style="font-size: 1.2vw; color: #000;">(please refer to my <a href="https://drive.google.com/file/d/1d1q2lwJAYCsF-PWi-gkRaWXq95S5VN-A/view?usp=sharing"  target="_blank" >CV</a> for more information.)</t></h2>
+        <nb>
+            <table>
+
+                <tr>
+                    <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Research & Teaching Assistant,</strong></td>
+                    <td width=40%><a href="https://eee.metu.edu.tr/personel/okyanus-oral" class=ordinary-link>METU - Deparment of Electrical and Electonics Engineering</a> </td>
+                    <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(02.2022 - Present)</i></td>
+                </tr>
+                
+                <tr>
+                    <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Researcher,</strong></td>
+                    <td width=40%><a href="https://www.tubitak.gov.tr/en/about-us/content-who-we-are" class=ordinary-link>Scientific & Technological Research Council of Turkey</a> <a style="font-size: 1.1vw;" href="https://blog.metu.edu.tr/figeno/projects/1001project/">[project]</a> </td>
+                    <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(11.2021 - Present)</i></td>
+                </tr>
+                <tr>
+                    <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Internship,</strong></td>
+                    <td width=40%><a href="https://www.roketsan.com.tr/en" class=ordinary-link>Roketsan - Directorate of Space Systems</a> </td>
+                    <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(08.2021 - 09.2021)</i></td>
+                </tr>
+                <tr>
+                    <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Voluntary Work,</strong></td>
+                    <td width=40%><a href="https://cs.lbl.gov/home/about/divisions-and-facilities/energy-sciences-network/" class=ordinary-link>Berkeley Lab Computing Sciences - ESnet</a> </td>
+                    <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(04.2021 - 07.2021)</i></td>
+                </tr>
+                <tr>
+                    <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Internship,</strong></td>
+                    <td width=40%><a href="https://www.havelsan.com.tr/en" class=ordinary-link>HAVELSAN - R & D, Signal Processing Products Development Team</a> </td>
+                    <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(08.2020 - 09.2020)</i></td>
+                </tr>
+            </table>
+
+        </nb>
+     </section>
+
 
     <section class="section">
         <h2>Publications (Submitted / Under Review)</h2>
@@ -306,6 +358,7 @@
                     “Efficient Physics-Based Learned Reconstruction Method for 3D Near-Field MIMO Radar Imaging”
                     <i>Digital Signal Processing</i>, 2023 
                 <strong>(Under Review)</strong>
+                <a href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging">[codes]</a>
                 </div>
             </li>
 
@@ -316,6 +369,7 @@
                     “HPS-RL: A Library for Evolutionary Search for Hyper-parameter Search for Optimum Deep Reinforcement Applications”
                     <i>Neural Networks</i>, 2022 
                 <strong>(Under Review)</strong>
+                <a href="https://github.com/SelfDrivingNetworkLab/hps-rl">[codes]</a>
                 </div>
             </li>
         </ul>
