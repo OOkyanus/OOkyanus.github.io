@@ -171,10 +171,11 @@
     
         pre {
             background-color: #c4c5c8;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow-x: auto;
+            padding: 1vw;
+            border: 0vw solid #ddd;
+            border-radius: 0vw;
+            overflow-x:auto;
+            font-size: 1.1vw;
         }
 
         .code {
@@ -203,22 +204,55 @@
         </nav>
     </header>
 
-   
+    <p class="ordinary-par"> On this page, I have collected links and solutions that have been useful to me. (The links will direct you to external pages.)</p>
+
     <section class="section">
-        <p class="ordinary-par">
-            <h2>Miscellaneous Items</h2>
-            ...this page is currently empty...
+        <h2>Miscellaneous Items</h2>
+        <p class="ordinary-par">&bull; Markdown file edittor (online): <a  target="_blank" href="https://stackedit.io" style="font-size: 1.2vw;">StackEdit</a></p>
+        <p class="ordinary-par">&bull; Automatically generate Python requirements via <a  target="_blank" href="https://pypi.org/project/pipreqs/" style="font-size: 1.2vw;">pipreqs package</a></p>
+        <p class="ordinary-par">&bull; You can check your Nvidia GPU's CUDA compatability by executing <t class="code">nvcc --version</t> from command line.</p>
+        <p class="ordinary-par">&bull; You may find the compatible pytorch version(s) from <a  target="_blank" href="https://pytorch.org/get-started/previous-versions/" style="font-size: 1.2vw;">here.</a></p>
+        <p class="ordinary-par">&bull; <a  target="_blank" href="https://docs.conda.io/en/latest/miniconda.html" style="font-size: 1.2vw;">Miniconda</a> and <a  target="_blank" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf" style="font-size: 1.2vw;">Conda Cheat Sheet</a></p>
+        <p class="ordinary-par">&bull; Sample command to create a conda environment with PyTorch:</p>
+        <div>
+            <pre>
+conda create -n myenv pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge</pre>
+        </div>
+        
+        <p class="ordinary-par">&bull; If you get a message similar to the messages below,</p>
+        <div>
+        <pre>
+'conda' is not recognized as an internal or external command, operable program or batch file </pre>  
+
+        <pre>
+'pip' is not recognized as an internal or external command, operable program or batch file </pre>  
+        </div>
+        <p class="ordinary-par">&nbsp;&nbsp;&nbsp;...you may first try to activate conda by running or a similar command to the below:</p>
+        <div>
+            <pre>"path to miniconda"/Miniconda/Scripts/activate</pre>
+        </div>
+        <p class="ordinary-par">&nbsp;&nbsp;&nbsp;...or you may need to <a  target="_blank" href="https://appuals.com/fix-conda-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file/" style="font-size: 1.2vw;"> update the PATH variable</a>.</p>
+
+        <p class="ordinary-par">&bull; Export an environment using conda <t class="code">conda env export > environment.yml</t>.</p>
+        <p class="ordinary-par">&bull; Recreate an environment using conda <t class="code">conda env create -f environment.yml</t>.</p>
+        <p class="ordinary-par">&bull; If Jupyter Notebook cannot be opened and VsCode gives the following error:
+            <div>
+                <pre>Error loading webview: Error: Could not register service workers: InvalidStateError: Failed to register a ServiceWorker: The document is in an invalid state.</pre>
+            </div>
+                
+            <p class="ordinary-par">&nbsp;&nbsp;&nbsp;... you can check <a  target="_blank" href="https://stackoverflow.com/questions/72961947/when-i-update-my-vscode-to-v1-56-2-i-cant-run-jupyter-notebook" style="font-size: 1.2vw;">this</a> suggestion.</p>
+        <p class="ordinary-par">&bull; <a  target="_blank" href="https://template-selector.ieee.org/secure/templateSelector/publicationType" style="font-size: 1.2vw;">IEEE Template Selector</a>.</p>
+
 
     </section>
 
-
-
-
     <section class="section">
+
+
+
+
     </section>
 
 </div>
 </body>
 </html>
-
-
