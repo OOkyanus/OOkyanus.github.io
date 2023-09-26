@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
     <title>Okyanus Oral</title>
     <link rel="icon" href="images/fly-black.ico" type="image/x-icon">
     <style>
@@ -29,7 +31,9 @@
             padding-right: 1vw;
             padding-top: 0vw; /* Decrease the top padding */
             padding-bottom: 0vw; /* Decrease the bottom padding */
-            display: flex; /* Use flexbox to align image and title */
+            margin-left: -0.3vw;
+            margin-right: -0.3vw;
+            margin-top: -0.4vw;            display: flex; /* Use flexbox to align image and title */
             align-items: center; /* Vertically align items */
             line-height: 2.4vw;
         }
@@ -233,6 +237,25 @@
         .ordinary-link:hover {
             color: #0084ff;
         }
+
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333; /* Change the background color as desired */
+            color: #fff; /* Change the text color as desired */
+            text-align: center;
+            padding: 1vw 0; /* Adjust padding as needed */
+        }
+        .content {
+            width: 100%;
+            height: 100%;
+            background-color: #0101010b; /* Background color for the content */
+            padding: 0.4vw; /* Add padding as needed */
+            padding-bottom: 2vw;
+        }
+    
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -248,11 +271,14 @@
 
 <body>
 <div class="container">
+    <div class="content">
+
     <header>
         <img src="images/profile_photo.png" alt="Logo"> <!-- Replace with the path to your image -->
         <div class="header-title">
             <h1>Okyanus Oral</h1>
             <div class="header-links">
+                <a href="mailto:ookyanusmetu@gmail.com" class="header-link">Email</a>
                 <a href="/documents/okyanus-cv.pdf"  target="_blank" class="header-link">CV</a>
                 <a href="https://github.com/OOkyanus"  target="_blank" class="header-link">GitHub</a>
                 <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao"  target="_blank" class="header-link">Google Scholar</a>
@@ -416,6 +442,12 @@
     </section>
     <section class="section">
     </section>
+</div>
+
+    <div class="bottom-bar">
+
+       <t style=" font-size: 1.2vw; font-variant-caps: all-petite-caps;">email:</t> <a href="mailto:ookyanusmetu@gmail.com" style="color: rgb(182, 194, 242); font-size: 1.2vw; cursor:pointer" >ookyanusmetu-at-gmail.com</a>
+    </div>
 </div>
 </body>
 </html>
