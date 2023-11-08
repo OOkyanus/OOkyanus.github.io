@@ -278,6 +278,14 @@ conda create -n myenv pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cud
         <p class="ordinary-par">&bull; <a  target="_blank" href="https://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf" style="font-size: 1.2vw;">IEEE Reference Guide </a>.</p>
 
         
+
+        <h2>Some Remarks:</h2>
+        <p class="ordinary-par">&bull; You cannot pickle lambda functions (unless you have something that uses copy_reg to register how to pickle lambda functions, see <a  target="_blank" href="https://stackoverflow.com/questions/25348532/can-python-pickle-lambda-functions#:~:text=93.%20Yes%2C%20python%20can%20pickle,you%2C%20when%20you%20import%20dill" style="font-size: 1.2vw;"> this entry</a>)</p>
+        <p class="ordinary-par">&bull; Torch nn parameters are mutable.</p>
+        <p class="ordinary-par">&bull; 'with torch.no_grad():' does not disable gradient computation. Instead gradients are propagated until the first parameter with requires_grad=False. Do not rely on with 'with torch.no_grad():', freeze all the weights manually.</p>
+        <p class="ordinary-par">&bull; PyTorch - cuda is not deterministic even if you set seed for rng. I will include a short script to my github on using seeds and determinism for PyTorch-cuda.</p>
+        
+
     </section>
 
     <section class="section">
