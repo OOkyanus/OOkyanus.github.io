@@ -1,452 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okyanus Oral</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="images/fly-black.ico" type="image/x-icon">
+    <title>Document</title>
     <style>
-            /* Basic styles for the webpage */
-            body {
-            font-family:Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center; /* Center content horizontally */
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        .container {
-            max-width: 100vw;
-            width: 70vw;
-        }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #000000;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: bold;
+      }
+      button {
 
-
-        header {
-            background-color: #333;
-            color: #ffffff;            
-            text-align: left;
-            padding-left: 1vw;
-            padding-right: 1vw;
-            padding-top: 0vw; /* Decrease the top padding */
-            padding-bottom: 0vw; /* Decrease the bottom padding */
-            margin-left: -0.3vw;
-            margin-right: -0.3vw;
-            margin-top: -0.4vw;            display: flex; /* Use flexbox to align image and title */
-            align-items: center; /* Vertically align items */
-            line-height: 2.4vw;
-        }
-
-        header img {
-            width: 4vw; /* Adjust the width as needed */
-            height: auto;
-            margin-right: 1vw; /* Add spacing between image and title */
-        }
-
-        .header-title {
-            flex: 1; /* Allow the title to grow and take remaining space */
-        }
-
-        header h1 {
-            font-size: 1.8vw ; /* Adjust the font size as needed */
-            margin: 0; /* Reset margin to remove extra spacing */
-            vertical-align: bottom; /* Center-align the links horizontally */
-            margin-bottom: -1vw; 
-            margin-top: 1vw; 
-        }
-
-
-        .header-link {
-            color: rgba(255, 255, 255, 0.594);
-            text-decoration: none; /* Remove underlines from links */
-            
-            margin-top: 1vw;
-            margin-right: 1vw; 
-            margin-left: 0.2vw; /* Add spacing between links */
-            display: inline-block; /* Display links inline */
-            transition: transform 0.2s; /* Apply hover effect */
-            font-size: 1.4vw;
-            text-align: bottom; /* Center-align the links horizontally */
-        }
-
-        .header-link:hover {
-          /*transform: scale(1.05);*/
-           color: #ffffff;
-        }
-
-
-
-        /* Style for the navigation bar */
-        .navbar {
-            display: flex; /* Display navbar items horizontally */
-            align-items: center;
-            margin-right: 1vw;
-            justify-content: flex-end; /* Push the navbar to the right */
-        }
-
-        .navbar-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex; /* Display navbar items horizontally */
-        }
-
-        .navbar-item {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
-
-        .navbar-item:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-item a {
-            color: rgba(255, 255, 255, 0.392);
-            text-decoration: none;
-            font-size: 1.4vw;
-            font-variant-caps: all-petite-caps;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-item a:hover {
-            color: #ffffff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-        }
-
-        .navbar-current {
-            margin-right: 1.5vw; /* Adjust the margin between navbar items */
-        }
-
-        .navbar-current:last-child {
-            margin-right: 0; /* Remove right margin from the last navbar item */
-        }
-
-        .navbar-current a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.4vw;
-            font-variant-caps: all-petite-caps;
-            font-weight: 700;
-        }
-
-        /* Style the navbar links on hover */
-        .navbar-current a:hover {
-            color: #ffffff;
-            transition: color 0.2s; /* Add a smooth transition effect */
-        }
+        width: 9em;
+        padding: 0.5em 0.9em; 
+        margin-left: 1em;
+        margin-right: 1em;
         
-
-
-        /* Style for the sections */
-        .section {
-            margin-top: 1vw; /* Reduce top margin for sections */
-            padding-left: 0; /* Add left padding for titles */
-        }
-
-        .section h2 {
-            color:  #1b256b;
-            font-size: 1.66vw;
-            margin-bottom: 1vw;
-        }
-
-        /* Style for the publications list */
-        .publications-under-review {
-            list-style-type: none;
-            padding: 0;
-            margin: 1vw; /* Adjust margin to align the list to the left */
-            counter-reset: under-review-counter; /* Increment the counter for published items */
-        }
-
-        .publications-published {
-            list-style-type: none;
-            padding: 0;
-            margin: 1vw; /* Adjust margin to align the list to the left */
-            counter-reset: published-counter; /* Increment the counter for published items */
-        }
-
-        .publication {
-            display: flex;
-            align-items: top;
-            margin-left: 1vw;
-            margin-bottom: 1vw;
-            cursor: pointer;
-            transition: transform 0.2s;
-            font-size: 1.2vw;
-        }
-
-        /* Style for publication items without hover (under-review or submitted) */
-        .publication.under-review {
-            cursor: default; /* Remove hover cursor */
-            transition: none; /* Remove hover effect */
-        }
-
-        /* Style for publication items with hover (published or accepted) */
-        .publication.published {
-            cursor:grab;
-            transition: transform 0.2s;
-        }
-
-        .publication.published:hover {
-            /* transform: scale(1.005);*/
-            color: #0084ff;
-        }
-
-        .publication .publication-sep {
-            margin-right: 0.1vw;
-        }
-        .publication .publication-title {
-            margin-right: 0.1vw;
-        }
-
-        /* Style for section separators */
-        .section:not(:first-child) {
-            border-top: solid #5a5a5a3e;
-            padding-top: 0; /* Add space above the line */
-        }
-
-        /* Automatic numbering for publication items */
-        .publication[data-status="published"] .publication-sep::before {
-            content: "[" counter(published-counter) "] "; /* Use counter for published items */
-            font-weight: bold;
-            counter-increment: published-counter; /* Increment the counter for published items */
-            margin-right: 1vw; /* Add spacing between the counter and title */
-        }
-
-        .publication[data-status="under-review"] .publication-sep::before {
-            content: "[" counter(under-review-counter) "] "; /* Use counter for under-review items */
-            font-weight: bold;
-            counter-increment: under-review-counter; /* Increment the counter for under-review items */
-            margin-right: 1vw; /* Add spacing between the counter and title */
-        }
-
-        .publication-link {
-            color: inherit; /* Inherit text color from parent element */
-            text-decoration: none; /* Remove underline */   
-        }
-
-
-        /* Define the styles for normal hyperlinks */
-        .ordinary-link {
-            color: #000; /* Set the default text color */
-            text-decoration: none; /* Remove underlines from links */
-            font-size: 1.2vw; /* Set the default font size */
-            transition: transform 0.2s;
-        }
-
-        /* Define the styles for hovered hyperlinks */
-        .ordinary-link:hover {
-            color: #0084ff;
-        }
-
-        .bottom-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333; /* Change the background color as desired */
-            color: #fff; /* Change the text color as desired */
-            text-align: center;
-            padding: 1vw 0; /* Adjust padding as needed */
-        }
-        .content {
-            width: 100%;
-            height: 100%;
-            background-color: #0101010b; /* Background color for the content */
-            padding: 0.4vw; /* Add padding as needed */
-            padding-bottom: 2vw;
-        }
+        font-size: 1.2em;
+        position: relative;
+        display: inline-block;
+        transition: 0.1s;
+        letter-spacing: .1em;
+        background-color: rgb(26, 28, 28);
+        border: none;
+        border-radius: 2em;
+        box-shadow: 0px 8px 15px 13151b;
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+    a.button-link {
+      text-decoration: none; /* Remove underline for links */
+    }
+    button:hover { 
+        background-color: rgb(38, 37, 37);
+  box-shadow: 0px 1em 2ch rgba(0, 255, 51, 0.4);
+  transform: translateY(-4px);
     
+}
+    .button-row {
+      display: flex;
+      justify-content: space-between;
+      }
+    .all-container {
+        margin-top: 25em;
+        width: 79em;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .about-me {
+        background-color: rgb(26, 28, 28);
+    border-radius: 2em;
+    margin-bottom: 2em;
+
+      text-align: left;
+      padding: 2em;
+    }
+    
+    .about-me h2 {
+      margin-top: 0;
+    }
+    .content-img {
+      max-width: 100px; /* Set the maximum width of the image */
+      margin-right: 20px; /* Adjust the margin as needed */
+    }
+
+    p {
+      margin: 0; /* Remove default margin for cleaner appearance */
+      text-align:left;
+       color: aliceblue; 
+       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+       font-size: larger;
+    }
+a {
+    color:  rgb(178, 82, 252);;
+}
+img {
+  width: 4em; /* Allow the height to adjust automatically based on the aspect ratio */
+}
+
+.publications-container {
+    background-color: rgb(18, 19, 19);
+    width: 79em;
+    display: flex;
+    border-radius: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+.publication {
+        margin-top: 0em;
+        margin-bottom: 0em;
+
+      width: 78em;
+      text-align: left;
+      padding: 1em;
+      border-radius: 1em;
+    }
+
+    .publication:hover {
+        background-color: rgb(38, 37, 37);
+  box-shadow: 0px 1em 2ch rgba(0, 255, 51, 0.4);
+  transform: translateY(-4px);
+    }
+
 </style>
+  </head>
+  <body>
+   <div class="all-container">
+    <div class="about-me">
+        <h1 style="color: rgb(20, 180, 140);text-align: center; margin-bottom: 0.5em; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Okyanus Oral - ookyanusmetu@gmail.com</h1>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-94BP1PWFWH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-94BP1PWFWH');
-</script>
-</head>
-
-<body>
-<div class="container">
-    <div class="content">
-
-        <header>
-            <img src="images/profile_photo.png" alt="Logo"> <!-- Replace with the path to your image -->
-            <div class="header-title">
-                <h1>Okyanus Oral</h1>
-                <div class="header-links">
-                    <a href="mailto:ookyanusmetu@gmail.com" class="header-link">Email</a>
-                    <a href="/documents/okyanus-cv.pdf"  target="_blank" class="header-link">CV</a>
-                    <a href="https://github.com/OOkyanus"  target="_blank" class="header-link">GitHub</a>
-                    <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao"  target="_blank" class="header-link">Google Scholar</a>
-                </div>
-            </div>
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-current"><a href="https://ookyanus.github.io">About</a></li>
-                    <li class="navbar-item"><a href="../pages/projects.html">Projects</a></li>
-                    <li class="navbar-item"><a href="../pages/misc.html">Miscellaneous</a></li>
-                </ul>
-            </nav>
-        </header>
-
-
-        <p style="text-align: left; font-size: 1.2vw; color:  #222222">
-            Welcome to my personal webpage. I am a reserach assistant and an M.Sc. student at the department of Electrical and Electronics Engineering, METU, specializing in the signal processing area.
+            <img src="icons/profile_photo.png" style="width: 20em; float: left;" class="content-img" >
+        <p>
+            Welcome to my personal webpage! I am a reserach assistant and an M.Sc. student at the department of <a href="https://eee.metu.edu.tr/personel/okyanus-oral">Electrical and Electronics Engineering, METU</a>, specializing in the signal processing area.
         </p>
-        <p style="text-align: left; font-size: 1.2vw; color:  #222222"> My research interests are;</p>
-            <table>
-                <tr>
-                    <td width=33%> <strong style="text-align: left; font-size: 1.1vw; color:  #222222;">&bull; Inverse problems</strong></td>
-                    <td width=33%> <strong style="text-align: left; font-size: 1.1vw; color:  #222222;">&bull; Optimization</strong></td>
-                    <td width=33%> <strong style="text-align: left; font-size: 1.1vw; color:  #222222;">&bull; Computational Imaging</strong></td>
-                </tr>
-                <tr>
-                    <td width=33%> <strong style="text-align: left; font-size: 1.1vw; color: #222222;">&bull; Deep Learning</strong></td>
-                    <td width=33%> <strong style="text-align: left; font-size: 1.1vw; color: #222222;">&bull; Machine Learning</strong></td>
-                    <td width=33%> <strong style="text-align: left; font-size: 1.1vw; color: #222222;">&bull; Statistical Signal Processing</strong></td>
-                </tr>
-            </table>
-        <p style="text-align: left; font-size: 1.2vw; color: #222222">
-            Currently, my thesis studies focus on near-field MIMO Radar imaging using physics-based deep neural networks, which I am supervised by Assoc. Prof. <a href="https://blog.metu.edu.tr/figeno/"  target="_blank" >Figen S. Oktem</a>.
+        <br>
+        <p>
+            My research interests are, inverse problems, optimization, computational imaging, deep learning, machine learning, and statistical signal processing.
         </p>
+        <br>
+        <p>
+            Currently, my thesis studies focus on near-field MIMO Radar imaging using physics-based deep neural networks, which I am supervised by Assoc. <a href="https://blog.metu.edu.tr/figeno/">Prof. Figen S. Oktem</a>.
+        </p>
+      </div>
+    <div class="button-row">
+    <button >
+        <a href="https://github.com/OOkyanus" class="button-link" target="_blank">
 
+        <center>
+            <img src="icons/github-icon-2048x1988-jzvzcf2t.png">
+        </center>
+        <br>
+        <center style="color: rgb(253, 253, 253);">
+            GitHub
+        </center>
+        </a>
+    </button>
+    <button href="#">
+        <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao" class="button-link" target="_blank">
 
-        <section class="section">
-            <h2>Education</h2>
-            <nb>
-                <table>
-                    <tr>
-                        <td width=44%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">&bull; M.Sc. Electrical and Electronics Engineering - METU,</strong></td>
-                        <td width=22%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">CGPA: 4.00</strong> <t style="font-size: 1.2vw;">/ 4.00</t> <a style="font-size: 1.1vw;" href="https://drive.google.com/file/d/1ixAYAcnRiXI3ClS3sJphtQxtlmcbEonF/view?usp=sharing"  target="_blank" >[transcript]</a></td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(2021 - Present)</i></td>
-                    </tr>
-                    <tr>
-                        <td width=44% ><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">&bull;  B.Sc. Electrical and Electronics Engineering - METU,</strong></td>
-                        <td width=22%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">CGPA: 3.80</strong> <t  style="font-size: 1.2vw;">/ 4.00 </t> <a style="font-size: 1.1vw;"href="https://drive.google.com/file/d/1uuAVqkEpw5BwXYPnoIQiepmyJBSNRbfM/view?usp=sharing" target="_blank" >[transcript]</a></strong></td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(2017 - 2021)</i></td>
-                    </tr>
-                </table>
-            </nb>
-        </section>
+        <center>
+            <img src="icons/768px-Google_Scholar_logo.svg.png">
+        </center>
+        <br>
+        <center style="color: rgb(115, 180, 226)">
+           Google<br>
+            Scholar
+        </center>
+        </a>
+    </button>
+    <button href="#">
+        <a href="https://www.linkedin.com/in/okyanusoral/?originalSubdomain=tr" class="button-link" target="_blank">
 
-        <section class="section">
-            <h2>Experience <t style="font-size: 1.2vw; color: #000;">(please refer to my <a href="/documents/okyanus-cv.pdf"  target="_blank" >CV</a> for more information.)</t></h2>
-            <nb>
-                <table>
+        <center>
+            <img src="icons/linkedin-icon-1024x1024-net2o24e.png" >
+        </center>
+        <br>
+        <center style="color: rgb(115, 180, 226);">
+            LinkedIn
+        </center>
+    </a>
 
-                    <tr>
-                        <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Research & Teaching Assistant,</strong></td>
-                        <td width=40%><a href="https://eee.metu.edu.tr/personel/okyanus-oral" class=ordinary-link>METU - Deparment of Electrical and Electonics Engineering</a> </td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(02.2022 - Present)</i></td>
-                    </tr>
-                    
-                    <tr>
-                        <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Researcher,</strong></td>
-                        <td width=40%><a href="https://www.tubitak.gov.tr/en/about-us/content-who-we-are" class=ordinary-link>Scientific & Technological Research Council of Turkey</a> <a style="font-size: 1.1vw;" href="https://blog.metu.edu.tr/figeno/projects/1001project/">[project]</a> </td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(11.2021 - Present)</i></td>
-                    </tr>
-                    <tr>
-                        <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Internship,</strong></td>
-                        <td width=40%><a href="https://www.roketsan.com.tr/en" class=ordinary-link>Roketsan - Directorate of Space Systems</a> </td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(08.2021 - 09.2021)</i></td>
-                    </tr>
-                    <tr>
-                        <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Voluntary Work,</strong></td>
-                        <td width=40%><a href="https://cs.lbl.gov/home/about/divisions-and-facilities/energy-sciences-network/" class=ordinary-link>Berkeley Lab Computing Sciences - ESnet</a> </td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(04.2021 - 07.2021)</i></td>
-                    </tr>
-                    <tr>
-                        <td width=21%><strong style="text-align: left; font-size: 1.2vw; color:  #222222;">Internship,</strong></td>
-                        <td width=40%><a href="https://www.havelsan.com.tr/en" class=ordinary-link>HAVELSAN - R & D, Signal Processing Products Development Team</a> </td>
-                        <td width=14%><i style="text-align: left; font-size: 1.2vw; color:  #222222;">(08.2020 - 09.2020)</i></td>
-                    </tr>
-                </table>
+    </button>
+    <a href="/documents/okyanus-cv.pdf" class="button-link" target="_blank">
 
-            </nb>
-        </section>
+        <button href="#">
+        <center>
+            <img src="icons/Document-icon.png" >
+        </center>
+        <br>
+        <center style="color: rgb(255, 147, 126);">
+            CV
+        </center>
+    </a>
 
+    </button>
+    <a href="../pages/misc.html" class="button-link" target="_blank">
 
-        <section class="section">
-            <h2>Publications (Submitted / Under Review)</h2>
-            <ul class="publications-under-review">
+    <button href="#">
+        <center>
+            <img src="icons/umbrella.png">
+        </center>
+        <br>
+        <center style="color: rgb(200, 195, 58);">
+        Miscellaneous
+        </center>
+    </a>
 
-                <!-- Publication items go here -->
+    </button>
+    <a href="../pages/projects.html" class="button-link" target="_blank">
 
-                <li class="publication under-review" data-status="under-review">
-                    <div class="publication-sep"></div>
-                    <div class="publication-title">
-                        <a href="https://arxiv.org/abs/2312.16024" target="_blank" class="publication-link"> <strong>O. Oral</strong> and F. S. Oktem, 
-                        “Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging”
-                        <i>in IEEE Transactions on Computational Imaging</i>, 2023 
-                    <strong>(Minor Revision)</strong></a>
-                    <a href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude">[code]</a>
-                    </div>
-                </li>
+    <button href="#">
+        <center>
+            <img src="icons/a-education-icon-education-icon-11553430161coziqzemf0.png">
+        </center>
+        <br>
+        <center style="color: rgb(159, 229, 196);">
+           Term Projects
+        </center>
+    </a>
 
+    </button>
+    </div>   
 
-                <li class="publication under-review" data-status="under-review">
-                    <div class="publication-sep"></div>
-                    <div class="publication-title">
-                        <strong>O. Oral</strong>, M Kiran and BM Ozyildirim,
-                        “HPS-RL: A Library for Evolutionary Search for Hyper-parameter Search for Optimum Deep Reinforcement Applications”
-                        <i>Neural Networks</i>, 2022 
-                    <strong>(Under Review)</strong>
-                    <a href="https://github.com/SelfDrivingNetworkLab/hps-rl">[code]</a>
-                    </div>
-                </li>
-            </ul>
+    <div class="publications-container" style="margin-top: 2em;">
+    
+        <h1 style="color: rgb(20, 180, 140); padding-bottom: 1em; padding-top: 1em;">Publications (Submitted/Under Review)</h1>
+    
+        <div class="publication">
+            <img src="banners/SPS_Logo_KO_RGB.png" style="width: 20em; float: left;" class="content-img" >
+            <p> 
+                O. Oral and F. S. Oktem, “Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging” in IEEE Transactions on Computational Imaging, 2023 (Minor Revision).
+                <a style="color: greenyellow;", href="https://arxiv.org/abs/2312.16024" target="_blank"> [arxiv]</a>
+                <a style="color: greenyellow;", href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" target="_blank"> [code]</a>
+            </a>
+        </div>
+        <div class="publication">
+            <img src="banners/931px-Elsevier.svg.png" style="width: 20em; float: left;" class="content-img" >
+            <p> O. Oral, M Kiran and BM Ozyildirim, “HPS-RL: A Library for Evolutionary Search for Hyperparameter Search for Optimum Deep Reinforcement Applications” Neural Networks, 2022 (Under
+                Review)
+                <a style="color: greenyellow;", href="https://github.com/SelfDrivingNetworkLab/hps-rl" target="_blank"> [code]</a>
+            </a>
+        </div>
+        </div>
 
-            <h2>Publications (Accepted / Published)</h2>
-
-
-            <ul class="publications-published">
-
-                <!-- Publication items go here -->
-                <!-- Publication item 1 -->
-                <!-- Publication item for published or accepted papers (with hover) -->
-
-                <li class="publication published" data-status="published">
-                    <div class="publication-sep"></div>
-                    <div class="publication-title">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S105120042300369X" target="_blank" class="publication-link">
-                        I. Manisali,  <strong>O. Oral</strong>, and F. S. Oktem, "Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging", <i>Digital Signal Processing</i>, vol. 144, p. 104274, 2024</a>
-                    <a href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging">[code]</a>
-                    </div>
-                </li>
-                
-                <li class="publication published" data-status="published">
-                    <div class="publication-sep"></div>
-                    <div class="publication-title">
-                        <a href="https://ieeexplore.ieee.org/document/10290090" target="_blank" class="publication-link">
-                            <strong>O. Oral</strong> and F. S. Oktem, 
-                            "Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging,"
-                            <i>  2023 31st European Signal Processing Conference (EUSIPCO)</i>, Helsinki, Finland, 2023, pp. 496-500, doi: 10.23919/EUSIPCO58844.2023.10290090.
-                        </a>
-                    </div>
-                </li>
-
-                <li class="publication published" data-status="published">
-                    <div class="publication-sep"></div>
-                    <div class="publication-title">
-                        <a href="https://dergipark.org.tr/en/pub/cukurovaumfd/issue/62310/933867" target="_blank" class="publication-link">
-                            <strong>O. Oral</strong>, E. L. Oral, and M. S. Andac, 
-                            ”Comparison of the Performance of K-Nearest Neighbours and Generalized Neural Network in Construction Crew Productivity Prediction”,
-                            <i> Cukurova University Journal of the Faculty of Engineering</i>, vol. 36, no. 1, pp. 131-140, 2021. doi:
-                            10.21605/cukurovaumfd.933867
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </section>
-        <section class="section">
-        </section>
+    <div class="publications-container" style="margin-top: 2em; margin-bottom: 2em;">
+    
+    <h1 style="color: rgb(20, 180, 140); padding-bottom: 1em; padding-top: 1em;">Publications (Accepted/Published)</h1>
+    <div class="publication">
+        <img src="banners/X10512004.jpg" style="width: 20em; float: left;" class="content-img" >
+        <p> I. Manisali, O. Oral, and F. S. Oktem, ”Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging”, Digital Signal Processing, vol. 144, p. 104274, 2024, doi: 10.1016/j.dsp.2023.104274.
+            <a style="color: greenyellow;", href="https://www.sciencedirect.com/science/article/pii/S105120042300369X" target="_blank"> [paper]</a>
+            <a style="color: greenyellow;", href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging" target="_blank"> [code]</a>
+        </a>
     </div>
-
-    <div class="bottom-bar" >
-       <t style=" font-size: 1.2vw; font-variant-caps: all-petite-caps;">email:</t> <a href="mailto:ookyanusmetu@gmail.com" style="color: rgb(182, 194, 242); font-size: 1.2vw; cursor:pointer" >ookyanusmetu-at-gmail.com</a>
+    <div class="publication">
+        <img src="banners/eusipco2023_logo_small.png" style="width: 20em; float: left;" class="content-img" >
+        <p> O. Oral and F. S. Oktem, "Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging," 2023 31st European Signal Processing Conference (EUSIPCO), Helsinki, Finland, 2023, pp. 496-500, doi: 10.23919/EUSIPCO58844.2023.10290090.
+            <a style="color: greenyellow;", href="https://ieeexplore.ieee.org/document/10290090" target="_blank"> [paper]</a>
+        </a>
     </div>
+    <div class="publication">
+        <img src="banners/free-files-2522663-2112100.png" style="float:left;"  class="content-img" >
+        <p style="padding-left: 7.7em;"> 
+            O. Oral E. L. Oral, and M. S. Andac, ”Comparison of the Performance of K-Nearest Neigh- bours and Generalized Neural Network in Construction Crew Productivity Prediction”, Cukurova University Journal of the Faculty of Engineering, vol. 36, no. 1, pp. 131-140, 2021. doi: 10.21605/cukurovaumfd.933867            
+            <a style="color: greenyellow;", href="https://dergipark.org.tr/en/pub/cukurovaumfd/issue/62310/933867" target="_blank"> [paper]</a>
+        </a>
+    </div>
+    </div>
+    
 </div>
+
 </body>
+
 </html>
