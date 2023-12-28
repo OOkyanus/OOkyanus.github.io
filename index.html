@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="images/fly-black.ico" type="image/x-icon">
     <title>Okyanus Oral</title>
     <style>
@@ -23,20 +23,19 @@
       }
       button {
 
-        width: 9em;
-        padding: 0.5em 0.9em; 
-        margin-left: 1em;
-        margin-right: 1em;
+        width: 12vw;
+        padding: 0.7vw 0.9vw; 
+        margin-left: 1.2vw;
+        margin-right: 1.2vw;
         
-        font-size: 1.2em;
+        font-size: 1.3vw;
         position: relative;
         display: inline-block;
         transition: 0.1s;
-        letter-spacing: .1em;
+        letter-spacing: .1vw;
         background-color: rgb(26, 28, 28);
         border: none;
-        border-radius: 2em;
-        box-shadow: 0px 8px 15px 13151b;
+        border-radius: 2vw;
         transition: all 0.3s ease 0s;
         cursor: pointer;
         outline: none;
@@ -46,17 +45,18 @@
     }
     button:hover { 
         background-color: rgb(38, 37, 37);
-  box-shadow: 0px 1em 2ch rgba(0, 255, 51, 0.4);
-  transform: translateY(-4px);
+  box-shadow: 0px 1vw 1.5vw currentColor;
+  transform: translateY(-0.4vw);
     
 }
     .button-row {
       display: flex;
       justify-content: space-between;
+      max-width: 85vw;
       }
     .all-container {
-        margin-top: 25em;
-        width: 79em;
+        margin-top: 3vw;
+        max-width: 85vw;
 
       display: flex;
       flex-wrap: wrap;
@@ -64,19 +64,20 @@
     }
     .about-me {
         background-color: rgb(26, 28, 28);
-    border-radius: 2em;
-    margin-bottom: 2em;
+    border-radius: 2vw;
+    margin-bottom: 2vw;
 
       text-align: left;
-      padding: 2em;
+      padding: 1vw;
+      padding-bottom: 2vw;
     }
     
     .about-me h2 {
       margin-top: 0;
     }
     .content-img {
-      max-width: 100px; /* Set the maximum width of the image */
-      margin-right: 20px; /* Adjust the margin as needed */
+      max-width: 8.5vw; /* Set the maximum width of the image */
+      margin-right: 1vw; /* Adjust the margin as needed */
     }
 
     p {
@@ -90,31 +91,32 @@ a {
     color:  rgb(178, 82, 252);;
 }
 img {
-  width: 4em; /* Allow the height to adjust automatically based on the aspect ratio */
+  width: 6vw; /* Allow the height to adjust automatically based on the aspect ratio */
 }
 
 .publications-container {
     background-color: rgb(18, 19, 19);
-    width: 79em;
+    width: 85vw;
     display: flex;
-    border-radius: 2em;
+    border-radius: 2vw;
     flex-wrap: wrap;
     justify-content: center;
     }
 .publication {
-        margin-top: 0em;
-        margin-bottom: 0em;
+        margin-top: 0vw;
+        margin-bottom: 0vw;
+        transition: all 0.3s ease 0s;
 
-      width: 78em;
+      width: 84vw;
       text-align: left;
-      padding: 1em;
-      border-radius: 1em;
+      padding: 1vw;
+      border-radius: 2vw;
     }
 
     .publication:hover {
         background-color: rgb(38, 37, 37);
-  box-shadow: 0px 1em 2ch rgba(0, 255, 51, 0.4);
-  transform: translateY(-4px);
+  box-shadow: 0em 0em 4em rgba(0, 255, 51, 0.4);
+  transform: translateY(-0.2vw);
     }
 
 </style>
@@ -138,7 +140,7 @@ img {
         </p>
       </div>
     <div class="button-row">
-    <button >
+    <button style="color: rgb(253, 253, 253);">
         <a href="https://github.com/OOkyanus" class="button-link" target="_blank">
 
         <center>
@@ -150,7 +152,7 @@ img {
         </center>
         </a>
     </button>
-    <button href="#">
+    <button href="#" style="color: rgb(115, 180, 226)">
         <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao" class="button-link" target="_blank">
 
         <center>
@@ -163,7 +165,7 @@ img {
         </center>
         </a>
     </button>
-    <button href="#">
+    <button href="#" style="color: rgb(115, 180, 226)">
         <a href="https://www.linkedin.com/in/okyanusoral/?originalSubdomain=tr" class="button-link" target="_blank">
 
         <center>
@@ -176,9 +178,10 @@ img {
     </a>
 
     </button>
-    <a href="/documents/okyanus-cv.pdf" class="button-link" target="_blank">
 
-        <button href="#">
+    <button href="#" style="color: rgb(255, 147, 126);">
+        <a href="/documents/okyanus-cv.pdf" class="button-link" target="_blank">
+
         <center>
             <img src="icons/Document-icon.png" >
         </center>
@@ -189,9 +192,10 @@ img {
     </a>
 
     </button>
-    <a href="../pages/misc.html" class="button-link" target="_blank">
 
-    <button href="#">
+    <button href="#" style="color: rgb(200, 195, 58);">
+        <a href="../pages/misc.html" class="button-link" target="_blank">
+
         <center>
             <img src="icons/umbrella.png">
         </center>
@@ -202,9 +206,10 @@ img {
     </a>
 
     </button>
+
+    <button href="#" style="color: rgb(159, 229, 196);">
     <a href="../pages/projects.html" class="button-link" target="_blank">
 
-    <button href="#">
         <center>
             <img src="icons/a-education-icon-education-icon-11553430161coziqzemf0.png">
         </center>
