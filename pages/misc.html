@@ -231,7 +231,7 @@ img {
         <div class="publication">
             <p> 
                 <span style="color: rgb(221, 221, 215);"> You can check your Nvidia GPU's CUDA compatibility by executing</span>
-                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('nvcc --version')"> &#10149; nvcc --version </span> from the command line.
+                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('nvcc --version')"> &#10149; nvcc --version  <img src="../icons/file-2-32.png" style="width: 0.9vw;"></span> from the command line.
             </p>            
         </div>
         <div class="publication">
@@ -250,7 +250,7 @@ img {
             <p> 
                 <span style="color: rgb(221, 221, 215);"> Sample command to create a conda environment with PyTorch:</span>
                 <br>
-                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('conda create -n myenv pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge')"> &#10149; conda create -n myenv pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge </span>
+                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('conda create -n myenv pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge')"> &#10149; conda create -n myenv pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge  <img src="../icons/file-2-32.png" style="width: 0.9vw;"></span>
          </p>            
         </div>
         <div class="publication">
@@ -263,7 +263,7 @@ img {
                 <br>
                 <span style="color: rgb(221, 221, 215);">  ...you may first try to activate conda by running or a similar command to the below:</span>
                 <br>
-                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('path-to-miniconda/Miniconda/Scripts/activate')"> &#10149; path-to-miniconda/Miniconda/Scripts/activate </span>
+                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('path-to-miniconda/Miniconda/Scripts/activate')" > &#10149; path-to-miniconda/Miniconda/Scripts/activate <img src="../icons/file-2-32.png" style="width: 0.9vw;"></span>
                 <br>
                 <span style="color: rgb(221, 221, 215);">  ...or you may need to </span> <a  target="_blank" href="https://appuals.com/fix-conda-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file/"> update the PATH variable.</a>
             </p>            
@@ -273,14 +273,14 @@ img {
             <p> 
                 <span style="color: rgb(221, 221, 215);">Export an environment using conda:</span>
                 <br>
-                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('conda env export > environment.yml')"> &#10149; conda env export > environment.yml </span>
+                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('conda env export > environment.yml')"> &#10149; conda env export > environment.yml  <img src="../icons/file-2-32.png" style="width: 0.9vw;"></span>
              </p>            
         </div>
         <div class="publication">
             <p> 
                 <span style="color: rgb(221, 221, 215);">Recreate an environment using conda:</span>
                 <br>
-                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('conda env create -f environment.yml')"> &#10149; conda env create -f environment.yml</span>
+                <span id="copyText" style="color: rgb(13, 255, 0); cursor:pointer;" onclick="copyToClipboard('conda env create -f environment.yml')"> &#10149; conda env create -f environment.yml  <img src="../icons/file-2-32.png" style="width: 0.9vw;"></span>
              </p>            
         </div>
         <div class="publication">
@@ -343,5 +343,46 @@ img {
 
         // Remove the temporary textarea
         document.body.removeChild(textarea);
+        showMessage("Text copied to clipboard!");
+    }
+
+    function showMessage(message) {
+        // Create a div element for the message
+        var messageDiv = document.createElement("div");
+        messageDiv.innerHTML = message;
+
+        // Style the message div (you can customize this based on your needs)
+        messageDiv.style.position = "fixed";
+        messageDiv.style.top = "5%";
+        messageDiv.style.left = "50%";
+        messageDiv.style.transform = "translate(-50%, -50%)";
+        messageDiv.style.background = "#4CAF50";
+        messageDiv.style.color = "white";
+        messageDiv.style.padding = "10px";
+        messageDiv.style.borderRadius = "5px";
+        messageDiv.style.zIndex = "9999";
+
+        // Append the message div to the body
+        document.body.appendChild(messageDiv);
+
+        messageDiv.style.opacity = "0"; // Set initial opacity to 0
+
+        // Triggering a reflow to ensure the transition works on subsequent changes
+        messageDiv.offsetHeight;
+
+        // Apply fade-in effect
+        messageDiv.style.transition = "opacity 0.2s ease-in";
+        messageDiv.style.opacity = "1";
+
+        // Remove the message div after a certain time (e.g., 2 seconds)
+        setTimeout(function () {
+            // Apply fade-out effect
+            messageDiv.style.opacity = "0";
+
+            // Remove the message div after the fade-out
+            setTimeout(function () {
+                document.body.removeChild(messageDiv);
+            }, 500); // 500ms is the duration of the fade-out transition
+        }, 600);
     }
 </script>
