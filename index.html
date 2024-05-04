@@ -18,8 +18,6 @@
         align-items: center;
         height: 90%;
         background: #000000;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-weight: bold;
       }
       button {
 
@@ -33,7 +31,7 @@
         display: inline-block;
         transition: 0.1s;
         letter-spacing: .1vw;
-        background-color: rgb(26, 28, 28);
+        background-color: rgb(0, 0, 0);
         border: none;
         border-radius: 2vw;
         transition: all 0.3s ease 0s;
@@ -44,7 +42,7 @@
       text-decoration: none; /* Remove underline for links */
     }
     button:hover { 
-        background-color: rgb(38, 37, 37);
+        background-color: rgb(35, 34, 34);
   box-shadow: 0px 1vw 1.5vw currentColor;
   transform: translateY(-0.4vw);
     
@@ -63,7 +61,7 @@
       justify-content: center;
     }
     .about-me {
-        background-color: rgb(26, 28, 28);
+        background-color: rgb(0, 0, 0);
         border-radius: 2vw;
         margin-bottom: 2vw;
         width: 85vw;
@@ -90,18 +88,17 @@
       margin: 0; /* Remove default margin for cleaner appearance */
       text-align:left;
        color: aliceblue; 
-       font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
        font-size: 1.3vw;
     }
 a {
-    color:  rgb(178, 82, 252);;
+    color:greenyellow;
 }
 img {
   width: 6vw; /* Allow the height to adjust automatically based on the aspect ratio */
 }
 
 .publications-container {
-    background-color: rgb(18, 19, 19);
+    background-color: rgb(0, 0, 0);
     width: 85vw;
     display: flex;
     border-radius: 2vw;
@@ -112,7 +109,7 @@ img {
         margin-top: 0vw;
         margin-bottom: 1vw;
         transition: all 0.3s ease 0s;
-        background-color: rgb(24, 26, 24);
+        background-color: rgb(0, 0, 0);
       width: 84vw;
       text-align: left;
       padding: 1vw;
@@ -121,7 +118,7 @@ img {
     
     .publication:hover {
         background-color: rgb(38, 37, 37);
-  box-shadow: 0em 0em 4em rgba(0, 255, 51, 0.4);
+  box-shadow: 0em 0em 1em rgba(0, 174, 255, 0.4);
   transform: translateY(-0.2vw);
     }
 
@@ -254,58 +251,60 @@ img {
     </button>
     </div>   
 
-    <div class="publications-container" style="margin-top: 2em;">
-    
-        <h1 style="color: rgb(20, 180, 140); padding-bottom: 1em; padding-top: 1em;">Publications (Submitted/Under Review)</h1>
-    
-      
-        <div class="publication">
-            <img src="banners/931px-Elsevier.svg.png" style="width: 20em; float: left;" class="content-img" >
-            <p> O. Oral, M Kiran and BM Ozyildirim, “HPS-RL: A Library for Evolutionary Search for Hyperparameter Search for Optimum Deep Reinforcement Applications” Neural Networks, 2022 (Under
-                Review)
-                <a style="color: greenyellow;", href="https://github.com/SelfDrivingNetworkLab/hps-rl" target="_blank"> [code]</a>
-            </a>
-        </div>
-        </div>
 
     <div class="publications-container" style="margin-top: 2em; margin-bottom: 2em;">
     
-    <h1 style="color: rgb(20, 180, 140); padding-bottom: 1em; padding-top: 1em;">Publications (Accepted/Published)</h1>
+    <h1 style="color: rgb(255, 255, 255); padding-bottom: 1em; padding-top: 1em;  font-size: 2.5vw; font-variant: small-caps; ">Publications</h1>
       <div class="publication">
             <div class="gif-container" style="background-image: url('images/PnPRegOnMag/showcase.gif');"></div>
             <img src="banners/SPS_Logo_KO_RGB.png" style="width: 20em; float: left;" class="content-img" >
             <p> 
-                O. Oral and F. S. Oktem, “Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging” in IEEE Transactions on Computational Imaging, 2024 (Accepted).
-                <a style="color: greenyellow;", href="https://arxiv.org/abs/2312.16024" target="_blank"> [arxiv]</a>
+                O. Oral and F. S. Oktem, "Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging," in IEEE Transactions on Computational Imaging, doi: 10.1109/TCI.2024.3396388.
+                <br><a style="color: greenyellow;", href="https://ieeexplore.ieee.org/document/10517644" target="_blank"> [IEEE Xplore]</a>
+                <a style="color: greenyellow;", href="https://arxiv.org/abs/2312.16024" target="_blank"> [Arxiv]</a>
                 <a style="color: greenyellow;", href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" target="_blank"> [code]</a>
-            </a>
+            </p>
         </div>
     <div class="publication">
         <img src="banners/X10512004.jpg" style="width: 20em; float: left;" class="content-img" >
         <div class="gif-container" style="background-image: url('images/D2SMIMO/showcase.gif');"></div>
         <p> I. Manisali, O. Oral, and F. S. Oktem, ”Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging”, Digital Signal Processing, vol. 144, p. 104274, 2024, doi: 10.1016/j.dsp.2023.104274.
-            <a style="color: greenyellow;", href="https://www.sciencedirect.com/science/article/pii/S105120042300369X" target="_blank"> [paper]</a>
-            <a style="color: greenyellow;", href="https://arxiv.org/abs/2312.16959" target="_blank"> [arxiv]</a>
+            <br><a style="color: greenyellow;", href="https://www.sciencedirect.com/science/article/pii/S105120042300369X" target="_blank"> [Elsevier DSP]</a>
+            <a style="color: greenyellow;", href="https://arxiv.org/abs/2312.16959" target="_blank"> [Arxiv]</a>
             <a style="color: greenyellow;", href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging" target="_blank"> [code]</a>
-        </a>
+        </p>
     </div>
     <div class="publication">
         <div class="gif-container" style="background-image: url('images/PnPMIMO/showcase.gif');"></div>
         <img src="banners/eusipco2023_logo_small.png" style="width: 20em; float: left;" class="content-img" >
         <p> O. Oral and F. S. Oktem, "Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging," 2023 31st European Signal Processing Conference (EUSIPCO), Helsinki, Finland, 2023, pp. 496-500, doi: 10.23919/EUSIPCO58844.2023.10290090.
-            <a style="color: greenyellow;", href="https://ieeexplore.ieee.org/document/10290090" target="_blank"> [paper]</a>
+            <a style="color: greenyellow;", href="https://ieeexplore.ieee.org/document/10290090" target="_blank"> [IEEE Xplore]</a>
             <a style="color: greenyellow;", href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" target="_blank"> [code]</a>
-        </a>
+        </p>
     </div>
     <div class="publication">
         <img src="banners/free-files-2522663-2112100.png" style="float:left;"  class="content-img" >
         <p style="padding-left: 9.5vw;"> 
             O. Oral E. L. Oral, and M. S. Andac, ”Comparison of the Performance of K-Nearest Neigh- bours and Generalized Neural Network in Construction Crew Productivity Prediction”, Cukurova University Journal of the Faculty of Engineering, vol. 36, no. 1, pp. 131-140, 2021. doi: 10.21605/cukurovaumfd.933867            
             <a style="color: greenyellow;", href="https://dergipark.org.tr/en/pub/cukurovaumfd/issue/62310/933867" target="_blank"> [paper]</a>
-        </a>
+        </p>
     </div>
     </div>
+    <div class="publications-container" style="margin-top: 2em;">
     
+        <h1 style="color: rgb(255, 255, 255); padding-bottom: 1em; padding-top: 1em; font-size: 1.5vw; font-style: italic;">...submitted / under review:</h1>
+    
+      
+        <div class="publication">
+            <img src="banners/931px-Elsevier.svg.png" style="width: 20em; float: left;" class="content-img" >
+            <p> O. Oral, M Kiran and BM Ozyildirim, “HPS-RL: A Library for Evolutionary Search for Hyperparameter Search for Optimum Deep Reinforcement Applications” Neural Networks, 2022 (Under
+                Review)
+                <a style="color: greenyellow;", href="https://github.com/SelfDrivingNetworkLab/hps-rl" target="_blank"> 
+                [code]</a>
+            </p>
+        </div>
+        </div>
+
 </div>
 
 </body>
