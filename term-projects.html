@@ -1,0 +1,77 @@
+<!DOCTYPE html5>
+<html lang="en">
+
+    <head>
+        <title>Okyanus Oral</title>
+        <link rel="stylesheet" href="stylesheet.css">     
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+        <style>
+        
+        
+        #pdf-preview {
+          width: 900px;
+          height: 700px;
+
+          border: 1px solid #000;
+      }
+  </style>
+
+
+    </head>
+    
+<body>
+
+
+    <div  style="display:flex; flex-direction:column; margin-top: 2px; font-size: smaller;">
+        <div class="newitem" style="margin-top:4px; width: 900px; height:min-content; ">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="footer-box" >
+                    <a href="index.html"><img src="images/home.png" style="width: 20px;">   </a>
+                    <p style="margin-left: 4px; "><a href="index.html" style="color:  #444; text-decoration: none;">RETURN TO HOMEPAGE</a></p>
+                </div>
+                <div class="footer-box" >
+                    <a href=""><img src="images/conlang-sym.jpg" style="width: 20px;">   </a>
+                    <p style="margin-left: 4px;"><a href=""style="color:  #444; text-decoration: none;"> My Conlang (Coming Soon)</a></p>
+                </div>
+                <div class="footer-box" >
+                    <a href=""><img src="images/code-sym.png" style="width: 20px;">   </a>
+                    <p style="margin-left: 4px;"><a href=""style="color:  #444; text-decoration: none;"> TUTORIALS (Coming Soon)</a></p>
+                </div>
+            </div>    
+        </div>
+    </div>
+
+    <div  style="display:flex; flex-direction:column; margin-top: 2px; width:900px">
+        <h3>Select a Project Report to Preview its PDF:</h3>
+        <select id="pdf-selector">
+            <option value="">Select a Report</option>
+            <option value="documents/EE430_Project_2__website_.pdf">Digital Signal Processing</option>
+            <option value="documents/EE449_FuzzySystems__website_.pdf">Computational Intelligence</option>
+            <option value="documents/EE493_Final_Report__website_.pdf">Engineering Design</option>
+            <option value="documents/EE553_OPTPROJE__website_.pdf">Optimization</option>
+            <option value="documents/EE583_PatternRecognitionProject__website_.pdf">Pattern Recognition</option>
+            <option value="documents/EE584_TermProject__website_.pdf">Machine Vision</option>
+            <option value="documents/EE5506_TermProject__website_.pdf">Advanced Statistical Signal Processing</option>
+        </select>
+        
+        <div id="pdf-container">
+            <iframe id="pdf-preview" src="" type="application/pdf"></iframe>
+        </div>
+        
+        <script>
+            document.getElementById('pdf-selector').addEventListener('change', function() {
+                var pdfUrl = this.value;
+                document.getElementById('pdf-preview').src = pdfUrl;
+            });
+        </script>
+
+        
+    </div>
+
+
+</body>

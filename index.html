@@ -1,179 +1,222 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html lang="en">
-<head>
-<title>Okyanus Oral</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="icon" href="icons/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="css/1.css" type="text/css" media="screen,projection" />
-</head>
+
+    <head>
+        <title>Okyanus Oral</title>
+        <link rel="stylesheet" href="stylesheet.css">     
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+
+
 <body>
-<div id="container">
-  <div id="wrapper">
-    <div id="header">
-      <h1>Welcome to my Personal Webpage!</h1>
-      <h2>Okyanus Oral</h2>
-      <p class="hidden"><a href="#nav">Skip to Main Navigation</a> || <a href="#content_main">Skip to Content</a></p>
-    </div>
-    <div id="sidebar">
-      
-      <ul id="sidenav">
-
-
-        <li><a  target="_blank" href="https://github.com/OOkyanus"  style="text-align:left; vertical-align: middle; " >
-          <img class="borderless" src="images/GitHub-Logo.png" alt="Template" width="24" height="24" class="float_left">
-           GitHub</a> 
-        </li>
-        <li><a  target="_blank" href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao"  style="text-align:left; vertical-align: middle; " >
-            <img class="borderless" src="images/google-scholar-icon-1830x2048-xs7y3cbe.png" alt="Template" width="24" height="24" class="float_left">
-             Google Scholar</a>
-        </li>
-        <li><a  target="_blank" href="https://www.linkedin.com/in/okyanusoral/?originalSubdomain=tr"  style="text-align:left; vertical-align: middle; " >
-            <img class="borderless" src="images/linkedin.png" alt="Template" width="24" height="24" class="float_left">
-             LinkedIn</a>
-        </li>
-        <li><a  target="_blank" href="https://twitter.com/okyanus_oral"  style="text-align:left; vertical-align: middle; " >
-          <img class="borderless" src="images/twitter.png" alt="Template" width="24" height="24" class="float_left">
-          Twitter/X</a>
-      </li> 
-       
-
-      
-      <li><a target="_blank" href="mailto:ookyanusmetu@gmail.com"  style="text-align:left; vertical-align: middle; " >
-        <img class="borderless" src="images/email.png" alt="Template" width="24" height="24" class="float_left">
-        ookyanusmetu@gmail.com</a>
-      </li>
-
-      <li>
-        <div class="dropdown">
-          <a href="#" onclick="toggleDropdown(event)" style="text-align:left; vertical-align: middle;">
-            <img class="borderless" src="images/folder.png" alt="Template" width="24" height="24" class="float_left">
-            Term Projects
-          </a>
-          <div class="dropdown-content">
-            <a target="_blank" href="/documents/EE430_Project_2__website_.pdf" style="color: antiquewhite;">
-              &#8614; EE430 Digital Signal Processing</a>
-            <a target="_blank" href="/documents/EE449_FuzzySystems__website_.pdf" style="color: antiquewhite;">
-                &#8614; EE449 Computational Intelligence</a>
-            <a target="_blank" href="/documents/EE493_Final_Report__website_.pdf" style="color: antiquewhite;">
-                  &#8614; EE493 Capstone Project</a>
-            <a target="_blank"  href="/documents/EE5506_TermProject__website_.pdf" style="color: antiquewhite;">
-              &#8614; EE5506 Advanced Statistical Signal Processing</a>   
-            <a target="_blank"  href="/documents/EE553_OPTPROJE__website_.pdf" style="color: antiquewhite;">
-              &#8614; EE553 Optimizaiton</a>  
-            <a target="_blank"  href="/documents/EE583_PatternRecognitionProject__website_.pdf" style="color: antiquewhite;">
-              &#8614; EE583 Pattern Recognition</a>  
-            <a target="_blank"  href="/documents/EE584_TermProject__website_.pdf" style="color: antiquewhite;">
-              &#8614; EE584 Machine Vision</a>           
-              </div>
+    <div class="container">
+        <h3 style="display: block;margin-bottom:2px;">Okyanus Oral</h3>
+        <div style="display: flex; justify-content: center; align-items: center;  border-top: solid; margin-top:2px; margin-bottom: 0px; padding-top: 5px; border-width: 1px;">
+            <a href="https://www.linkedin.com/in/okyanusoral/?originalSubdomain=tr"><img src="images/linkedin.png"style="height: 20px; margin-left:5px"></a>
+            <a href="https://github.com/OOkyanus"><img src="images/GitHub-Logo.png"style="height: 22px; margin-left:5px"></a>
+            <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao"><img src="images/google-scholar-icon-1830x2048-xs7y3cbe.png"style="height: 20px; margin-left:5px"></a>
+            <a href="https://twitter.com/okyanus_oral"><img src="images/twitter.png"style="height: 20px; margin-left:5px"></a>
+            <a href="https://eee.metu.edu.tr/personel/okyanus-oral"><img src="images/odtu-bw-logo.jpg"style="height: 23px; margin-left:5px"></a>
         </div>
-      </li>
-      <li><a  target="_blank" href="/documents/okyanus-cv.pdf"  style="text-align:left; vertical-align: middle; " >
-        <img class="borderless" src="images/cv.png" alt="Template" width="24" height="24" class="float_left">
-        Curriculum Vitae</a>
-    </li>
+        <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
+            <div class="newitem" style="width: 550px; height:200px;  ">
+                <h3 style="margin: 4px; font-variant-caps: all-small-caps; text-decoration: underline; color: rgb(35, 27, 28);">About me</h3>
+                <div style="display: flex; flex-direction: row; align-content: start; justify-content: space-between;">
+                    <img src="images/profile-pic.jpeg" alt="" style="height:140px;width: 140px;border-radius: 20px; border-width: 1px; border-color: gray; border-style: solid; margin-right: 10px; margin-top:8px" >
+                    <div style="display: flex; flex-direction: column; margin-top: 4px; ">
+                        <p style="margin: 4px;">I am a research assistant at the Department of Electrical and Electronics Engineering, Middle East Technical University.</p>
+                        <p style="margin: 4px;">My research interests are computational imaging (with a focus on radar imaging), inverse problems, array signal processing, optimization, deep learning, and statistical signal processing.</p>
 
-    </ul>
+                    </div>
+                    
+                </div>
+                
+               
 
-    </div>
-    <div id="content">
-      <div id="content_main">
-        <h2><a href="#" id="intro">About Me</a></h2>
+            </div>
+            <div style="display: flex;flex-direction: column;align-items: flex-start; ">
+                <div class="newitem" style="margin-bottom:4px; width:335px;  height:200px; ">
 
-          <p style="text-align: justify;"><img src="images/oki2.jpg" alt="Template" width="100"  class="float_left"> 
-            I am a research assistant and an M.Sc. student at the department of  <a  class="custom-link" href="https://eee.metu.edu.tr/personel/okyanus-oral" >Electrical and Electronics Engineering, Middle East Technical University</a>, specializing in the signal processing area.
-            <br><br>Currently, my thesis studies focus on near-field MIMO Radar imaging using physics-based deep neural networks, and I am supervised by <a class="custom-link" href="https://blog.metu.edu.tr/figeno/" >Assoc. Prof. Figen S. Oktem</a>.
-            <br><br>My research interests are computational imaging, inverse problems, optimization, deep/machine learning, and statistical signal processing.
-        </p>
+                    <h3 style="margin: 2px; font-variant-caps: all-small-caps; text-decoration: underline;  color: rgb(35, 27, 28);">Education</h3>
+                    
+                    <p style="margin-top: 10px; margin-bottom: 0px;"><strong>PhD in Computer Science, 2027 (Expected) </strong> </p>    
+                    <div style="display: flex; justify-content: space-between; margin-top: 0px;">
+                            <p style="margin: 4px; margin-top: 0px;"> <a href="https://radarmimo.com/team-members/" style="color: rgb(59, 130, 228);">Uni.Lu - SnT, SPARC Group</a></p>
+                    </div>    
+                    <div class="line" style="margin: 5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
+                    
+                    <p style="margin-top: 10px; margin-bottom: 0px;"><strong>MSc in Electrical and Electronics Engineering, 2024 </strong> </p>    
+                    <div style="display: flex; justify-content: space-between; margin-top: 0px;">
+                            <p style="margin: 4px; margin-top: 0px;"> <a href="https://blog.metu.edu.tr/figeno/lab-members/" style="color: rgb(59, 130, 228);">METU - SPACE Lab</a></p>
+                            <p style="margin: 4px; margin-top: 0px;"> <a href="https://open.metu.edu.tr/bitstream/handle/11511/110033/index.pdf" style="color:  rgb(0, 0, 0); text-decoration: none;"> (<img src="images/download-icon.png" style="width: 10px;"> thesis)</a></p>
+                            <p style="margin: 4px; margin-top: 0px;">(CGPA: 4.0/4.0) </p>
+                    </div>   
+                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
+                        
+                    <p style="margin-top: 10px; margin-bottom: 0px;"><strong>BSc in Electrical and Electronics Engineering, 2021 </strong> </p>    
+                    <div style="display: flex; justify-content: space-between; margin-top: 0px;">
+                        <p style="margin: 4px; margin-top: 0px;"> <a href="https://eee.metu.edu.tr" style="color: rgb(59, 130, 228);">METU</a></p> 
+                        <p style="margin: 4px; margin-top: 0px;">(CGPA: 3.8/4.0) </p>
+                    </div>   
+                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
+                </div>
+            </div> 
+        </div>
 
-      </div></div>
-      <div id="content2">
-        <div id="content2_main">
+        <div  style="display:flex; flex-direction:column;margin-top: 2px;">
+            <div class="newitem" style="margin-top:4px; width: 940px; height:min-content; ">
+                    <h3 style="margin: 2px; font-variant-caps: all-small-caps; text-decoration: underline;  color: rgb(35, 27, 28);">News</h3>
+                    <div style="display: flex; justify-content: flex-start;">
+                        <p class="date"><strong>06.2024</strong></p>
+                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
+                        <p style="margin: 4px; width: 800px;">  I graduated with an MSc in Electrical and Electronics Engineering from METU. </p>
+                    </div>
+                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
 
-        <h2><a href="#" id="about">Selected Publications</a></h2>
+                    <div style="display: flex; justify-content: flex-start;">
+                        <p class="date"><strong>05.2024</strong></p>
+                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
+                        <p style="margin: 4px; width: 800px;"> Our paper, titled "Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging" has been published in IEEE Transactions on Computational Imaging. </p>
+                    </div>
+                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
 
-        <h3>Published / Accepted</h3>
-        <blockquote>
-          <p style="text-align: justify;">
-          <img src="banners/ieee_with_frame.png" 
-          alt="Template" 
-          width="100" 
-          class="float_left">
-          <div style="display: inline-block; width: 100px; padding-right: 15px;"class="float_left">
-            <a href="https://www.scimagojr.com/journalsearch.php?q=21100854164&amp;tip=sid&amp;exact=no" title="SCImago Journal &amp; Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=21100854164" alt="SCImago Journal &amp; Country Rank"   style="width: 100px; height: auto;"/></a>          </div>
-            <a target="_blank" href="https://ieeexplore.ieee.org/document/10517644" style="color:#959F91;">
-            O. Oral and F. S. Oktem, "Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging," in IEEE Transactions on Computational Imaging, vol. 10, pp. 762-773, 2024, doi: 10.1109/TCI.2024.3396388. 
-            <a target="_blank" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" style="color:#959F91;"><img src="images/github_link_symbol.png" width="17px" align="top"> </a>
-        </p>
-        </blockquote>
-     
-        <blockquote>
-          <p style="text-align: justify;">
-            <img src="banners/elsevier_with_frame.png" 
-          alt="Template" 
-          width="100" 
-          class="float_left">
-          <div style="display: inline-block; width: 100px; padding-right: 15px;"class="float_left">
-            <a href="https://www.scimagojr.com/journalsearch.php?q=24306&amp;tip=sid&amp;exact=no" title="SCImago Journal &amp; Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=24306" alt="SCImago Journal &amp; Country Rank"  style="width: 100px; height: auto;" /></a>
-          </div>
-          <a target="_blank" href="https://www.sciencedirect.com/science/article/abs/pii/S105120042300369X" style="color:#959F91;">I. Manisali, O. Oral, and F. S. Oktem, ”Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging”, Digital Signal Processing, vol. 144, p. 104274, 2024, doi: 10.1016/j.dsp.2023.104274.</a>          
-          <a target="_blank" href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging" style="color:#959F91;"><img src="images/github_link_symbol.png" width="17px" align="top"> </a>
-        </p>
-        </blockquote>
+                    <div style="display: flex; justify-content: flex-start;">
+                        <p class="date"><strong>03.2024</strong></p>
+                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
+                        <p style="margin: 4px; width: 800px;"> I have been accepted into the PhD program titled "Radar-Based 4D Imaging with Advanced Massive-MIMO Signal Processing" at the University of Luxembourg, SnT, SPARC Group.</p>
+                    </div>
+                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
+
+                    <div style="display: flex; justify-content: flex-start;">
+                        <p class="date"><strong>01.2024</strong></p>
+                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
+                        <p style="margin: 4px; width: 800px;"> Our paper, titled "Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging" has been published in IEEE Transactions on Computational Imaging.</p>
+                    </div>
+            </div>
+        </div>
+
+        <div  style="display:flex; flex-direction:column;margin-top: 2px;">
+            <div class="newitem" style="margin-top:4px; width: 940px;height:min-content; ">
+                    <h3 style="margin: 2px; font-variant-caps: all-small-caps; text-decoration: underline;  color: rgb(35, 27, 28);">Selected Publications
+                    </h3>
+                    <ol class="custom-list ">
+                        <li>
+                            <div style="display: flex; align-items: center; justify-content:space-between;" >
+                                <div style="width: 500px; margin-right: 10px; ">
+                                    <p>
+                                        <a href="https://ieeexplore.ieee.org/document/10517644" 
+                                        style="text-decoration: none; color:#444;">
+                                        O. Oral and F. S. Oktem, "Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging," in IEEE Transactions on Computational Imaging, vol. 10, pp. 762-773, 2024, doi: 10.1109/TCI.2024.3396388.                                        </a>
+                                    </p>    
+                                    
+                                    
+                                </div> 
+                                
+                                <div class="github-repo">
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <img src="images/git-repository-sym.png" style= "margin-right:5px; width: 15px; opacity: 0.5;">
+                                        <a href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" style="color: rgb(59, 130, 228);">
+                                             METU-SPACE-Lab/<strong>PnP-Regularization-on-Magnitude</strong></a>
+                                    </div>
+                                    <p style="color: gray; font-size: smaller;">
+                                        Official codes for the paper "Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging".
+                                    </p>
+                                    <div style="display: flex; align-items:center; justify-content: flex-start; ">
+                                        <div style= "background-color:chocolate; width: 10px; height: 10px; border-radius: 10px; margin-right: 3px;"></div>
+                                        <p style="color: gray; font-size: smaller; ">Jupyter Notebook</p>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="line" style="margin-top: 10px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
+                        </li>
+                        
+                        
+                        <li>
+                            <div style="display: flex; align-items: center; justify-content:space-between;" >
+                                <div style="width: 500px; margin-right: 10px; ">
+                                    <p>
+                                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S105120042300369X" 
+                                        style="text-decoration: none; color:#444;">
+                                        I. Manisali, O. Oral, and F. S. Oktem, ”Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging”, Digital Signal Processing, vol. 144, p. 104274, 2024, doi: 10.1016/j.dsp.2023.104274.
+                                        </a>
+                                    </p>
+                                </div> 
+
+                                <div class="github-repo">
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <img src="images/git-repository-sym.png" style= "margin-right:5px; width: 15px; opacity: 0.5;">
+                                        <a href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging" style="color: rgb(59, 130, 228);">
+                                             METU-SPACE-Lab/<strong>Efficient-Learned-3D-Near-Field-MIMO-Imaging </strong></a>
+                                    </div>
+                                    <p style="color: gray; font-size: smaller;">
+                                        Official codes for the paper "Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging"
+                                    </p>
+                                    <div style="display: flex; align-items:center; justify-content: flex-start; ">
+                                        <div style= "background-color:rgb(56, 86, 176); width: 10px; height: 10px; border-radius: 10px; margin-right: 3px;"></div>
+                                        <p style="color: gray; font-size: smaller; ">Python</p>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="line" style="margin-top: 10px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
+                        </li>
+                        <li>
+                            <div style="display: flex; align-items: center;  justify-content:space-between;" >
+                                <div style="width: 500px; margin-right: 10px; "> O. Oral, M. Kiran and B.M. Ozyildirim, “HPS-RL: A Library for Evolutionary Search for Hyperparameter Search for Optimum Deep Reinforcement Applications” Neural Networks, 2022 (Under Review).</div> 
+                                <div class="github-repo">
+                                    <div style="display: flex; align-items: flex-start;">
+                                        <img src="images/git-repository-sym.png" style= "margin-right:5px; width: 15px; opacity: 0.5;">
+                                        <a href="https://github.com/SelfDrivingNetworkLab/hps-rl" style="color: rgb(59, 130, 228);">
+                                            SelfDrivingNetworkLab/<strong>hps-rl </strong></a>
+                                    </div>
+                                    <p style="color: gray; font-size: smaller;">
+                                        Hyperparameter tuning for deep RL applications.
+                                    </p>
+                                    <div style="display: flex; align-items:center; justify-content: flex-start; ">
+                                        <div style= "background-color:rgb(56, 86, 176); width: 10px; height: 10px; border-radius: 10px; margin-right: 3px;"></div>
+                                        <p style="color: gray; font-size: smaller; ">Python</p>
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="line" style="margin-top: 10px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
+
+                        </li>
+                        <div style="display: flex; flex-direction: row-reverse; " > <p style="font-size: x-small; margin:1px 4px">...please refer to my <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao">Google Scholar</a> page for the full list of publications.</p></div>
+                    </ol>
+            </div>
+        </div>
+
+        <div  style="display:flex; flex-direction:column; margin-top: 2px;">
+            <div class="newitem" style="margin-top:4px; width: 940px; height:min-content; ">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div class="footer-box" >
+                        <a href="term-projects.html"><img src="images/folder.png" style="width: 20px;">   </a>
+                        <p style="margin-left: 4px; "><a href="term-projects.html" style="color:  #444; text-decoration: none;"> Selected Term Projects from METU.</a></p>
+                    </div>
+    
+                    <div class="footer-box" >
+                        <a href=""><img src="images/conlang-sym.jpg" style="width: 20px;">   </a>
+                        <p style="margin-left: 4px;"><a href=""style="color:  #444; text-decoration: none;"> My Conlang (Coming Soon)</a></p>
+                    </div>
+    
+                    <div class="footer-box" >
+                        <a href=""><img src="images/code-sym.png" style="width: 20px;">   </a>
+                        <p style="margin-left: 4px;"><a href=""style="color:  #444; text-decoration: none;"> TUTORIALS (Coming Soon)</a></p>
+                    </div>
+    
+
+                </div>
+            
+            </div>
+
+        </div>
 
         
 
-
-
-        <h3>Under-Review / Submitted</h3>
-        <blockquote>
-          <p style="text-align: justify;">
-          <img src="banners/elsevier_with_frame.png" 
-          alt="Template" 
-          width="100" 
-          class="float_left">
-          <div style="display: inline-block; width: 100px; padding-right: 15px;"class="float_left">
-            <a href="https://www.scimagojr.com/journalsearch.php?q=24804&amp;tip=sid&amp;exact=no" title="SCImago Journal &amp; Country Rank"><img border="0" src="https://www.scimagojr.com/journal_img.php?id=24804" alt="SCImago Journal &amp; Country Rank"  style="width: 100px; height: auto;" />
-            </a>          
-          </div>
-          O. Oral, M. Kiran and B.M. Ozyildirim, “HPS-RL: A Library for Evolutionary Search for Hyperparameter Search for Optimum Deep Reinforcement Applications” Neural Networks, 2022 (Under Review)
-          <a target="_blank" href="https://github.com/SelfDrivingNetworkLab/hps-rl" style="color:#959F91;"><img src="images/github_link_symbol.png" width="17px" align="top"> </a>
-        </p>
-        </blockquote>
-
-        <h3>Conferances</h3>
-
-        <blockquote>
-          <p style="text-align: justify;">
-          <img src="banners/eusipco_with_frame.png" 
-          alt="Template" 
-          width="100" 
-          class="float_left">	
-          <a target="_blank" href="https://ieeexplore.ieee.org/document/10290090" style="color:#959F91;"> O. Oral and F. S. Oktem, "Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging," 2023 31st European Signal Processing Conference (EUSIPCO), Helsinki, Finland, 2023, pp. 496-500, doi: 10.23919/EUSIPCO58844.2023.10290090.</a>
-          <a target="_blank" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" style="color:#959F91;"><img src="images/github_link_symbol.png" width="17px" align="top"> </a>
-  
-        </p>
-        </blockquote>
-        <p>...please refer to my <a  target="_blank" href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao">Google Scholar </a> page for the full list of my publications.</p>
-    
-        <div id="footer">
-      
-        </div>
-    
     </div>
-
-
-  </div>
-</div>
-
-
-<script>
-  function toggleDropdown(event) {
-    event.preventDefault(); // Prevents the default action of the link
-    
-    var dropdownContent = event.target.nextElementSibling;
-    dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-  }
-  </script>
-
 </body>
-</html>
