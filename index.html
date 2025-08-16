@@ -1,227 +1,779 @@
-<!DOCTYPE html5>
 <html lang="en">
-
-    <head>
-        <title>Okyanus Oral</title>
-        <link rel="stylesheet" href="stylesheet.css">     
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Okyanus Oral — Signal Processing & Radar Imaging</title>
+  <meta name="description" content="Academic website with publications, short bio, and links." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" referrerpolicy="no-referrer">
 
 
+
+  <link rel="icon" href="media/icons/favicon-sigma.svg" type="image/svg+xml">
+  <link rel="icon" href="media/icons/favicon-32.png" sizes="32x32" type="image/png">   <!-- optional fallback -->
+  <link rel="icon" href="media/icons/favicon-16.png" sizes="16x16" type="image/png">   <!-- optional fallback -->
+  <link rel="apple-touch-icon" href="media/icons/apple-touch-icon.png">                 <!-- iOS home screen -->
+  
+  <!-- Optional extras -->
+  <link rel="mask-icon" href="media/icons/safari-pinned-tab.svg" color="#0a6fb8"> <!-- Safari pinned tab -->
+  <meta name="theme-color" content="#0a6fb8"> <!-- address bar color on mobile -->
+
+  <style>
+    :root{
+      --bg:#f0f2f5; --panel:#f8f9fa; --panel-alt:#fff; --text:#1a1f24; --muted:#6c757d;
+      --grid:#dce0e4; --accent:#0a6fb8; --radius:14px; --maxw:1120px;
+      --gutter:clamp(14px,2.2vw,22px);
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
+      --serif:Georgia,"Times New Roman",Times,serif;
+    }
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6}
+
+    .shell{max-width:var(--maxw);margin:0 auto;padding:calc(var(--gutter)*1.25) var(--gutter);display:flex;flex-direction:column;gap:calc(var(--gutter)*1.25)}
+
+    /* ===== Intro layout with grid areas ===== */
+    .intro{
+      display:grid;
+      grid-template-columns: 360px 1fr;       /* left column width + right column */
+      grid-template-rows: auto auto;          /* row 1: brand, row 2: icons */
+      grid-template-areas:
+        "brand bio"
+        "icons bio";
+      column-gap: 24px;
+      background:var(--panel);
+      border:1px solid var(--grid);
+      border-radius:var(--radius);
+      padding:calc(var(--gutter)*1.1);
+      align-items:start;
+    row-gap: 10px;  /* reduces the gap between photo row and icons row */
+
+    }
+    @media (max-width:860px){
+      .intro{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "brand"
+          "icons"
+          "bio";
+      }
+    }
+
+    /* brand block (photo + name/role) */
+    .brand{
+      grid-area: brand;
+      display:grid;
+      grid-template-columns: 120px 1fr; /* photo | text */
+      column-gap:10px;
+      align-items:center;
+      row-gap: 10px;
+    }
+    .avatar{width:100px;height:100px;border-radius:50%;object-fit:cover;border:1px solid var(--grid)}
+    .name{font-family:var(--serif);font-size:1.9rem;margin:0;line-height:1.2}
+    .role{margin:6px 0 0;color:var(--muted);font-size:1rem}
+    .role a{color:#6c757d;text-decoration:none}
+
+    /* icons row — horizontal, sits under the photo & name */
+  .net {
+  grid-column: 1; /* stay in left column */
+  justify-content: left; /* center horizontally */
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+margin-top: 10px;             /* was bigger before — reduce this */
+
+}
+    .net a{
+      width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid var(--grid);border-radius:999px;background:#fff;text-decoration:none;
+    }
+    .net a:hover{border-color:var(--accent)}
+    .net i{font-size:14px;color:var(--text)}
+
+    /* right column */
+    .bio-text{ grid-area: bio; display:flex; flex-direction:column; gap:.75rem; }
+    .tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+    .tag{ border:1px solid var(--grid); padding:2px 8px; border-radius:999px; font-size:.85rem; color:var(--muted); }
+
+    /* other sections */
+    .card{background:var(--panel);border:1px solid var(--grid);border-radius:var(--radius);padding:calc(var(--gutter)*1.1)}
+    h2{font-family:var(--serif);font-weight:600;margin:0 0 .35rem}
+    p.lead{color:var(--muted);margin:0 0 .75rem}
+    .pubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .pub{padding:12px;border:1px solid var(--grid);border-radius:10px;background:var(--panel-alt);display:flex;flex-direction:column;justify-content:space-between}
+    .pub h3{margin:0 0 4px;font-size:1rem; }
+    .pub .meta{color:var(--muted);font-size:.92rem ;}
+    .actions{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--grid);border-radius:999px;text-decoration:none;color:var(--text);font-size:.9rem;background:#fff}
+    .btn:hover{border-color:var(--accent);color:var(--accent)}
+    footer{color:var(--muted);text-align:center;font-size:.95rem;padding:20px 0 6px}
+.pub-thumb {
+  width: 100%;             /* fill the container's width */
+  height: 140px;           /* fixed height (you can adjust) */
+  object-fit: contain;       /* fill the box and crop excess */
+  border-radius: 8px;      /* rounded corners like your cards */
+  border: 1px solid var(--grid);
+  background: var(--panel);
+}
+  .cv-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--grid);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+.cv-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+  /* title + meta (icons+chips) on one row */
+  .repo-header{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .repo-title{ margin:0; }
+  .repo-meta{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:0; }
+  .repo-icons{ display:flex; align-items:center; gap:10px; }
+  .repo-tags { display:flex; flex-wrap:wrap; gap:6px; margin:0; }
+  .repo-tag  { border:1px solid var(--grid, #dce0e4); padding:2px 8px; border-radius:999px; font-size:.82rem; color:var(--muted, #6c757d); }
+/* === NEWS: horizontal rail, width based on viewport, not item count === */
+#news-list{
+  --gap: 16px;
+  /* 3 cards across the viewport by default */
+  --cardW: clamp(200px, calc(100vw / 4 - 2*var(--gap)), 300px);
+
+  display: flex !important;       /* override any .pubs grid rule */
+  gap: var(--gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 6px 4px 12px;
+  scrollbar-width: thin;
+}
+#news-list::-webkit-scrollbar{ height:8px; }
+#news-list::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.18); border-radius: 8px; }
+
+/* Fixed-size, square cards that don’t depend on how many items exist */
+.news-card{
+  flex: 0 0 var(--cardW);          /* fixed width in the rail */
+  width: var(--cardW);
+
+  aspect-ratio: 1 / 1;             /* height = width */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--panel-alt,#fff);
+  border: 1px solid var(--grid,#dce0e4);
+  border-radius: 14px;
+  padding: 12px;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+
+/* Content fills remaining space */
+.news-main{ flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.news-header{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
+.news-title{
+  margin:0; font-size:1rem; line-height:1.2;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.news-meta{ color: var(--muted,#6c757d); white-space: nowrap; }
+
+.news-desc{ min-height:0; }
+.news-desc .desc{
+  margin:0;
+  display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
+}
+
+.news-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+.news-tag{ border:1px solid var(--grid,#dce0e4); padding:2px 8px; border-radius:999px; font-size:.82rem; color:var(--muted,#6c757d); }
+
+.news-footer{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; }
+
+/* Responsive: 2 cards on medium, 1 card on small */
+@media (max-width: 1100px){
+  #news-list{ --cardW: clamp(260px, calc(100vw / 2 - 1.5*var(--gap)), 420px); }
+}
+@media (max-width: 640px){
+  #news-list{ --cardW: min(92vw, 420px); }
+}
+.news-card[data-overflow="1"] .read-more-chip{ display: inline-flex; align-items: center; gap: 6px; }
+.news-hero{
+  position: relative;
+  aspect-ratio: 16 / 6;
+  display: flex;
+  align-items: center;       /* vertical center */
+  justify-content: center;   /* horizontal center */
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--grid, #dce0e4);
+}
+
+.news-hero .news-thumb{
+  width: 100%;   /* always matches width */
+  height: auto;  /* keep aspect ratio; no cropping */
+  display: block;
+}
+
+/* The top-right chip (shown only if you include it in HTML) */
+.read-more-chip{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: inline-flex;                 /* visible when present */
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: .85rem;
+  border-radius: 999px;
+  border: 1px solid var(--grid, #dce0e4);
+  background: rgba(255,255,255,.92);
+  color: var(--text, #1a1f24);
+  text-decoration: none;
+  backdrop-filter: saturate(1.2) blur(4px);
+  -webkit-backdrop-filter: saturate(1.2) blur(4px);
+}
+.read-more-chip:hover{ border-color: var(--accent,#0a6fb8); color: var(--accent,#0a6fb8); }
+/* ===== Nav styles ===== */
+.site-nav{
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--panel);
+  border-bottom: 1px solid var(--grid);
+  backdrop-filter: blur(6px);
+}
+.nav-inner{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.nav-brand{
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--text); text-decoration: none; font-weight: 600; font-family: var(--serif);
+}
+.nav-brand i{ font-size: 1.1rem; }
+
+/* Hamburger (mobile) */
+.nav-toggle{
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid var(--grid); background: var(--panel-alt); color: var(--text);
+}
+.nav-toggle:hover{ border-color: var(--accent); color: var(--accent); }
+
+/* Menu */
+.nav-menu{
+  list-style: none; margin: 0; padding: 10px var(--gutter);
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--panel); border-bottom: 1px solid var(--grid);
+  display: none; flex-direction: column; gap: 8px;
+}
+.nav-menu.open{ display: flex; }
+.nav-menu a{
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; color: var(--text);
+  padding: 6px 10px; border-radius: 999px;
+}
+.nav-menu a:hover{ color: var(--accent); border: 1px solid var(--accent); }
+
+/* CV pill matches your .btn vibe */
+.btn-nav{
+  border: 1px solid var(--grid); background: #fff; color: var(--text);
+  padding: 6px 12px; border-radius: 999px;
+}
+.btn-nav:hover{ border-color: var(--accent); color: var(--accent); }
+
+/* Desktop layout */
+@media (min-width: 860px){
+  .nav-toggle{ display: none; }
+  .nav-menu{
+    position: static; display: flex !important; padding: 0; border: 0; background: transparent;
+    flex-direction: row; gap: 10px;
+  }
+}
+
+/* Screen-reader only text */
+.sr-only{
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+:root { --navh: 64px; }                 /* set to your navbar’s real height */
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navh);      /* single source of truth */
+}
+
+
+/* Sigma "icon" next to the brand name */
+.brand-sigma{
+  align-items:left;
+  justify-content:left;
+  width:400px;                 /* icon box size */
+  height:26px;
+  border-radius:6px;          /* 6px = rounded square; use 999px for a circle */
+  color:#000000;
+  font-weight:700;
+  font-size:18px;             /* sigma size */
+  line-height:1;
+  font-family: inherit;       /* matches your navbar font */
+  margin-right:8px;
+  transform: translateY(0px); /* subtle optical alignment */
+  padding-left: 10px;
+}
+
+
+/* Unify all text to the navbar's font (var(--serif)) */
+:root{ --serif: var(--sans); }
+html, body, button, input, select, textarea { font-family: var(--sans) !important; }
+
+
+/* Ensure form controls and base elements also use it */
+html, body, button, input, select, textarea {
+  font-family: var(--serif) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+</style>
+
+</head>
+<!-- ===== Top Navigation ===== -->
+<nav class="site-nav" role="navigation" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">
+  <span class="brand-sigma" aria-hidden="true"> Welcome to my website!</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+      <span class="sr-only">Toggle menu</span>
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul id="nav-menu" class="nav-menu">
+      <li><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></li>
+      <li><a href="#pubs-title"><i class="fa-solid fa-book"></i><span>Publications</span></a></li>
+      <li><a href="#repos-title"><i class="fa-brands fa-github"></i><span>Repos</span></a></li>
+      <li><a href="#news-title"><i class="fa-solid fa-newspaper"></i><span>News</span></a></li>
+      <li>
+        <a class="btn-nav" href="media/about/Okyanus-Oral-CV.pdf" target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-pdf"></i><span>CV</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <body>
-    <div class="container">
-        <h3 style="display: block;margin-bottom:2px;">Okyanus Oral</h3>
-        <div style="display: flex; justify-content: center; align-items: center;  border-top: solid; margin-top:2px; margin-bottom: 0px; padding-top: 5px; border-width: 1px;">
-            <a href="https://www.linkedin.com/in/okyanusoral/?originalSubdomain=tr"><img src="images/linkedin.png"style="height: 20px; margin-left:5px"></a>
-            <a href="https://github.com/OOkyanus"><img src="images/GitHub-Logo.png"style="height: 22px; margin-left:5px"></a>
-            <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao"><img src="images/google-scholar-icon-1830x2048-xs7y3cbe.png"style="height: 20px; margin-left:5px"></a>
-            <a href="https://twitter.com/okyanus_oral"><img src="images/twitter.png"style="height: 20px; margin-left:5px"></a>
-        </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%;">
-            <div class="newitem" style="width: 550px; height:200px;  ">
-                <h3 style="margin: 4px; font-variant-caps: all-small-caps; text-decoration: underline; color: rgb(35, 27, 28);">About me</h3>
-                <div style="display: flex; flex-direction: row; align-content: start; justify-content: space-between;">
-                    <img src="images/profile-pic.jpeg" alt="" style="height:140px;width: 140px;border-radius: 20px; border-width: 1px; border-color: gray; border-style: solid; margin-right: 10px; margin-top:8px" >
-                    <div style="display: flex; flex-direction: column; margin-top: 4px; ">
-                        <p style="margin: 4px;">I am a doctoral researcher at University of Luxembourg, SnT - Signal Processing Applications in Radar and Communications (SPARC) Group.</p>
-                        <p style="margin: 4px;">My research interests are compressed sensing, inverse problems, deep learning, and optimization in the context of radar imaging.</p>
-
-                    </div>
-                    
-                </div>
+  <div class="shell">
+    <section class="intro" id="about">
+      <!-- left, row 1 -->
+      <div class="brand">
+        <img class="avatar" src="media/about/profile-pic.jpeg" alt="Portrait of Okyanus Oral" />
+        <div>
+          <h1 class="name">Okyanus Oral</h1>
                 
-               
-
-            </div>
-            <div style="display: flex;flex-direction: column;align-items: flex-start; ">
-                <div class="newitem" style="margin-bottom:4px; width:335px;  height:200px; ">
-
-                    <h3 style="margin: 2px; font-variant-caps: all-small-caps; text-decoration: underline;  color: rgb(35, 27, 28);">Education</h3>
-                    
-                    <p style="margin-top: 10px; margin-bottom: 0px;"><strong>PhD in Computer Science, 2027 (Expected) </strong> </p>    
-                    <div style="display: flex; justify-content: space-between; margin-top: 0px;">
-                            <p style="margin: 4px; margin-top: 0px;"> <a href="https://radarmimo.com/team-members/" style="color: rgb(59, 130, 228);">Uni.Lu - SnT, SPARC Group</a></p>
-                    </div>    
-                    <div class="line" style="margin: 5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
-                    
-                    <p style="margin-top: 10px; margin-bottom: 0px;"><strong>MSc in Electrical and Electronics Engineering, 2024 </strong> </p>    
-                    <div style="display: flex; justify-content: space-between; margin-top: 0px;">
-                            <p style="margin: 4px; margin-top: 0px;"> <a href="https://blog.metu.edu.tr/figeno/lab-members/" style="color: rgb(59, 130, 228);">METU - SPACE Lab</a></p>
-                            <p style="margin: 4px; margin-top: 0px;"> <a href="https://open.metu.edu.tr/bitstream/handle/11511/110033/index.pdf" style="color:  rgb(0, 0, 0); text-decoration: none;"> (<img src="images/download-icon.png" style="width: 10px;"> thesis)</a></p>
-                            <p style="margin: 4px; margin-top: 0px;">(CGPA: 4.0/4.0) </p>
-                    </div>   
-                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
-                        
-                    <p style="margin-top: 10px; margin-bottom: 0px;"><strong>BSc in Electrical and Electronics Engineering, 2021 </strong> </p>    
-                    <div style="display: flex; justify-content: space-between; margin-top: 0px;">
-                        <p style="margin: 4px; margin-top: 0px;"> <a href="https://eee.metu.edu.tr" style="color: rgb(59, 130, 228);">METU</a></p> 
-                        <p style="margin: 4px; margin-top: 0px;">(CGPA: 3.8/4.0) </p>
-                    </div>   
-                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
-                </div>
-            </div> 
+      <!-- left, row 2 (horizontal icons start under photo) -->
+      <ul class="net">
+        <li><a href="https://scholar.google.com/citations?user=kwdmZGYAAAAJ&hl=en" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a></li>
+        <li><a href="https://github.com/OOkyanus" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
+        <li><a href="https://linkedin.com/in/okyanusoral" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+        <li><a href="mailto:okyanus.oral@uni.lu" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
+        <li><a href="media/about/Okyanus-Oral-CV.pdf" target="_blank" title="Curriculum Vitae" class="cv-icon">CV</a></li>      
+      </ul>
         </div>
+  
+      </div>
 
-        <div  style="display:flex; flex-direction:column;margin-top: 2px;">
-            <div class="newitem" style="margin-top:4px; width: 940px; height:min-content; ">
-                    <h3 style="margin: 2px; font-variant-caps: all-small-caps; text-decoration: underline;  color: rgb(35, 27, 28);">News</h3>
- <div style="display: flex; justify-content: flex-start;">
-                        <p class="date"><strong>09.2024</strong></p>
-                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
-                        <p style="margin: 4px; width: 800px;"> I joined SnT - SPARC as a Doctoral Researcher. </p>
-                    </div>
-                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
-                    <div style="display: flex; justify-content: flex-start;">
-                        <p class="date"><strong>06.2024</strong></p>
-                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
-                        <p style="margin: 4px; width: 800px;">  I graduated with an MSc in Electrical and Electronics Engineering from METU. </p>
-                    </div>
-                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
 
-                    <div style="display: flex; justify-content: flex-start;">
-                        <p class="date"><strong>05.2024</strong></p>
-                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
-                        <p style="margin: 4px; width: 800px;"> Our paper, titled "Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging" has been published in IEEE Transactions on Computational Imaging. </p>
-                    </div>
-                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
+      <!-- right column -->
+      <div class="bio-text">
+        <p class="lead">
+I am a Ph.D. student in the <a href="https://radarmimo.com">Signal Processing Applications for Communications and Radar (SPARC) research group</a> at the <a href="https://www.uni.lu/snt-en">University of Luxembourg - SnT</a>, under the supervision of <a href="https://scholar.google.lu/citations?user=JXx5O8kAAAAJ&hl=en">Prof. Dr. Bhavani Shankar</a>.
+My research focuses on signal processing for radar-based computational sensing and imaging, with particular interest in fast, memory-efficient algorithms and physics-informed deep learning methods.        </p>
+      </div>
+    </section>
 
-                    <div style="display: flex; justify-content: flex-start;">
-                        <p class="date"><strong>03.2024</strong></p>
-                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
-                        <p style="margin: 4px; width: 800px;"> I have been accepted into the PhD program titled "Radar-Based 4D Imaging with Advanced Massive-MIMO Signal Processing" at the University of Luxembourg, SnT, SPARC Group.</p>
-                    </div>
-                    <div class="line" style="margin:  5px 0px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>                    
+<section class="card" aria-labelledby="news-title">
+  <h2 id="news-title">News</h2>
+  <div id="news-list" class="pubs"></div>
+</section>
 
-                    <div style="display: flex; justify-content: flex-start;">
-                        <p class="date"><strong>01.2024</strong></p>
-                        <p style="margin: 4px 0px; width: 8px;"><strong>:</strong></p>
-                        <p style="margin: 4px; width: 800px;"> Our paper, titled "Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging" has been published in IEEE Transactions on Computational Imaging.</p>
-                    </div>
-            </div>
+<section class="card" aria-labelledby="pubs-title">
+  <h2 id="pubs-title">Publications</h2>
+
+  <div class="pubs" role="list">
+ <!-- Conference – 2025: IEEE RadarConf -->
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <img class="pub-thumb" src="media/pubs/ComingSoonOral.png" alt="" />
+      <h3 itemprop="name">
+       Fast Sparsity-Based 3D Near-Field MIMO Imaging Using b-SAGA with a Batch Size Selection Strategy
+      </h3>
+      <div class="meta">
+        <span itemprop="author"><strong>O. Oral</strong></span>, T. Feuillen, A. Murtada, B. Shankar ·
+        <span itemprop="isPartOf">IEEE RadarConf</span> ·
+        <time itemprop="datePublished" datetime="2025">2025</time>
+      </div>
+    </article>
+
+    <!-- Conference – 2025: EuRAD -->
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <img class="pub-thumb" src="media/pubs/ComingSoonOral.png" alt="" />
+      <h3 itemprop="name">
+        Handheld SAR with Learning-Based Ego-Motion Estimation
+      </h3>
+      <div class="meta">
+        <span itemprop="author"><strong>O. Oral</strong></span>, A. Murtada, T. Feuillen, B. Shankar ·
+        <span itemprop="isPartOf">European Radar Conference (EuRAD)</span> ·
+        <time itemprop="datePublished" datetime="2025">2025</time>
+      </div>
+      
+    </article>
+
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <img class="pub-thumb" src="media/pubs/ComingSoonPoster.png" alt="" />
+      <h3 itemprop="name">
+      Joint Optimization of Sparse MIMO Arrays and Imaging Methods
+      </h3>
+      <div class="meta">
+        <span itemprop="author"><strong>O. Oral</strong></span>, F.S. Oktem ·
+        <span itemprop="isPartOf">33rd European Signal Processing Conference (EUSIPCO) </span> ·
+        <time itemprop="datePublished" datetime="2025">2025</time>
+      </div>
+
+    </article>
+
+    <!-- IEEE Transactions on Computational Imaging – 2024 -->
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <img class="pub-thumb" src="media/pubs/PnPReg.png" alt="" />
+
+      <h3 itemprop="name">
+        Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging
+      </h3>
+      <div class="meta">
+        <span itemprop="author"><strong>O. Oral</strong></span>, 
+        <span itemprop="author">F.S. Oktem</span> ·
+        <span itemprop="isPartOf">IEEE Transactions on Computational Imaging</span> ·
+        <time itemprop="datePublished" datetime="2024">2024</time>
+        <br>
+
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://doi.org/10.1109/TCI.2024.3396388">Journal</a>
+        <a class="btn" href="https://arxiv.org/abs/2312.16024" itemprop="url">arXiv</a>
+        <a class="btn" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude">Code</a>
+        <a class="btn" href="https://ieeexplore.ieee.org/document/10290090">EUSIPCO'23</a>
+      </div>
+    </article>
+
+    <!-- Digital Signal Processing – 2024 -->
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <img class="pub-thumb" src="media/pubs/Deep2s.png" alt="" />
+      <h3 itemprop="name">
+        Efficient Physics-Based Learned Reconstruction Methods for Real-Time 3D Near-Field MIMO Radar Imaging
+      </h3>
+      <div class="meta">
+        <span itemprop="author">I. Manisali</span>, 
+        <span itemprop="author"><strong>O. Oral</strong></span>, 
+        <span itemprop="author">F.S. Oktem</span> ·
+        <span itemprop="isPartOf">Digital Signal Processing</span> · <time itemprop="datePublished" datetime="2024">2024</time>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://doi.org/10.1016/j.dsp.2023.104274">Journal</a>
+        <a class="btn" href="https://arxiv.org/abs/2312.16959" itemprop="url">arXiv</a>
+        <a class="btn" href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging">Code</a>
+      </div>
+    </article>
+
+    <!-- 2022 Code Base – HPS-RL Library -->
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+      <img class="pub-thumb" src="media/pubs/HPSRL.png" alt="" />
+      <h3 itemprop="name">
+      HPS-RL: Hyperparameter tuning for deep RL applications (HPS-RL) v1
+      </h3>
+      <div class="meta">
+        <span itemprop="author">M. Kiran</span>, <span itemprop="author"><strong>O. Oral</strong></span>,
+        <span itemprop="author">B.M. Ozyildirim</span> ·
+        <span itemprop="isPartOf">Lawrence Berkeley National Laboratory (LBNL), Berkeley, CA (United States)</span> · 2022
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://github.com/SelfDrivingNetworkLab/hps-rl">Code</a>
+        <a class="btn" href="https://doi.org/10.11578/dc.20240823.1">US-DOE</a>
+      </div>
+    </article>
+
+   
+
+
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+      <h3 itemprop="name">
+        Comparison of the Performance of K-Nearest Neighbours and Generalized Neural Network in Construction Crew Productivity Prediction
+      </h3>
+      <div class="meta">
+        <span itemprop="author"><strong>O. Oral</strong></span>, <span itemprop="author">E. L. Oral</span>, 
+        <span itemprop="author">M. S. Andaç</span> ·
+        <span itemprop="isPartOf">Cukurova University Engineering Faculty Journal</span> ·
+        <time itemprop="datePublished" datetime="2021">2021</time>
+      </div>
+      <div class="actions">
+        <a class="btn" href="https://doi.org/10.21605/cukurovaumfd.933867" itemprop="url">Journal</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="card" aria-labelledby="repos-title">
+  <h2 id="repos-title">Repositories</h2>
+  <div id="repos" class="pubs"></div>
+</section>
+
+    <footer><strong>Email: </strong>okyanus.oral[AT]uni.lu <span id="year"> <br> </span> <strong>Address:</strong> 29JFK, 29, boulevard JF Kennedy, L-1855 LUXEMBOURG.</footer>
+  </div>
+
+
+<script>
+/* ==== 1) Add your repo links here ==== */
+const repoLinks = [
+  "https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude",
+  "https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging",
+  "https://github.com/OOkyanus/CG-Torch",
+  "https://github.com/OOkyanus/GMM_EM_Net_PyTorch",
+  "https://github.com/SelfDrivingNetworkLab/hps-rl",
+  "https://github.com/OOkyanus/report-bot",
+  "https://github.com/OOkyanus/googledrive-download-manager"
+];
+
+/* ==== 2) Tiny cache (12h) to avoid rate limits on reload ==== */
+const CACHE_TTL_MS = 12 * 60 * 60 * 1000;
+const key = (o,r)=>`ghrepo:${o}/${r}`;
+const getCache = (o,r)=>{ try{ const x=localStorage.getItem(key(o,r)); if(!x) return null; const j=JSON.parse(x); return (Date.now()-j.t<CACHE_TTL_MS)? j.d:null; }catch{ return null;} };
+const setCache = (o,r,d)=>{ try{ localStorage.setItem(key(o,r), JSON.stringify({t:Date.now(), d})); }catch{} };
+
+/* ==== 3) Helpers ==== */
+function parseRepo(url){
+  const i = url.indexOf("github.com/");
+  if (i<0) return null;
+  const [owner, repo] = url.slice(i+"github.com/".length).replace(/\/+$/,'').split("/");
+  if (!owner || !repo) return null;
+  return { owner, repo };
+}
+function chipList(items){ return (!items||!items.length) ? "" : `<div class="repo-tags">${items.map(t=>`<span class="repo-tag">${t}</span>`).join("")}</div>`; }
+function metaRow(stars, forks, updated, chips){
+  const d = updated ? new Date(updated).toISOString().slice(0,10) : "—";
+  return `
+    <div class="repo-meta">
+      <div class="repo-icons">
+        <span title="Stars">⭐ ${stars ?? 0}</span>
+        <span title="Forks">🍴 ${forks ?? 0}</span>
+        <span title="Last updated">🕒 ${d}</span>
+      </div>
+      ${chipList(chips)}
+    </div>`;
+}
+function renderRepo(container, link, d){
+  container.insertAdjacentHTML("beforeend", `
+    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+      <div class="repo-header">
+        <h3 class="repo-title" itemprop="name">
+          <a href="${link}" target="_blank" rel="noopener">${d.name}</a>
+        </h3>
+        ${metaRow(d.stars, d.forks, d.updated, d.chips || [])}
+      </div>
+      <p class="meta">${d.description || "No description."}</p>
+      ${d.homepage ? `<div class="actions"><a class="btn" href="${d.homepage}" target="_blank" rel="noopener">Homepage</a></div>` : ""}
+    </article>
+  `);
+}
+function renderError(container, link, name, msg){
+  container.insertAdjacentHTML("beforeend", `
+    <article class="pub" role="listitem">
+      <div class="repo-header">
+        <h3 class="repo-title"><a href="${link}" target="_blank" rel="noopener">${name}</a></h3>
+        <div class="repo-meta"><div class="repo-icons"><span>⚠️ ${msg}</span></div></div>
+      </div>
+      <p class="meta">Limited info shown. Try again later.</p>
+    </article>
+  `);
+}
+
+/* ==== 4) Minimal, rate-friendly fetch (1 call/repo) ==== */
+function apiHeaders(){ return {"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}; }
+
+async function loadRepos(){
+  const container = document.getElementById("repos");
+  container.innerHTML = "";
+
+  for (const link of repoLinks){
+    const p = parseRepo(link);
+    if (!p){ renderError(container, link, link, "Invalid GitHub URL"); continue; }
+    const { owner, repo } = p;
+
+    const cached = getCache(owner, repo);
+    if (cached){ renderRepo(container, link, cached); continue; }
+
+    const base = `https://api.github.com/repos/${owner}/${repo}`;
+    try {
+      const res = await fetch(base, { headers: apiHeaders() });
+      const data = await res.json();
+
+      if (!res.ok){
+          const reset = res.headers.get("x-ratelimit-reset");
+          const isRL = res.status === 403 && /rate limit/i.test((data && data.message) || "");
+          const when = reset ? ` · resets ${new Date(+reset*1000).toLocaleTimeString()}` : "";
+          const safeMsg = isRL
+            ? `GitHub API rate limit exceeded${when}`
+            : `HTTP ${res.status} ${res.statusText}`;
+          renderError(container, link, repo, safeMsg);
+        continue;
+      }
+
+      // Simple “chips”: dominant language + license (keeps calls to 1/request)
+      const chips = [];
+      if (data.language) chips.push(data.language);
+      if (data.license?.spdx_id) chips.push(data.license.spdx_id);
+
+      const packed = {
+        name: data.name || repo,
+        description: data.description || "",
+        stars: data.stargazers_count ?? 0,
+        forks: data.forks_count ?? 0,
+        updated: data.pushed_at || data.updated_at || null,
+        homepage: data.homepage || "",
+        chips
+      };
+      setCache(owner, repo, packed);
+      renderRepo(container, link, packed);
+
+    } catch (e){
+      renderError(container, link, repo, e.message || "Network error");
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", loadRepos);
+</script>
+
+<script>
+/* Edit this list: newest first is fine; code will sort by date */
+const newsItems = [
+  
+    {
+    date: "6-6-2025",
+    title: "ISCS'25 Symposium",
+    text: "Attended the International Symposium on Computational Sensing (ISCS’25) in Clervaux, Luxembourg.",
+    chip: { text: "Symposium Website", href: "https://www.iscs2025.com" },  // ← shows top-right chip
+    image: "media/ISCS25/ISCS Group Photo.jpg",               // optional thumbnail path (e.g., "media/news/repos.png")
+    pinned: false
+  },
+  {
+    date: "6-3-2025",
+    title: "ISCS'25 DeepInverse Workshop",
+    text: "Received the Best Mini-Project Award and gifted free attendance to the 2025 DeepInverse Hackathon.",
+    chip: { text: "Hackathon", href: "https://www.https://conferences.cirm-math.fr/3659.html" },  // ← shows top-right chip
+    image: "media/ISCS25/ISCSDeepInverse.JPG",               // optional thumbnail path (e.g., "media/news/repos.png")
+    pinned: false
+  },
+  {
+    date: "6-10-2024",
+    title: "Graduated from MSc. METU-EEE",
+    text: "Successfully defended my M.Sc. thesis: “Efficient Three-Dimensional Near-Field Imaging with Physics-Informed Deep Learning for MIMO Radar.”",
+    chip: { text: "M.Sc. Thesis", href: "https://open.metu.edu.tr/handle/11511/110033" },  // ← shows top-right chip
+    image: "media/Uni/odtu-logo.jpeg",               // optional thumbnail path (e.g., "media/news/repos.png")
+    pinned: false
+  },
+  {
+    date: "3-15-2024",
+    title: "Accepted into DP-CSCE at the UniLu",
+    text: "I have been accepted into the PhD program at the University of Luxembourg, SnT, SPARC Group.",
+    chip: { text: "SPARC", href: "https://www.uni.lu/snt-en/research-groups/sparc" },  // ← shows top-right chip
+    image: "media/Uni/SnT_UL.png",               // optional thumbnail path (e.g., "media/news/repos.png")
+    pinned: false
+  }
+];
+
+function fmtDate(iso){
+  try { return new Date(iso).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"2-digit"}); }
+  catch { return iso; }
+}
+function tagChips(arr){
+  if (!arr?.length) return "";
+  return `<div class="news-tags">${arr.map(t=>`<span class="news-tag">${t}</span>`).join("")}</div>`;
+}
+
+function newsCard(n){
+  const links = n.links?.length ? n.links
+              : (n.link ? [{ text: n.linkText || "Read more", href: n.link }] : []);
+
+  const hero = n.image ? `
+    <div class="news-hero">
+      <img class="news-thumb" src="${n.image}" alt="News: ${n.title}">
+      ${n.chip ? `
+        <a class="read-more-chip" href="${n.chip.href}" target="_blank" rel="noopener">
+          <i class="fa-solid fa-hand-point-right" aria-hidden="true"></i>${n.chip.text || "Read more"}
+        </a>` : ``}
+    </div>` : ``;
+
+  const footer = links.length ? `
+    <div class="news-footer">
+      ${links.map(l => `
+        <a class="btn" href="${l.href}" target="_blank" rel="noopener">
+          <i class="fa-solid fa-hand-point-right" aria-hidden="true"></i>${l.text}
+        </a>`).join("")}
+    </div>` : ``;
+
+  return `
+    <article class="news-card" role="listitem" itemscope itemtype="https://schema.org/CreativeWork">
+      ${hero}
+      <div class="news-main">
+        <div class="news-header">
+          <h3 class="news-title" itemprop="name">${n.title}</h3>
+          <div class="news-meta"><time itemprop="datePublished" datetime="${n.date}">${fmtDate(n.date)}</time></div>
         </div>
+        <div class="news-desc"><p class="meta desc" itemprop="description">${n.text}</p></div>
+        ${tagChips(n.tags)}
+        ${footer}
+      </div>
+    </article>`;
+}
+function loadNews(){
+  const box = document.getElementById("news-list");
+  const items = [...newsItems].sort((a,b)=>{
+    if ((b.pinned|0)!==(a.pinned|0)) return (b.pinned|0)-(a.pinned|0);
+    return new Date(b.date)-new Date(a.date);
+  });
+  box.innerHTML = items.map(newsCard).join("");
+  requestAnimationFrame(markOverflow);
+}
+document.addEventListener("DOMContentLoaded", loadNews);
+</script>
 
-        <div  style="display:flex; flex-direction:column;margin-top: 2px;">
-            <div class="newitem" style="margin-top:4px; width: 940px;height:min-content; ">
-                    <h3 style="margin: 2px; font-variant-caps: all-small-caps; text-decoration: underline;  color: rgb(35, 27, 28);">Selected Publications
-                    </h3>
-                    <ol class="custom-list ">
-                        <li>
-                            <div style="display: flex; align-items: center; justify-content:space-between;" >
-                                <div style="width: 500px; margin-right: 10px; ">
-                                    <p>
-                                        <a href="https://ieeexplore.ieee.org/document/10517644" 
-                                        style="text-decoration: none; color:#444;">
-                                        O. Oral and F. S. Oktem, "Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging," in IEEE Transactions on Computational Imaging, vol. 10, pp. 762-773, 2024, doi: 10.1109/TCI.2024.3396388.                                        </a>
-                                    </p>    
-                                    
-                                    
-                                </div> 
-                                
-                                <div class="github-repo">
-                                    <div style="display: flex; align-items: flex-start;">
-                                        <img src="images/git-repository-sym.png" style= "margin-right:5px; width: 15px; opacity: 0.5;">
-                                        <a href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" style="color: rgb(59, 130, 228);">
-                                             METU-SPACE-Lab/<strong>PnP-Regularization-on-Magnitude</strong></a>
-                                    </div>
-                                    <p style="color: gray; font-size: smaller;">
-                                        Official codes for the paper "Plug-and-Play Regularization on Magnitude with Deep Priors for 3D Near-Field MIMO Imaging".
-                                    </p>
-                                    <div style="display: flex; align-items:center; justify-content: flex-start; ">
-                                        <div style= "background-color:chocolate; width: 10px; height: 10px; border-radius: 10px; margin-right: 3px;"></div>
-                                        <p style="color: gray; font-size: smaller; ">Jupyter Notebook</p>
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="line" style="margin-top: 10px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
-                        </li>
-                        
-                        
-                        <li>
-                            <div style="display: flex; align-items: center; justify-content:space-between;" >
-                                <div style="width: 500px; margin-right: 10px; ">
-                                    <p>
-                                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S105120042300369X" 
-                                        style="text-decoration: none; color:#444;">
-                                        I. Manisali, O. Oral, and F. S. Oktem, ”Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging”, Digital Signal Processing, vol. 144, p. 104274, 2024, doi: 10.1016/j.dsp.2023.104274.
-                                        </a>
-                                    </p>
-                                </div> 
+<script>
+/* tiny toggle for mobile */
+const btn = document.querySelector('.nav-toggle');
+const menu = document.getElementById('nav-menu');
 
-                                <div class="github-repo">
-                                    <div style="display: flex; align-items: flex-start;">
-                                        <img src="images/git-repository-sym.png" style= "margin-right:5px; width: 15px; opacity: 0.5;">
-                                        <a href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging" style="color: rgb(59, 130, 228);">
-                                             METU-SPACE-Lab/<strong>Efficient-Learned-3D-Near-Field-MIMO-Imaging </strong></a>
-                                    </div>
-                                    <p style="color: gray; font-size: smaller;">
-                                        Official codes for the paper "Efficient physics-based learned reconstruction methods for real-time 3D near-field MIMO radar imaging"
-                                    </p>
-                                    <div style="display: flex; align-items:center; justify-content: flex-start; ">
-                                        <div style= "background-color:rgb(56, 86, 176); width: 10px; height: 10px; border-radius: 10px; margin-right: 3px;"></div>
-                                        <p style="color: gray; font-size: smaller; ">Python</p>
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="line" style="margin-top: 10px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
-                        </li>
-                        <li>
-                            <div style="display: flex; align-items: center;  justify-content:space-between;" >
-                                <div style="width: 500px; margin-right: 10px; "> O. Oral, M. Kiran and B.M. Ozyildirim, “HPS-RL: A Library for Evolutionary Search for Hyperparameter Search for Optimum Deep Reinforcement Applications” Neural Networks, 2022 (Under Review).</div> 
-                                <div class="github-repo">
-                                    <div style="display: flex; align-items: flex-start;">
-                                        <img src="images/git-repository-sym.png" style= "margin-right:5px; width: 15px; opacity: 0.5;">
-                                        <a href="https://github.com/SelfDrivingNetworkLab/hps-rl" style="color: rgb(59, 130, 228);">
-                                            SelfDrivingNetworkLab/<strong>hps-rl </strong></a>
-                                    </div>
-                                    <p style="color: gray; font-size: smaller;">
-                                        Hyperparameter tuning for deep RL applications.
-                                    </p>
-                                    <div style="display: flex; align-items:center; justify-content: flex-start; ">
-                                        <div style= "background-color:rgb(56, 86, 176); width: 10px; height: 10px; border-radius: 10px; margin-right: 3px;"></div>
-                                        <p style="color: gray; font-size: smaller; ">Python</p>
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="line" style="margin-top: 10px; margin-bottom: 0px; border-width: 1px; border-color: rgba(128, 128, 128, 0.159);"></div>
+btn?.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
 
-                        </li>
-                        <div style="display: flex; flex-direction: row-reverse; " > <p style="font-size: x-small; margin:1px 4px">...please refer to my <a href="https://scholar.google.com.tr/citations?user=kwdmZGYAAAAJ&hl=en&oi=ao">Google Scholar</a> page for the full list of publications.</p></div>
-                    </ol>
-            </div>
-        </div>
+/* close menu after clicking a link (mobile) */
+menu?.addEventListener('click', e => {
+  if (e.target.closest('a') && window.innerWidth < 860){
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  }
+});
+</script>
 
-        <div  style="display:flex; flex-direction:column; margin-top: 2px;">
-            <div class="newitem" style="margin-top:4px; width: 940px; height:min-content; ">
-                
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div class="footer-box" >
-                        <a href="term-projects.html"><img src="images/folder.png" style="width: 20px;">   </a>
-                        <p style="margin-left: 4px; "><a href="term-projects.html" style="color:  #444; text-decoration: none;"> Selected Term Projects from METU.</a></p>
-                    </div>
-    
-                    <div class="footer-box" >
-                        <a href=""><img src="images/conlang-sym.jpg" style="width: 20px;">   </a>
-                        <p style="margin-left: 4px;"><a href=""style="color:  #444; text-decoration: none;"> My Conlang (Coming Soon)</a></p>
-                    </div>
-    
-                    <div class="footer-box" >
-                        <a href=""><img src="images/code-sym.png" style="width: 20px;">   </a>
-                        <p style="margin-left: 4px;"><a href=""style="color:  #444; text-decoration: none;"> TUTORIALS (Coming Soon)</a></p>
-                    </div>
-    
-
-                </div>
-            
-            </div>
-
-        </div>
-
-        
-
-    </div>
 </body>
+</html>
