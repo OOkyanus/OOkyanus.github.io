@@ -115,6 +115,8 @@ margin-top: 10px;             /* was bigger before — reduce this */
   border: 1px solid var(--grid);
   background: var(--panel);
 }
+
+
   .cv-icon {
   display: inline-flex;
   align-items: center;
@@ -343,7 +345,111 @@ html, body, button, input, select, textarea {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* ===== Pubs & Repos: list layout, buttons on the right ===== */
+section[aria-labelledby="pubs-title"] .pub-thumb,
+section[aria-labelledby="repos-title"] .pub-thumb{
+  display:none !important;                 /* hide figures */
+}
 
+/* desktop/tablet: two columns — text left, buttons right */
+@media (min-width: 700px){
+  section[aria-labelledby="pubs-title"] .pub,
+  section[aria-labelledby="repos-title"] .pub{
+    display:grid;
+    grid-template-columns: 1fr auto;       /* left grows, right fits buttons */
+    grid-template-areas:
+      "title   actions"
+      "meta    actions";
+    column-gap: 14px;
+    row-gap: 4px;
+    align-items:start;
+  }
+
+  /* map elements into grid areas */
+  section[aria-labelledby="pubs-title"] .pub h3,
+  section[aria-labelledby="repos-title"] .pub h3{ grid-area:title; margin:0 0 4px; }
+
+  section[aria-labelledby="pubs-title"] .pub .meta,
+  section[aria-labelledby="repos-title"] .pub .meta{ grid-area:meta; margin:0 0 2px; color:var(--muted); }
+
+  section[aria-labelledby="pubs-title"] .pub .actions,
+  section[aria-labelledby="repos-title"] .pub .actions{
+    grid-area:actions;
+    justify-self:end;                      /* push to the right edge */
+    align-self:center;                     /* vertically centered between title/meta */
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin:0;                              /* remove previous top margin */
+  }
+
+  /* Repos: their title+icons live inside .repo-header — treat it like the title block */
+  section[aria-labelledby="repos-title"] .pub .repo-header{ grid-area:title; }
+  section[aria-labelledby="repos-title"] .pub .repo-meta{ margin-top:4px; }
+}
+
+/* mobile: keep a simple vertical stack (buttons under text) */
+@media (max-width: 699px){
+  section[aria-labelledby="pubs-title"] .pub,
+  section[aria-labelledby="repos-title"] .pub{
+    display:flex; flex-direction:column; gap:6px;
+  }
+  section[aria-labelledby="pubs-title"] .pub .actions,
+  section[aria-labelledby="repos-title"] .pub .actions{ align-self:flex-start; }
+}
+
+/* separators & spacing (unchanged) */
+section[aria-labelledby="pubs-title"] .pubs,
+section[aria-labelledby="repos-title"] .pubs{ display:flex; flex-direction:column; gap:14px; }
+
+section[aria-labelledby="pubs-title"] .pub + .pub,
+section[aria-labelledby="repos-title"] .pub + .pub{
+  border-top:1px solid var(--grid);
+  padding-top:12px; margin-top:2px;
+}
+
+/* keep News rail exactly as-is */
+#news-list{ display:flex !important; flex-direction:row !important; }
+/* ===== Customize button colors for pubs & repos ===== */
+section[aria-labelledby="pubs-title"] .btn,
+section[aria-labelledby="repos-title"] .btn{
+  color: #0a6fb8;             /* your desired text color */
+  border-color: #0a6fb8;      /* optional: match border */
+  background: #fff;           /* keep white background */
+  font-weight: 500;           /* optional: make text slightly bolder */
+}
+
+/* on hover */
+section[aria-labelledby="pubs-title"] .btn:hover,
+section[aria-labelledby="repos-title"] .btn:hover{
+  background: #0a6fb8;
+  color: #fff;
+  border-color: #0a6fb8;
+}
+/* ===== Match link color to accent blue ===== */
+section[aria-labelledby="pubs-title"] a,
+section[aria-labelledby="repos-title"] a{
+  color: #0a6fb8;
+  text-decoration: none;
+}
+
+section[aria-labelledby="pubs-title"] a:hover,
+section[aria-labelledby="repos-title"] a:hover{
+  color: #084f88;              /* slightly darker blue on hover */
+  text-decoration: underline;  /* optional subtle cue */
+}
+
+/* ===== Intro (About) link color ===== */
+#about .bio-text a:link,
+#about .bio-text a:visited{
+  color: var(--accent);           /* #0a6fb8 */
+  text-decoration: none;
+}
+
+#about .bio-text a:hover,
+#about .bio-text a:focus{
+  color: #084f88;                 /* slightly darker on hover */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 </style>
 
 </head>
@@ -414,7 +520,6 @@ My research focuses on signal processing for radar-based computational sensing a
   <div class="pubs" role="list">
  <!-- Conference – 2025: IEEE RadarConf -->
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <img class="pub-thumb" src="media/pubs/ComingSoonOral.png" alt="" />
       <h3 itemprop="name">
        Fast Sparsity-Based 3D Near-Field MIMO Imaging Using b-SAGA with a Batch Size Selection Strategy
       </h3>
@@ -423,10 +528,13 @@ My research focuses on signal processing for radar-based computational sensing a
         <span itemprop="isPartOf">IEEE RadarConf</span> ·
         <time itemprop="datePublished" datetime="2025">2025</time>
       </div>
+
+      <div class="actions">
+        <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/11205170" itemprop="url">Paper</a>
+      </div>
     </article>
 
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <img class="pub-thumb" src="media/pubs/iscs.png" alt="" />
       <h3 itemprop="name">
        Fast Regularized 3D Near-Field MIMO Imaging Using Stochastic Proximal Gradient Method
       </h3>
@@ -442,7 +550,6 @@ My research focuses on signal processing for radar-based computational sensing a
 
     <!-- Conference – 2025: EuRAD -->
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <img class="pub-thumb" src="media/pubs/ComingSoonOral.png" alt="" />
       <h3 itemprop="name">
       Handheld SAR with Learning-Based Ego-Motion Estimation Using a Compact mmWave Sensor      
       </h3>
@@ -455,7 +562,6 @@ My research focuses on signal processing for radar-based computational sensing a
     </article>
 
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <img class="pub-thumb" src="media/pubs/Eusipco25.png" alt="" />
       <h3 itemprop="name">
       Joint Optimization of Sparse MIMO Arrays and Imaging Methods
       </h3>
@@ -466,13 +572,12 @@ My research focuses on signal processing for radar-based computational sensing a
       </div>
 
       <div class="actions">
-        <a class="btn" href="https://eusipco2025.org/wp-content/uploads/pdfs/0000740.pdf">EUSIPCO'25</a>
+        <a class="btn" href="https://eusipco2025.org/wp-content/uploads/pdfs/0000740.pdf">Paper</a>
       </div>
     </article>
 
     <!-- IEEE Transactions on Computational Imaging – 2024 -->
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <img class="pub-thumb" src="media/pubs/PnPReg.png" alt="" />
 
       <h3 itemprop="name">
         Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging
@@ -495,7 +600,6 @@ My research focuses on signal processing for radar-based computational sensing a
 
     <!-- Digital Signal Processing – 2024 -->
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <img class="pub-thumb" src="media/pubs/Deep2s.png" alt="" />
       <h3 itemprop="name">
         Efficient Physics-Based Learned Reconstruction Methods for Real-Time 3D Near-Field MIMO Radar Imaging
       </h3>
@@ -514,7 +618,6 @@ My research focuses on signal processing for radar-based computational sensing a
 
     <!-- 2022 Code Base – HPS-RL Library -->
     <article class="pub" role="listitem" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-      <img class="pub-thumb" src="media/pubs/HPSRL.png" alt="" />
       <h3 itemprop="name">
       HPS-RL: Hyperparameter tuning for deep RL applications (HPS-RL) v1
       </h3>
@@ -559,13 +662,13 @@ My research focuses on signal processing for radar-based computational sensing a
   </div>
 
 
+
 <script>
 /* ==== 1) Add your repo links here ==== */
 const repoLinks = [
   "https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude",
   "https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging",
   "https://github.com/OOkyanus/CG-Torch",
-  "https://github.com/OOkyanus/GMM_EM_Net_PyTorch",
   "https://github.com/SelfDrivingNetworkLab/hps-rl"
 ];
 
@@ -681,6 +784,14 @@ document.addEventListener("DOMContentLoaded", loadRepos);
 <script>
 /* Edit this list: newest first is fine; code will sort by date */
 const newsItems = [
+  {
+    date: "10-4-2025",
+    title: "RadarConf'25 Events",
+    text: "Attended the RadarConf'25 Bootcamp, 3D ISAR Imaging Tutorial and the AESS Radar Challenge",
+    chip: { text: "RadarConf'25", href: "https://radarconf2025.org" },  // ← shows top-right chip
+    image: "media/RadarConf25/RadarConf25.jpg",               // optional thumbnail path (e.g., "media/news/repos.png")
+    pinned: false
+  },
   {
     date: "9-8-2025",
     title: "DeepInverse Hackathon",
