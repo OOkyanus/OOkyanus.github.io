@@ -1,938 +1,939 @@
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Okyanus Oral — Ph.D. researcher working on radar computational sensing, imaging, and physics-informed deep learning.">
+  <meta name="theme-color" content="#f6f7fb">
   <title>Okyanus Oral</title>
-  <meta name="description" content="Academic website with publications, short bio, and links." />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" referrerpolicy="no-referrer">
-
-
-
   <link rel="icon" href="media/icons/favicon-sigma.svg" type="image/svg+xml">
-  <link rel="icon" href="media/icons/favicon-32.png" sizes="32x32" type="image/png">   <!-- optional fallback -->
-  <link rel="icon" href="media/icons/favicon-16.png" sizes="16x16" type="image/png">   <!-- optional fallback -->
-  <link rel="apple-touch-icon" href="media/icons/apple-touch-icon.png">                 <!-- iOS home screen -->
-  
-  <!-- Optional extras -->
-  <link rel="mask-icon" href="media/icons/safari-pinned-tab.svg" color="#0a6fb8"> <!-- Safari pinned tab -->
-  <meta name="theme-color" content="#0a6fb8"> <!-- address bar color on mobile -->
+  <link rel="icon" href="media/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="media/icons/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="media/icons/apple-touch-icon.png">
 
   <style>
-    :root{
-      --bg:#f0f2f5; --panel:#f8f9fa; --panel-alt:#fff; --text:#1a1f24; --muted:#6c757d;
-      --grid:#dce0e4; --accent:#0a6fb8; --radius:14px; --maxw:1120px;
-      --gutter:clamp(14px,2.2vw,22px);
-      --sans:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,sans-serif;
-      --serif:Georgia,"Times New Roman",Times,serif;
-    }
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:var(--sans);color:var(--text);background:var(--bg);line-height:1.6}
-
-    .shell{max-width:var(--maxw);margin:0 auto;padding:calc(var(--gutter)*1.25) var(--gutter);display:flex;flex-direction:column;gap:calc(var(--gutter)*1.25)}
-
-    /* ===== Intro layout with grid areas ===== */
-    .intro{
-      display:grid;
-      grid-template-columns: 360px 1fr;       /* left column width + right column */
-      grid-template-rows: auto auto;          /* row 1: brand, row 2: icons */
-      grid-template-areas:
-        "brand bio"
-        "icons bio";
-      column-gap: 24px;
-      background:var(--panel);
-      border:1px solid var(--grid);
-      border-radius:var(--radius);
-      padding:calc(var(--gutter)*1.1);
-      align-items:start;
-    row-gap: 10px;  /* reduces the gap between photo row and icons row */
-
-    }
-    @media (max-width:860px){
-      .intro{
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          "brand"
-          "icons"
-          "bio";
-      }
+    :root {
+      --bg: #f6f7fb;
+      --surface: rgba(255,255,255,.78);
+      --surface-solid: #ffffff;
+      --surface-soft: #f1f4f9;
+      --text: #111827;
+      --muted: #667085;
+      --line: rgba(17,24,39,.10);
+      --accent: #2563eb;
+      --accent-strong: #1d4ed8;
+      --accent-soft: rgba(37,99,235,.10);
+      --shadow: 0 18px 55px rgba(15,23,42,.08);
+      --shadow-hover: 0 22px 70px rgba(15,23,42,.13);
+      --radius: 24px;
+      --radius-sm: 15px;
+      --maxw: 1160px;
+      --navh: 72px;
+      --ease: cubic-bezier(.2,.7,.2,1);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    /* brand block (photo + name/role) */
-    .brand{
-      grid-area: brand;
-      display:grid;
-      grid-template-columns: 120px 1fr; /* photo | text */
-      column-gap:10px;
-      align-items:center;
-      row-gap: 10px;
+    html[data-theme="dark"] {
+      --bg: #0b1020;
+      --surface: rgba(17,24,39,.76);
+      --surface-solid: #111827;
+      --surface-soft: #161f33;
+      --text: #f8fafc;
+      --muted: #a6b0c3;
+      --line: rgba(255,255,255,.10);
+      --accent: #7aa2ff;
+      --accent-strong: #9bb7ff;
+      --accent-soft: rgba(122,162,255,.13);
+      --shadow: 0 20px 60px rgba(0,0,0,.25);
+      --shadow-hover: 0 24px 80px rgba(0,0,0,.36);
     }
-    .avatar{width:100px;height:100px;border-radius:50%;object-fit:cover;border:1px solid var(--grid)}
-    .name{font-family:var(--serif);font-size:1.9rem;margin:0;line-height:1.2}
-    .role{margin:6px 0 0;color:var(--muted);font-size:1rem}
-    .role a{color:#6c757d;text-decoration:none}
 
-    /* icons row — horizontal, sits under the photo & name */
-  .net {
-  grid-column: 1; /* stay in left column */
-  justify-content: left; /* center horizontally */
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-margin-top: 10px;             /* was bigger before — reduce this */
-
-}
-    .net a{
-      width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;
-      border:1px solid var(--grid);border-radius:999px;background:#fff;text-decoration:none;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--navh) + 22px); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--text);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(37,99,235,.10), transparent 32rem),
+        radial-gradient(circle at 92% 18%, rgba(124,58,237,.08), transparent 30rem),
+        var(--bg);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    .net a:hover{border-color:var(--accent)}
-    .net i{font-size:14px;color:var(--text)}
+    a { color: inherit; }
+    img { max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    ::selection { background: var(--accent); color: white; }
 
-    /* right column */
-    .bio-text{ grid-area: bio; display:flex; flex-direction:column; gap:.75rem; }
-    .tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
-    .tag{ border:1px solid var(--grid); padding:2px 8px; border-radius:999px; font-size:.85rem; color:var(--muted); }
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--navh);
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+    }
+    .nav-inner {
+      width: min(calc(100% - 32px), var(--maxw));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.025em;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 34px; height: 34px;
+      display: grid; place-items: center;
+      border-radius: 11px;
+      color: white;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      box-shadow: 0 8px 24px rgba(37,99,235,.22);
+    }
+    .nav-menu { display: flex; align-items: center; gap: 4px; list-style: none; padding: 0; margin: 0; }
+    .nav-menu a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 11px;
+      border-radius: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 650;
+      transition: .2s var(--ease);
+    }
+    .nav-menu a:hover, .nav-menu a.active { color: var(--text); background: var(--accent-soft); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .icon-btn, .nav-toggle {
+      width: 40px; height: 40px;
+      display: inline-grid; place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+    }
+    .icon-btn:hover, .nav-toggle:hover { transform: translateY(-1px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+    .nav-toggle { display: none; }
 
-    /* other sections */
-    .card{background:var(--panel);border:1px solid var(--grid);border-radius:var(--radius);padding:calc(var(--gutter)*1.1)}
-    h2{font-family:var(--serif);font-weight:600;margin:0 0 .35rem}
-    p.lead{color:var(--muted);margin:0 0 .75rem}
-    .pubs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
-    .pub{padding:12px;border:1px solid var(--grid);border-radius:10px;background:var(--panel-alt);display:flex;flex-direction:column;justify-content:space-between}
-    .pub h3{margin:0 0 4px;font-size:1rem; }
-    .pub .meta{color:var(--muted);font-size:.92rem ;}
-    .actions{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--grid);border-radius:999px;text-decoration:none;color:var(--text);font-size:.9rem;background:#fff}
-    .btn:hover{border-color:var(--accent);color:var(--accent)}
-    footer{color:var(--muted);text-align:center;font-size:.95rem;padding:20px 0 6px}
-.pub-thumb {
-  width: 100%;             /* fill the container's width */
-  height: 140px;           /* fixed height (you can adjust) */
-  object-fit: contain;       /* fill the box and crop excess */
-  border-radius: 8px;      /* rounded corners like your cards */
-  border: 1px solid var(--grid);
-  background: var(--panel);
-}
+    main { width: min(calc(100% - 32px), var(--maxw)); margin: 0 auto; padding: 32px 0 26px; }
 
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 8px 24px rgba(15,23,42,.055);
+    }
+    .hero::before { display: none; }
+    .portrait-wrap { position: relative; width: 126px; aspect-ratio: 1; margin: 0 auto; }
+    .portrait-ring { display: none; }
+    .avatar {
+      position: relative;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .status-pill {
+      display: none;
+    }
+    .status-dot { display: none; }
 
-  .cv-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--grid);
-  border-radius: 999px;
-  background: #fff;
-  font-weight: bold;
-  font-size: 12px;
-  color: var(--text);
-  text-decoration: none;
-}
-.cv-icon:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+    .eyebrow { display: none; }
+    .hero h1 {
+      margin: 0;
+      max-width: 780px;
+      font-size: clamp(1.9rem, 3.2vw, 2.55rem);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      font-weight: 800;
+    }
+    .hero h1 span { color: inherit; }
+    .hero-lead {
+      max-width: 860px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.65;
+    }
+    .hero-lead a { color: var(--text); font-weight: 650; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .hero-lead a:hover { color: var(--accent); }
+    .tags { display: none; }
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--surface-solid) 72%, transparent);
+      font-size: .76rem;
+      font-weight: 650;
+    }
+    .socials { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+    .social-link span { display: none; }
+    .social-link {
+      width: 34px; min-width: 34px; height: 34px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-solid);
+      text-decoration: none;
+      font-size: .87rem;
+      font-weight: 750;
+      box-shadow: 0 5px 18px rgba(15,23,42,.04);
+      transition: .22s var(--ease);
+    }
+    .social-link:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--accent); }
 
-  /* title + meta (icons+chips) on one row */
-  .repo-header{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-  .repo-title{ margin:0; }
-  .repo-meta{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:0; }
-  .repo-icons{ display:flex; align-items:center; gap:10px; }
-  .repo-tags { display:flex; flex-wrap:wrap; gap:6px; margin:0; }
-  .repo-tag  { border:1px solid var(--grid, #dce0e4); padding:2px 8px; border-radius:999px; font-size:.82rem; color:var(--muted, #6c757d); }
-/* === NEWS: horizontal rail, width based on viewport, not item count === */
-#news-list{
-  --gap: 16px;
-  /* 3 cards across the viewport by default */
-  --cardW: clamp(200px, calc(100vw / 4 - 2*var(--gap)), 300px);
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px 0 42px;
+    }
+    .metric {
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--surface) 86%, transparent);
+    }
+    .metric strong { display: block; font-size: 1.28rem; letter-spacing: -.03em; }
+    .metric span { color: var(--muted); font-size: .83rem; }
 
-  display: flex !important;       /* override any .pubs grid rule */
-  gap: var(--gap);
+    .section { padding: 38px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .section-title { margin: 0; font-size: clamp(1.75rem, 3vw, 2.4rem); letter-spacing: -.045em; line-height: 1.05; }
+    .section-subtitle { max-width: 620px; margin: 7px 0 0; color: var(--muted); font-size: .96rem; }
+
+    .news-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 34%);
+  gap: 14px;
   overflow-x: auto;
-  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  padding: 6px 4px 12px;
+  padding: 3px 3px 14px;
   scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
-#news-list::-webkit-scrollbar{ height:8px; }
-#news-list::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.18); border-radius: 8px; }
 
-/* Fixed-size, square cards that don’t depend on how many items exist */
-.news-card{
-  flex: 0 0 var(--cardW);          /* fixed width in the rail */
-  width: var(--cardW);
-
-  aspect-ratio: 1 / 1;             /* height = width */
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background: var(--panel-alt,#fff);
-  border: 1px solid var(--grid,#dce0e4);
-  border-radius: 14px;
-  padding: 12px;
+.news-card {
   scroll-snap-align: start;
   overflow: hidden;
+  min-height: 100%;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 8px 28px rgba(15,23,42,.05);
+  transition:
+    transform .22s var(--ease),
+    box-shadow .22s var(--ease),
+    border-color .22s var(--ease);
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--line));
 }
 
 
-/* Content fills remaining space */
-.news-main{ flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 8px; }
+/* =========================
+   NEWS IMAGE
+   ========================= */
 
-.news-header{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
-.news-title{
-  margin:0; font-size:1rem; line-height:1.2;
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-}
-.news-meta{ color: var(--muted,#6c757d); white-space: nowrap; }
-
-.news-desc{ min-height:0; }
-.news-desc .desc{
-  margin:0;
-  display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
-}
-
-.news-tags{ display:flex; flex-wrap:wrap; gap:6px; }
-.news-tag{ border:1px solid var(--grid,#dce0e4); padding:2px 8px; border-radius:999px; font-size:.82rem; color:var(--muted,#6c757d); }
-
-.news-footer{ margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; }
-
-/* Responsive: 2 cards on medium, 1 card on small */
-@media (max-width: 1100px){
-  #news-list{ --cardW: clamp(260px, calc(100vw / 2 - 1.5*var(--gap)), 420px); }
-}
-@media (max-width: 640px){
-  #news-list{ --cardW: min(92vw, 420px); }
-}
-.news-card[data-overflow="1"] .read-more-chip{ display: inline-flex; align-items: center; gap: 6px; }
-.news-hero{
+.news-media {
   position: relative;
-  aspect-ratio: 16 / 6;
-  display: flex;
-  align-items: center;       /* vertical center */
-  justify-content: center;   /* horizontal center */
-  border-radius: 10px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  border: 1px solid var(--grid, #dce0e4);
+  background: var(--surface-soft);
+  isolation: isolate;
 }
 
-.news-hero .news-thumb{
-  width: 100%;   /* always matches width */
-  height: auto;  /* keep aspect ratio; no cropping */
-  display: block;
-}
-
-/* The top-right chip (shown only if you include it in HTML) */
-.read-more-chip{
+/* Blurred extension of the image */
+.news-media::before {
+  content: "";
   position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 2;
-  display: inline-flex;                 /* visible when present */
+  inset: -18px;
+
+  background-image: var(--news-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(18px);
+  transform: scale(1.08);
+  opacity: .65;
+
+  z-index: 0;
+}
+
+/* Slight overlay so the background stays subtle */
+.news-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255, 255, 255, .08);
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Actual image — never cropped */
+.news-media img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+
+  transition: transform .5s var(--ease);
+}
+
+.news-card:hover .news-media img {
+  transform: scale(1.025);
+}
+
+
+/* =========================
+   NEWS CHIP
+   ========================= */
+
+.news-chip {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
-  font-size: .85rem;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(255,255,255,.6);
   border-radius: 999px;
-  border: 1px solid var(--grid, #dce0e4);
-  background: rgba(255,255,255,.92);
-  color: var(--text, #1a1f24);
+
+  color: #101828;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
   text-decoration: none;
-  backdrop-filter: saturate(1.2) blur(4px);
-  -webkit-backdrop-filter: saturate(1.2) blur(4px);
-}
-.read-more-chip:hover{ border-color: var(--accent,#0a6fb8); color: var(--accent,#0a6fb8); }
-/* ===== Nav styles ===== */
-.site-nav{
-  position: sticky; top: 0; z-index: 1000;
-  background: var(--panel);
-  border-bottom: 1px solid var(--grid);
-  backdrop-filter: blur(6px);
-}
-.nav-inner{
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 10px var(--gutter);
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-}
-.nav-brand{
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--text); text-decoration: none; font-weight: 600; font-family: var(--serif);
-}
-.nav-brand i{ font-size: 1.1rem; }
-
-/* Hamburger (mobile) */
-.nav-toggle{
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 40px; height: 40px; border-radius: 10px;
-  border: 1px solid var(--grid); background: var(--panel-alt); color: var(--text);
-}
-.nav-toggle:hover{ border-color: var(--accent); color: var(--accent); }
-
-/* Menu */
-.nav-menu{
-  list-style: none; margin: 0; padding: 10px var(--gutter);
-  position: absolute; left: 0; right: 0; top: 100%;
-  background: var(--panel); border-bottom: 1px solid var(--grid);
-  display: none; flex-direction: column; gap: 8px;
-}
-.nav-menu.open{ display: flex; }
-.nav-menu a{
-  display: inline-flex; align-items: center; gap: 8px;
-  text-decoration: none; color: var(--text);
-  padding: 6px 10px; border-radius: 999px;
-}
-.nav-menu a:hover{ color: var(--accent); border: 1px solid var(--accent); }
-
-/* CV pill matches your .btn vibe */
-.btn-nav{
-  border: 1px solid var(--grid); background: #fff; color: var(--text);
-  padding: 6px 12px; border-radius: 999px;
-}
-.btn-nav:hover{ border-color: var(--accent); color: var(--accent); }
-
-/* Desktop layout */
-@media (min-width: 860px){
-  .nav-toggle{ display: none; }
-  .nav-menu{
-    position: static; display: flex !important; padding: 0; border: 0; background: transparent;
-    flex-direction: row; gap: 10px;
-  }
-}
-
-/* Screen-reader only text */
-.sr-only{
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
-:root { --navh: 64px; }                 /* set to your navbar’s real height */
-
-html{
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--navh);      /* single source of truth */
+  font-size: .74rem;
+  font-weight: 800;
 }
 
 
-/* Sigma "icon" next to the brand name */
-.brand-sigma{
-  align-items:left;
-  justify-content:left;
-  width:400px;                 /* icon box size */
-  height:26px;
-  border-radius:6px;          /* 6px = rounded square; use 999px for a circle */
-  color:#000000;
-  font-weight:700;
-  font-size:18px;             /* sigma size */
-  line-height:1;
-  font-family: inherit;       /* matches your navbar font */
-  margin-right:8px;
-  transform: translateY(0px); /* subtle optical alignment */
-  padding-left: 10px;
+/* =========================
+   NEWS TEXT
+   ========================= */
+
+.news-body {
+  padding: 18px;
 }
 
-
-/* Unify all text to the navbar's font (var(--serif)) */
-:root{ --serif: var(--sans); }
-html, body, button, input, select, textarea { font-family: var(--sans) !important; }
-
-
-/* Ensure form controls and base elements also use it */
-html, body, button, input, select, textarea {
-  font-family: var(--serif) !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-/* ===== Pubs & Repos: list layout, buttons on the right ===== */
-section[aria-labelledby="pubs-title"] .pub-thumb,
-section[aria-labelledby="repos-title"] .pub-thumb{
-  display:none !important;                 /* hide figures */
+.news-date {
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
-/* desktop/tablet: two columns — text left, buttons right */
-@media (min-width: 700px){
-  section[aria-labelledby="pubs-title"] .pub,
-  section[aria-labelledby="repos-title"] .pub{
-    display:grid;
-    grid-template-columns: 1fr auto;       /* left grows, right fits buttons */
-    grid-template-areas:
-      "title   actions"
-      "meta    actions";
-    column-gap: 14px;
-    row-gap: 4px;
-    align-items:start;
-  }
-
-  /* map elements into grid areas */
-  section[aria-labelledby="pubs-title"] .pub h3,
-  section[aria-labelledby="repos-title"] .pub h3{ grid-area:title; margin:0 0 4px; }
-
-  section[aria-labelledby="pubs-title"] .pub .meta,
-  section[aria-labelledby="repos-title"] .pub .meta{ grid-area:meta; margin:0 0 2px; color:var(--muted); }
-
-  section[aria-labelledby="pubs-title"] .pub .actions,
-  section[aria-labelledby="repos-title"] .pub .actions{
-    grid-area:actions;
-    justify-self:end;                      /* push to the right edge */
-    align-self:center;                     /* vertically centered between title/meta */
-    display:flex; gap:8px; flex-wrap:wrap;
-    margin:0;                              /* remove previous top margin */
-  }
-
-  /* Repos: their title+icons live inside .repo-header — treat it like the title block */
-  section[aria-labelledby="repos-title"] .pub .repo-header{ grid-area:title; }
-  section[aria-labelledby="repos-title"] .pub .repo-meta{ margin-top:4px; }
+.news-card h3 {
+  margin: 7px 0 7px;
+  font-size: 1.06rem;
+  line-height: 1.28;
+  letter-spacing: -.02em;
 }
 
-/* mobile: keep a simple vertical stack (buttons under text) */
-@media (max-width: 699px){
-  section[aria-labelledby="pubs-title"] .pub,
-  section[aria-labelledby="repos-title"] .pub{
-    display:flex; flex-direction:column; gap:6px;
-  }
-  section[aria-labelledby="pubs-title"] .pub .actions,
-  section[aria-labelledby="repos-title"] .pub .actions{ align-self:flex-start; }
+.news-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-/* separators & spacing (unchanged) */
-section[aria-labelledby="pubs-title"] .pubs,
-section[aria-labelledby="repos-title"] .pubs{ display:flex; flex-direction:column; gap:14px; }
-
-section[aria-labelledby="pubs-title"] .pub + .pub,
-section[aria-labelledby="repos-title"] .pub + .pub{
-  border-top:1px solid var(--grid);
-  padding-top:12px; margin-top:2px;
+.name-row h1 {
+  margin: 0;
 }
 
-/* keep News rail exactly as-is */
-#news-list{ display:flex !important; flex-direction:row !important; }
-/* ===== Customize button colors for pubs & repos ===== */
-section[aria-labelledby="pubs-title"] .btn,
-section[aria-labelledby="repos-title"] .btn{
-  color: #0a6fb8;             /* your desired text color */
-  border-color: #0a6fb8;      /* optional: match border */
-  background: #fff;           /* keep white background */
-  font-weight: 500;           /* optional: make text slightly bolder */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
+    .publication-list {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .publication {
+      display: grid;
+      grid-template-columns: 70px minmax(0,1fr) auto;
+      gap: 20px;
+      align-items: center;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      transition: background .2s var(--ease);
+    }
+    .publication:last-child { border-bottom: 0; }
+    .publication:hover { background: var(--accent-soft); }
+    .pub-year { color: var(--accent); font-size: .82rem; font-weight: 850; letter-spacing: .04em; }
+    .pub-copy h3 { margin: 0; font-size: 1.03rem; line-height: 1.4; letter-spacing: -.018em; }
+    .pub-copy p { margin: 6px 0 0; color: var(--muted); font-size: .87rem; }
+    .pub-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
+    .link-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text);
+      background: var(--surface-solid);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 750;
+      white-space: nowrap;
+      transition: .18s var(--ease);
+    }
+    .link-pill:hover { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); transform: translateY(-1px); }
 
-/* on hover */
-section[aria-labelledby="pubs-title"] .btn:hover,
-section[aria-labelledby="repos-title"] .btn:hover{
-  background: #0a6fb8;
-  color: #fff;
-  border-color: #0a6fb8;
-}
-/* ===== Match link color to accent blue ===== */
-section[aria-labelledby="pubs-title"] a,
-section[aria-labelledby="repos-title"] a{
-  color: #0a6fb8;
-  text-decoration: none;
-}
+    .repo-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .repo-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 8px 28px rgba(15,23,42,.05);
+      transition: transform .22s var(--ease), border-color .22s var(--ease), box-shadow .22s var(--ease);
+    }
+    .repo-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); box-shadow: var(--shadow-hover); }
+    .repo-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+    .repo-card h3 { margin: 0; font-size: 1rem; letter-spacing: -.02em; }
+    .repo-card h3 a { text-decoration: none; }
+    .repo-card h3 a:hover { color: var(--accent); }
+    .repo-card p { margin: 12px 0 18px; color: var(--muted); font-size: .9rem; }
+    .repo-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; color: var(--muted); font-size: .8rem; }
+    .repo-meta span { display: inline-flex; align-items: center; gap: 5px; }
+    .repo-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .repo-tag { padding: 4px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: .72rem; font-weight: 800; }
+    .skeleton { min-height: 210px; border-radius: 20px; background: linear-gradient(90deg, var(--surface-soft), var(--surface-solid), var(--surface-soft)); background-size: 220% 100%; animation: shimmer 1.4s infinite linear; border: 1px solid var(--line); }
+    @keyframes shimmer { to { background-position: -220% 0; } }
 
-section[aria-labelledby="pubs-title"] a:hover,
-section[aria-labelledby="repos-title"] a:hover{
-  color: #084f88;              /* slightly darker blue on hover */
-  text-decoration: underline;  /* optional subtle cue */
-}
+    footer {
+      margin-top: 34px;
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    footer a { color: var(--text); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
 
-/* ===== Intro (About) link color ===== */
-#about .bio-text a:link,
-#about .bio-text a:visited{
-  color: var(--accent);           /* #0a6fb8 */
-  text-decoration: none;
-}
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
-#about .bio-text a:hover,
-#about .bio-text a:focus{
-  color: #084f88;                 /* slightly darker on hover */
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-</style>
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-grid; }
+      .nav-menu {
+        position: absolute; left: 16px; right: 16px; top: calc(var(--navh) - 4px);
+        display: none;
+        padding: 10px;
+        flex-direction: column; align-items: stretch;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--surface-solid);
+        box-shadow: var(--shadow);
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu a { width: 100%; }
+      .hero { grid-template-columns: 130px minmax(0,1fr); }
+      .portrait-wrap { width: 112px; }
+      .news-rail { grid-auto-columns: minmax(300px, 55%); }
+      .publication { grid-template-columns: 58px minmax(0,1fr); }
+      .pub-actions { grid-column: 2; justify-content: flex-start; }
+    }
 
+    @media (max-width: 680px) {
+      main, .nav-inner { width: min(calc(100% - 22px), var(--maxw)); }
+      main { padding-top: 24px; }
+      .nav-brand .brand-label { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 12px; padding: 18px; border-radius: 18px; align-items: start; }
+      .portrait-wrap { width: 78px; margin: 0; }
+      .hero h1 { font-size: 1.72rem; }
+      .hero-lead { font-size: .93rem; margin-top: 8px; }
+      .socials { margin-top: 9px; }
+      .social-link { width: 34px; min-width: 34px; height: 34px; }
+      .metrics { grid-template-columns: 1fr; gap: 8px; }
+      .metric { padding: 14px 16px; }
+      .section { padding: 28px 0; }
+      .news-rail { grid-auto-columns: 88%; }
+      .publication { grid-template-columns: 1fr; gap: 10px; padding: 19px; }
+      .pub-year { order: -1; }
+      .pub-actions { grid-column: 1; }
+      .repo-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-<!-- ===== Top Navigation ===== -->
-<nav class="site-nav" role="navigation" aria-label="Primary">
-  <div class="nav-inner">
-    <a class="nav-brand" href="#top">
-  <span class="brand-sigma" aria-hidden="true"> Welcome to my website!</span>
-    </a>
-
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-      <span class="sr-only">Toggle menu</span>
-      <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <ul id="nav-menu" class="nav-menu">
-      <li><a href="#about"><i class="fa-solid fa-user"></i><span>About</span></a></li>
-      <li><a href="#pubs-title"><i class="fa-solid fa-book"></i><span>Publications</span></a></li>
-      <li><a href="#repos-title"><i class="fa-brands fa-github"></i><span>Repos</span></a></li>
-      <li><a href="#news-title"><i class="fa-solid fa-newspaper"></i><span>News</span></a></li>
-      <li>
-        <a class="btn-nav" href="media/about/Okyanus-Oral-CV.pdf" target="_blank" rel="noopener">
-          <i class="fa-solid fa-file-pdf"></i><span>CV</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <body>
-  <div class="shell">
-    <section class="intro" id="about">
-      <!-- left, row 1 -->
-      <div class="brand">
-        <img class="avatar" src="media/about/profile-pic.jpeg" alt="Portrait of Okyanus Oral" />
-        <div>
-          <h1 class="name">Okyanus Oral</h1>
-                
-      <!-- left, row 2 (horizontal icons start under photo) -->
-      <ul class="net">
-        <li><a href="https://scholar.google.com/citations?user=kwdmZGYAAAAJ&hl=en" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a></li>
-        <li><a href="https://github.com/OOkyanus" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
-        <li><a href="https://linkedin.com/in/okyanusoral" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-        <li><a href="mailto:okyanus.oral@uni.lu" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
-        <li><a href="media/about/Okyanus-Oral-CV.pdf" target="_blank" title="Curriculum Vitae" class="cv-icon">CV</a></li>      
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#about" aria-label="Okyanus Oral — home">
+        <!-- <span class="brand-mark" aria-hidden="true">.,</span> -->
+        <span class="brand-label"> Welcome to my webpage!</span>
+      </a>
+
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#repositories">Repositories</a></li>
+        <!-- <li><a href="media/about/Okyanus-Oral-CV.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines" aria-hidden="true"></i>CV</a></li> -->
       </ul>
-        </div>
-  
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle color theme" title="Toggle color theme"><i class="fa-regular fa-moon" aria-hidden="true"></i></button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu"><span class="sr-only">Toggle menu</span><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero reveal" id="about">
+      <div class="portrait-wrap">
+        <div class="portrait-ring" aria-hidden="true"></div>
+        <img class="avatar" src="media/about/profile-pic.jpeg" alt="Portrait of Okyanus Oral">
+        <span class="status-pill"><span class="status-dot" aria-hidden="true"></span>Ph.D. Researcher</span>
       </div>
 
+      <div>
+        <div class="eyebrow"><i class="fa-solid fa-wave-square" aria-hidden="true"></i> Radar · Imaging · Signal Processing</div>
+<div class="name-row">
+  <h1>Okyanus Oral</h1>
 
-      <!-- right column -->
-      <div class="bio-text">
-        <p class="lead">
-I am a Ph.D. student in the <a href="https://radarmimo.com">Signal Processing Applications for Communications and Radar (SPARC) research group</a> at the <a href="https://www.uni.lu/snt-en">University of Luxembourg - SnT</a>, under the supervision of <a href="https://scholar.google.lu/citations?user=JXx5O8kAAAAJ&hl=en">Prof. Dr. Bhavani Shankar</a>.
-My research focuses on signal processing for radar-based computational sensing and imaging, with particular interest in fast, memory-efficient algorithms and physics-informed deep learning methods.        </p>
+  <div class="socials" aria-label="External profiles">
+    <a class="social-link"
+       href="https://scholar.google.com/citations?user=kwdmZGYAAAAJ&hl=en"
+       target="_blank"
+       rel="noopener">
+      <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+      <span>Scholar</span>
+    </a>
+
+    <a class="social-link"
+       href="https://github.com/OOkyanus"
+       target="_blank"
+       rel="noopener">
+      <i class="fa-brands fa-github" aria-hidden="true"></i>
+      <span>GitHub</span>
+    </a>
+
+    <a class="social-link"
+       href="https://linkedin.com/in/okyanusoral"
+       target="_blank"
+       rel="noopener">
+      <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      <span>LinkedIn</span>
+    </a>
+
+    <a class="social-link"
+       href="mailto:okyanus.oral@uni.lu">
+      <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+      <span>Email</span>
+    </a>
+  </div>
+</div>
+        <p class="hero-lead">I am a Ph.D. student in the <a href="https://radarmimo.com" target="_blank" rel="noopener">Signal Processing Applications for Communications and Radar (SPARC) research group</a> at the <a href="https://www.uni.lu/snt-en" target="_blank" rel="noopener">University of Luxembourg – SnT</a>, under the supervision of <a href="https://scholar.google.lu/citations?user=JXx5O8kAAAAJ&hl=en" target="_blank" rel="noopener">Prof. Dr. Bhavani Shankar</a>. My research focuses on radar-based computational sensing and imaging, fast memory-efficient algorithms, and physics-informed deep learning.</p>
+<!-- 
+        <div class="tags" aria-label="Research interests">
+          <span class="tag">Computational Imaging</span>
+          <span class="tag">MIMO Radar</span>
+          <span class="tag">Inverse Problems</span>
+          <span class="tag">Physics-Informed Learning</span>
+        </div> -->
+
+
       </div>
     </section>
 
-<section class="card" aria-labelledby="news-title">
-  <h2 id="news-title">News</h2>
-  <div id="news-list" class="pubs"></div>
-</section>
+    <!-- <div class="metrics reveal" aria-label="Profile summary">
+      <div class="metric"><strong>9</strong><span>Publications & research outputs</span></div>
+      <div class="metric"><strong>5</strong><span>Featured open-source repositories</span></div>
+      <div class="metric"><strong>SnT · SPARC</strong><span>University of Luxembourg</span></div>
+    </div> -->
 
-<section class="card" aria-labelledby="pubs-title">
-  <h2 id="pubs-title">Publications</h2>
-
-  <div class="pubs" role="list">
- <!-- Conference – 2025: IEEE RadarConf -->
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <h3 itemprop="name">
-       Fast Sparsity-Based 3D Near-Field MIMO Imaging Using b-SAGA with a Batch Size Selection Strategy
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span>, T. Feuillen, A. Murtada, B. Shankar ·
-        <span itemprop="isPartOf">IEEE RadarConf</span> ·
-        <time itemprop="datePublished" datetime="2025">2025</time>
+    <section class="section" id="news">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">Updates</div><h2 class="section-title">News</h2><p class="section-subtitle"></p></div>
       </div>
+      <div id="news-list" class="news-rail" role="list" aria-label="News items"></div>
+    </section>
 
-      <div class="actions">
-        <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/11205170" itemprop="url">Paper</a>
+    <section class="section" id="publications">
+      <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Research</div>
+        <h2 class="section-title">Selected Publications</h2>
+        <p class="section-subtitle">
+        For a complete list of publications, please see my 
+         <a href="https://scholar.google.com/citations?user=kwdmZGYAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: #0a6fb8;">
+            Google Scholar profile</a>
+          .
+        </p>
+      </div>      
       </div>
+      <div class="publication-list" role="list">
+      <article class="publication reveal">
+      <div class="pub-year">2026</div>
+      <div class="pub-copy">
+        <h3>End-to-End Co-Design of MIMO Arrays and Reconstruction Methods for Radar Imaging</h3>
+        <p>O. Oral, F.S. Oktem · Digital Signal Processing · 2026</p>
+      </div>
+      <div class="pub-actions"><a class="link-pill" href="https://www.sciencedirect.com/science/article/pii/S1051200426006871" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a><a class="link-pill" href="https://github.com/METUSPACE-Lab/Joint-Optimization-MIMO-Imaging" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a></div>
     </article>
-
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <h3 itemprop="name">
-       Fast Regularized 3D Near-Field MIMO Imaging Using Stochastic Proximal Gradient Method
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span> ·
-        <span itemprop="isPartOf">international Symposium on Computational Sensing (ISCS)</span> ·
-        <time itemprop="datePublished" datetime="2025">2025</time>
+        <article class="publication reveal">
+      <div class="pub-year">2025</div>
+      <div class="pub-copy">
+        <h3>Fast Sparsity-Based 3D Near-Field MIMO Imaging Using b-SAGA with a Batch Size Selection Strategy</h3>
+        <p>O. Oral, T. Feuillen, A. Murtada, B. Shankar · IEEE RadarConf · 2025</p>
       </div>
-      <div class="actions">
-        <a class="btn" href="https://www.arxiv.org/abs/2509.00774" itemprop="url">arXiv</a>
-      </div>
+      <div class="pub-actions"><a class="link-pill" href="https://ieeexplore.ieee.org/abstract/document/11205170" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a></div>
     </article>
-
-    <!-- Conference – 2025: EuRAD -->
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <h3 itemprop="name">
-      Handheld SAR with Learning-Based Ego-Motion Estimation Using a Compact mmWave Sensor      
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span>, A. Murtada, T. Feuillen, B. Shankar ·
-        <span itemprop="isPartOf">European Radar Conference (EuRAD)</span> ·
-        <time itemprop="datePublished" datetime="2025">2025</time>
+    <!-- <article class="publication reveal">
+      <div class="pub-year">2025</div>
+      <div class="pub-copy">
+        <h3>Fast Regularized 3D Near-Field MIMO Imaging Using Stochastic Proximal Gradient Method</h3>
+        <p>O. Oral · international Symposium on Computational Sensing (ISCS) · 2025</p>
       </div>
-      <div class="actions">
-        <a class="btn" href="https://ieeexplore.ieee.org/document/11234122">Paper</a>
+      <div class="pub-actions"><a class="link-pill" href="https://www.arxiv.org/abs/2509.00774" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>arXiv</a></div>
+    </article><article class="publication reveal">
+      <div class="pub-year">2025</div>
+      <div class="pub-copy">
+        <h3>Handheld SAR with Learning-Based Ego-Motion Estimation Using a Compact mmWave Sensor</h3>
+        <p>O. Oral, A. Murtada, T. Feuillen, B. Shankar · European Radar Conference (EuRAD) · 2025</p>
       </div>
-
-      
+      <div class="pub-actions"><a class="link-pill" href="https://ieeexplore.ieee.org/document/11234122" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a></div>
+    </article><article class="publication reveal">
+      <div class="pub-year">2025</div>
+      <div class="pub-copy">
+        <h3>Joint Optimization of Sparse MIMO Arrays and Imaging Methods</h3>
+        <p>O. Oral, F.S. Oktem · 33rd European Signal Processing Conference (EUSIPCO) · 2025</p>
+      </div>
+      <div class="pub-actions"><a class="link-pill" href="https://eusipco2025.org/wp-content/uploads/pdfs/0000740.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a></div>
+    </article> -->
+    <article class="publication reveal">
+      <div class="pub-year">2024</div>
+      <div class="pub-copy">
+        <h3>Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging</h3>
+        <p>O. Oral, F.S. Oktem · IEEE Transactions on Computational Imaging · 2024</p>
+      </div>
+      <div class="pub-actions"><a class="link-pill" href="https://doi.org/10.1109/TCI.2024.3396388" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a><a class="link-pill" href="https://arxiv.org/abs/2312.16024" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>arXiv</a><a class="link-pill" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a></div>
+    </article><article class="publication reveal">
+      <div class="pub-year">2024</div>
+      <div class="pub-copy">
+        <h3>Efficient Physics-Based Learned Reconstruction Methods for Real-Time 3D Near-Field MIMO Radar Imaging</h3>
+        <p>I. Manisali, O. Oral, F.S. Oktem · Digital Signal Processing · 2024</p>
+      </div>
+      <div class="pub-actions"><a class="link-pill" href="https://doi.org/10.1016/j.dsp.2023.104274" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a><a class="link-pill" href="https://arxiv.org/abs/2312.16959" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>arXiv</a><a class="link-pill" href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a></div>
     </article>
-
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <h3 itemprop="name">
-      Joint Optimization of Sparse MIMO Arrays and Imaging Methods
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span>, F.S. Oktem ·
-        <span itemprop="isPartOf">33rd European Signal Processing Conference (EUSIPCO) </span> ·
-        <time itemprop="datePublished" datetime="2025">2025</time>
+    <!-- <article class="publication reveal">
+      <div class="pub-year">2023</div>
+      <div class="pub-copy">
+        <h3>Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging</h3>
+        <p>O. Oral, F.S. Oktem · 31st European Signal Processing Conference (EUSIPCO) · 2023</p>
       </div>
-
-      <div class="actions">
-        <a class="btn" href="https://eusipco2025.org/wp-content/uploads/pdfs/0000740.pdf">Paper</a>
+      <div class="pub-actions"><a class="link-pill" href="https://ieeexplore.ieee.org/document/10290090" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a><a class="link-pill" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a></div>
+    </article><article class="publication reveal">
+      <div class="pub-year">2022</div>
+      <div class="pub-copy">
+        <h3>HPS-RL: Hyperparameter tuning for deep RL applications (HPS-RL) v1</h3>
+        <p>M. Kiran, O. Oral, B.M. Ozyildirim · Lawrence Berkeley National Laboratory (LBNL), Berkeley, CA (United States) · 2022</p>
       </div>
-    </article>
-
-    <!-- IEEE Transactions on Computational Imaging – 2024 -->
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-
-      <h3 itemprop="name">
-        Plug-and-Play Regularization on Magnitude With Deep Priors for 3D Near-Field MIMO Imaging
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span>, 
-        <span itemprop="author">F.S. Oktem</span> ·
-        <span itemprop="isPartOf">IEEE Transactions on Computational Imaging</span> ·
-        <time itemprop="datePublished" datetime="2024">2024</time>
-        <br>
-
+      <div class="pub-actions"><a class="link-pill" href="https://doi.org/10.11578/dc.20240823.1" target="_blank" rel="noopener"><i class="fa-solid fa-building-columns" aria-hidden="true"></i>US-DOE</a><a class="link-pill" href="https://github.com/SelfDrivingNetworkLab/hps-rl" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>Code</a></div>
+    </article><article class="publication reveal">
+      <div class="pub-year">2021</div>
+      <div class="pub-copy">
+        <h3>Comparison of the Performance of K-Nearest Neighbours and Generalized Neural Network in Construction Crew Productivity Prediction</h3>
+        <p>O. Oral, E. L. Oral, M. S. Andaç · Cukurova University Engineering Faculty Journal · 2021</p>
       </div>
-      <div class="actions">
-        <a class="btn" href="https://doi.org/10.1109/TCI.2024.3396388">Paper</a>
-        <a class="btn" href="https://arxiv.org/abs/2312.16024" itemprop="url">arXiv</a>
-        <a class="btn" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude">Code</a>
+      <div class="pub-actions"><a class="link-pill" href="https://doi.org/10.21605/cukurovaumfd.933867" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>Paper</a></div>
+    </article> -->
       </div>
-    </article>
+    </section>
 
-     <!-- Digital Signal Processing – 2024 -->
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <h3 itemprop="name">
-        Efficient Physics-Based Learned Reconstruction Methods for Real-Time 3D Near-Field MIMO Radar Imaging
-      </h3>
-      <div class="meta">
-        <span itemprop="author">I. Manisali</span>, 
-        <span itemprop="author"><strong>O. Oral</strong></span>, 
-        <span itemprop="author">F.S. Oktem</span> ·
-        <span itemprop="isPartOf">Digital Signal Processing</span> · <time itemprop="datePublished" datetime="2024">2024</time>
+    <section class="section" id="repositories">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">Open Source</div><h2 class="section-title">Repositories</h2><p class="section-subtitle"></p></div>
       </div>
-      <div class="actions">
-        <a class="btn" href="https://doi.org/10.1016/j.dsp.2023.104274">Paper</a>
-        <a class="btn" href="https://arxiv.org/abs/2312.16959" itemprop="url">arXiv</a>
-        <a class="btn" href="https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging">Code</a>
+      <div id="repos" class="repo-grid" role="list" aria-live="polite">
+        <div class="skeleton" aria-hidden="true"></div><div class="skeleton" aria-hidden="true"></div>
       </div>
-    </article>
-    
-<!-- IEEE Transactions on Computational Imaging – 2024 -->
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
+    </section>
 
-      <h3 itemprop="name">
-        Plug-and-Play Reconstruction with 3D Deep Prior for Complex-Valued Near-Field MIMO Imaging
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span>, 
-        <span itemprop="author">F.S. Oktem</span> ·
-        <span itemprop="isPartOf">31st European Signal Processing Conference (EUSIPCO) </span> ·
-        <time itemprop="datePublished" datetime="2023">2023</time>
-        <br>
+    <footer>
+      <div>© <span id="year"></span> Okyanus Oral</div>
+      <div><a href="mailto:okyanus.oral@uni.lu">okyanus.oral@uni.lu</a> · 29JFK, 29 boulevard JF Kennedy, L-1855 Luxembourg</div>
+    </footer>
+  </main>
 
-      </div>
-      <div class="actions">
-        <a class="btn" href="https://ieeexplore.ieee.org/document/10290090">Paper</a>
-        <a class="btn" href="https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude">Code</a>
-      </div>
-    </article>
-   
+  <script>
+    const newsItems = [{"date": "10-24-2026", "title": "Asilomar Conference on Signals, Systems, and Computers", "text": "I will be attending Asilomar Conference with our paper on efficient direct near-field MIMO imaging.", "image": "media/Asilomar26/Asilomar.png", "chip": {"text": "Asilomar'26", "href": "https://cmsworkshops.com/Asilomar2026/view_paper.php?PaperNum=1561"}},
+                      {"date": "10-4-2025", "title": "RadarConf'25 Events", "text": "Attended the RadarConf'25 Bootcamp, 3D ISAR Imaging Tutorial and the AESS Radar Challenge.", "image": "media/RadarConf25/RadarConf25.jpg", "chip": {"text": "RadarConf'25", "href": "https://radarconf2025.org"}},
+                       {"date": "9-8-2025", "title": "DeepInverse Hackathon", "text": "Attended the 2025 DeepInverse (https://deepinv.github.io/) Hackathon in Marseille, France.", "image": "media/DeepInverse/GroupPic.jpg", "chip": {"text": "Hackathon Website", "href": "https://conferences.cirm-math.fr/3659.html"}},
+                        {"date": "6-6-2025", "title": "ISCS'25 Symposium", "text": "Attended the International Symposium on Computational Sensing (ISCS’25) in Clervaux, Luxembourg.", "image": "media/ISCS25/ISCS Group Photo.jpg", "chip": {"text": "Symposium Website", "href": "https://www.iscs2025.com"}},
+                         {"date": "6-3-2025", "title": "ISCS'25 DeepInverse Workshop", "text": "Received the best mini-project award as free attendance to the 2025 DeepInverse Hackathon.", "image": "media/ISCS25/ISCSDeepInverse.JPG", "chip": {"text": "Hackathon", "href": "https://conferences.cirm-math.fr/3659.html"}},
+                          {"date": "6-10-2024", "title": "Graduated from MSc. METU-EEE", "text": "Successfully defended my M.Sc. thesis: “Efficient Three-Dimensional Near-Field Imaging with Physics-Informed Deep Learning for MIMO Radar.”", "image": "media/Uni/odtu-logo.jpeg", "chip": {"text": "M.Sc. Thesis", "href": "https://open.metu.edu.tr/handle/11511/110033"}},
+                           {"date": "3-15-2024", "title": "Accepted into DP-CSCE at the UniLu", "text": "I have been accepted into the PhD program at the University of Luxembourg, SnT, SPARC Group.", "image": "media/Uni/SnT_UL.png", "chip": {"text": "SPARC", "href": "https://www.uni.lu/snt-en/research-groups/sparc"}}];
+    const repoLinks = ["https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude", "https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging", "https://github.com/SelfDrivingNetworkLab/hps-rl", "https://github.com/OOkyanus/CG-Torch", "https://github.com/OOkyanus/MergePDFsApp"];
+    const CACHE_TTL_MS = 12 * 60 * 60 * 1000;
 
-    <!-- 2022 Code Base – HPS-RL Library -->
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-      <h3 itemprop="name">
-      HPS-RL: Hyperparameter tuning for deep RL applications (HPS-RL) v1
-      </h3>
-      <div class="meta">
-        <span itemprop="author">M. Kiran</span>, <span itemprop="author"><strong>O. Oral</strong></span>,
-        <span itemprop="author">B.M. Ozyildirim</span> ·
-        <span itemprop="isPartOf">Lawrence Berkeley National Laboratory (LBNL), Berkeley, CA (United States)</span> · 2022
-      </div>
-      <div class="actions">
-        <a class="btn" href="https://doi.org/10.11578/dc.20240823.1">US-DOE</a>
-        <a class="btn" href="https://github.com/SelfDrivingNetworkLab/hps-rl">Code</a>
-      </div>
-    </article>
+    const escapeHTML = (value = "") => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
 
-   
-
-
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/ScholarlyArticle">
-      <h3 itemprop="name">
-        Comparison of the Performance of K-Nearest Neighbours and Generalized Neural Network in Construction Crew Productivity Prediction
-      </h3>
-      <div class="meta">
-        <span itemprop="author"><strong>O. Oral</strong></span>, <span itemprop="author">E. L. Oral</span>, 
-        <span itemprop="author">M. S. Andaç</span> ·
-        <span itemprop="isPartOf">Cukurova University Engineering Faculty Journal</span> ·
-        <time itemprop="datePublished" datetime="2021">2021</time>
-      </div>
-      <div class="actions">
-        <a class="btn" href="https://doi.org/10.21605/cukurovaumfd.933867" itemprop="url">Paper</a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section class="card" aria-labelledby="repos-title">
-  <h2 id="repos-title">Repositories</h2>
-  <div id="repos" class="pubs"></div>
-</section>
-
-    <footer><strong>Email: </strong>okyanus.oral[AT]uni.lu <span id="year"> <br> </span> <strong>Address:</strong> 29JFK, 29, boulevard JF Kennedy, L-1855 LUXEMBOURG.</footer>
-  </div>
-
-
-
-<script>
-/* ==== 1) Add your repo links here ==== */
-const repoLinks = [
-  "https://github.com/METU-SPACE-Lab/PnP-Regularization-on-Magnitude",
-  "https://github.com/METU-SPACE-Lab/Efficient-Learned-3D-Near-Field-MIMO-Imaging",
-  "https://github.com/SelfDrivingNetworkLab/hps-rl",
-  "https://github.com/OOkyanus/CG-Torch",
-  "https://github.com/OOkyanus/MergePDFsApp"
-];
-
-/* ==== 2) Tiny cache (12h) to avoid rate limits on reload ==== */
-const CACHE_TTL_MS = 12 * 60 * 60 * 1000;
-const key = (o,r)=>`ghrepo:${o}/${r}`;
-const getCache = (o,r)=>{ try{ const x=localStorage.getItem(key(o,r)); if(!x) return null; const j=JSON.parse(x); return (Date.now()-j.t<CACHE_TTL_MS)? j.d:null; }catch{ return null;} };
-const setCache = (o,r,d)=>{ try{ localStorage.setItem(key(o,r), JSON.stringify({t:Date.now(), d})); }catch{} };
-
-/* ==== 3) Helpers ==== */
-function parseRepo(url){
-  const i = url.indexOf("github.com/");
-  if (i<0) return null;
-  const [owner, repo] = url.slice(i+"github.com/".length).replace(/\/+$/,'').split("/");
-  if (!owner || !repo) return null;
-  return { owner, repo };
-}
-function chipList(items){ return (!items||!items.length) ? "" : `<div class="repo-tags">${items.map(t=>`<span class="repo-tag">${t}</span>`).join("")}</div>`; }
-function metaRow(stars, forks, updated, chips){
-  const d = updated ? new Date(updated).toISOString().slice(0,10) : "—";
-  return `
-    <div class="repo-meta">
-      <div class="repo-icons">
-        <span title="Stars">⭐ ${stars ?? 0}</span>
-        <span title="Forks">🍴 ${forks ?? 0}</span>
-        <span title="Last updated">🕒 ${d}</span>
-      </div>
-      ${chipList(chips)}
-    </div>`;
-}
-function renderRepo(container, link, d){
-  container.insertAdjacentHTML("beforeend", `
-    <article class="pub" role="listitem" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-      <div class="repo-header">
-        <h3 class="repo-title" itemprop="name">
-          <a href="${link}" target="_blank" rel="noopener">${d.name}</a>
-        </h3>
-        ${metaRow(d.stars, d.forks, d.updated, d.chips || [])}
-      </div>
-      <p class="meta">${d.description || "No description."}</p>
-      ${d.homepage ? `<div class="actions"><a class="btn" href="${d.homepage}" target="_blank" rel="noopener">Homepage</a></div>` : ""}
-    </article>
-  `);
-}
-function renderError(container, link, name, msg){
-  container.insertAdjacentHTML("beforeend", `
-    <article class="pub" role="listitem">
-      <div class="repo-header">
-        <h3 class="repo-title"><a href="${link}" target="_blank" rel="noopener">${name}</a></h3>
-        <div class="repo-meta"><div class="repo-icons"><span>⚠️ ${msg}</span></div></div>
-      </div>
-      <p class="meta">Limited info shown. Try again later.</p>
-    </article>
-  `);
-}
-
-/* ==== 4) Minimal, rate-friendly fetch (1 call/repo) ==== */
-function apiHeaders(){ return {"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}; }
-
-async function loadRepos(){
-  const container = document.getElementById("repos");
-  container.innerHTML = "";
-
-  for (const link of repoLinks){
-    const p = parseRepo(link);
-    if (!p){ renderError(container, link, link, "Invalid GitHub URL"); continue; }
-    const { owner, repo } = p;
-
-    const cached = getCache(owner, repo);
-    if (cached){ renderRepo(container, link, cached); continue; }
-
-    const base = `https://api.github.com/repos/${owner}/${repo}`;
-    try {
-      const res = await fetch(base, { headers: apiHeaders() });
-      const data = await res.json();
-
-      if (!res.ok){
-          const reset = res.headers.get("x-ratelimit-reset");
-          const isRL = res.status === 403 && /rate limit/i.test((data && data.message) || "");
-          const when = reset ? ` · resets ${new Date(+reset*1000).toLocaleTimeString()}` : "";
-          const safeMsg = isRL
-            ? `GitHub API rate limit exceeded${when}`
-            : `HTTP ${res.status} ${res.statusText}`;
-          renderError(container, link, repo, safeMsg);
-        continue;
-      }
-
-      // Simple “chips”: dominant language + license (keeps calls to 1/request)
-      const chips = [];
-      if (data.language) chips.push(data.language);
-      if (data.license?.spdx_id) chips.push(data.license.spdx_id);
-
-      const packed = {
-        name: data.name || repo,
-        description: data.description || "",
-        stars: data.stargazers_count ?? 0,
-        forks: data.forks_count ?? 0,
-        updated: data.pushed_at || data.updated_at || null,
-        homepage: data.homepage || "",
-        chips
-      };
-      setCache(owner, repo, packed);
-      renderRepo(container, link, packed);
-
-    } catch (e){
-      renderError(container, link, repo, e.message || "Network error");
+    function parseMDY(value) {
+      const [m,d,y] = value.split('-').map(Number);
+      return new Date(y, m - 1, d);
     }
-  }
-}
-document.addEventListener("DOMContentLoaded", loadRepos);
-</script>
 
-<script>
-/* Edit this list: newest first is fine; code will sort by date */
-const newsItems = [
-  {
-    date: "10-4-2025",
-    title: "RadarConf'25 Events",
-    text: "Attended the RadarConf'25 Bootcamp, 3D ISAR Imaging Tutorial and the AESS Radar Challenge.",
-    chip: { text: "RadarConf'25", href: "https://radarconf2025.org" },  // ← shows top-right chip
-    image: "media/RadarConf25/RadarConf25.jpg",               // optional thumbnail path (e.g., "media/news/repos.png")
-    pinned: false
-  },
-  {
-    date: "9-8-2025",
-    title: "DeepInverse Hackathon",
-    text: "Attended the 2025 DeepInverse (https://deepinv.github.io/) Hackathon in Marseille, France.",
-    chip: { text: "Hackathon Website", href: "https://conferences.cirm-math.fr/3659.html" },  // ← shows top-right chip
-    image: "media/DeepInverse/GroupPic.jpg",               // optional thumbnail path (e.g., "media/news/repos.png")
-    pinned: false
-  },
-    {
-    date: "6-6-2025",
-    title: "ISCS'25 Symposium",
-    text: "Attended the International Symposium on Computational Sensing (ISCS’25) in Clervaux, Luxembourg.",
-    chip: { text: "Symposium Website", href: "https://www.iscs2025.com" },  // ← shows top-right chip
-    image: "media/ISCS25/ISCS Group Photo.jpg",               // optional thumbnail path (e.g., "media/news/repos.png")
-    pinned: false
-  },
-  {
-    date: "6-3-2025",
-    title: "ISCS'25 DeepInverse Workshop",
-    text: "Received the best mini-project award as free attendance to the 2025 DeepInverse Hackathon.",
-    chip: { text: "Hackathon", href: "https://www.https://conferences.cirm-math.fr/3659.html" },  // ← shows top-right chip
-    image: "media/ISCS25/ISCSDeepInverse.JPG",               // optional thumbnail path (e.g., "media/news/repos.png")
-    pinned: false
-  },
-  {
-    date: "6-10-2024",
-    title: "Graduated from MSc. METU-EEE",
-    text: "Successfully defended my M.Sc. thesis: “Efficient Three-Dimensional Near-Field Imaging with Physics-Informed Deep Learning for MIMO Radar.”",
-    chip: { text: "M.Sc. Thesis", href: "https://open.metu.edu.tr/handle/11511/110033" },  // ← shows top-right chip
-    image: "media/Uni/odtu-logo.jpeg",               // optional thumbnail path (e.g., "media/news/repos.png")
-    pinned: false
-  },
-  {
-    date: "3-15-2024",
-    title: "Accepted into DP-CSCE at the UniLu",
-    text: "I have been accepted into the PhD program at the University of Luxembourg, SnT, SPARC Group.",
-    chip: { text: "SPARC", href: "https://www.uni.lu/snt-en/research-groups/sparc" },  // ← shows top-right chip
-    image: "media/Uni/SnT_UL.png",               // optional thumbnail path (e.g., "media/news/repos.png")
-    pinned: false
-  }
-];
+    function formatDate(value) {
+      return new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'short', day: 'numeric' }).format(parseMDY(value));
+    }
 
-function fmtDate(iso){
-  try { return new Date(iso).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"2-digit"}); }
-  catch { return iso; }
-}
-function tagChips(arr){
-  if (!arr?.length) return "";
-  return `<div class="news-tags">${arr.map(t=>`<span class="news-tag">${t}</span>`).join("")}</div>`;
-}
+    function renderNews() {
+      const list = document.getElementById('news-list');
+      const sorted = [...newsItems].sort(
+        (a, b) => parseMDY(b.date) - parseMDY(a.date)
+      );
 
-function newsCard(n){
-  const links = n.links?.length ? n.links
-              : (n.link ? [{ text: n.linkText || "Read more", href: n.link }] : []);
+      list.innerHTML = sorted.map(item => `
+        <article class="news-card reveal" role="listitem">
 
-  const hero = n.image ? `
-    <div class="news-hero">
-      <img class="news-thumb" src="${n.image}" alt="News: ${n.title}">
-      ${n.chip ? `
-        <a class="read-more-chip" href="${n.chip.href}" target="_blank" rel="noopener">
-          <i class="fa-solid fa-hand-point-right" aria-hidden="true"></i>${n.chip.text || "Read more"}
-        </a>` : ``}
-    </div>` : ``;
+          <div
+            class="news-media"
+            style="--news-bg: url('${escapeHTML(item.image)}');"
+          >
+            <img
+              src="${escapeHTML(item.image)}"
+              alt="${escapeHTML(item.title)}"
+              loading="lazy"
+            >
 
-  const footer = links.length ? `
-    <div class="news-footer">
-      ${links.map(l => `
-        <a class="btn" href="${l.href}" target="_blank" rel="noopener">
-          <i class="fa-solid fa-hand-point-right" aria-hidden="true"></i>${l.text}
-        </a>`).join("")}
-    </div>` : ``;
+            ${item.chip ? `
+              <a
+                class="news-chip"
+                href="${escapeHTML(item.chip.href)}"
+                target="_blank"
+                rel="noopener"
+              >
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+                ${escapeHTML(item.chip.text)}
+              </a>
+            ` : ''}
 
-  return `
-    <article class="news-card" role="listitem" itemscope itemtype="https://schema.org/CreativeWork">
-      ${hero}
-      <div class="news-main">
-        <div class="news-header">
-          <h3 class="news-title" itemprop="name">${n.title}</h3>
-          <div class="news-meta"><time itemprop="datePublished" datetime="${n.date}">${fmtDate(n.date)}</time></div>
-        </div>
-        <div class="news-desc"><p class="meta desc" itemprop="description">${n.text}</p></div>
-        ${tagChips(n.tags)}
-        ${footer}
-      </div>
-    </article>`;
-}
-function loadNews(){
-  const box = document.getElementById("news-list");
-  const items = [...newsItems].sort((a,b)=>{
-    if ((b.pinned|0)!==(a.pinned|0)) return (b.pinned|0)-(a.pinned|0);
-    return new Date(b.date)-new Date(a.date);
-  });
-  box.innerHTML = items.map(newsCard).join("");
-  requestAnimationFrame(markOverflow);
-}
-document.addEventListener("DOMContentLoaded", loadNews);
-</script>
+          </div>
 
-<script>
-/* tiny toggle for mobile */
-const btn = document.querySelector('.nav-toggle');
-const menu = document.getElementById('nav-menu');
+          <div class="news-body">
+            <div class="news-date">${formatDate(item.date)}</div>
+            <h3>${escapeHTML(item.title)}</h3>
+            <p>${escapeHTML(item.text)}</p>
+          </div>
 
-btn?.addEventListener('click', () => {
-  const open = menu.classList.toggle('open');
-  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-});
+        </article>
+      `).join('');
+    }
 
-/* close menu after clicking a link (mobile) */
-menu?.addEventListener('click', e => {
-  if (e.target.closest('a') && window.innerWidth < 860){
-    menu.classList.remove('open');
-    btn.setAttribute('aria-expanded','false');
-  }
-});
-</script>
+    const cacheKey = (owner, repo) => `ghrepo:${owner}/${repo}`;
+    function getCached(owner, repo) {
+      try {
+        const raw = localStorage.getItem(cacheKey(owner, repo));
+        if (!raw) return null;
+        const item = JSON.parse(raw);
+        return Date.now() - item.time < CACHE_TTL_MS ? item.data : null;
+      } catch { return null; }
+    }
+    function setCached(owner, repo, data) {
+      try { localStorage.setItem(cacheKey(owner, repo), JSON.stringify({time: Date.now(), data})); } catch {}
+    }
+    function parseRepo(url) {
+      try {
+        const u = new URL(url);
+        const [owner, repo] = u.pathname.replace(/^\/+|\/+$/g, '').split('/');
+        return owner && repo ? { owner, repo } : null;
+      } catch { return null; }
+    }
+    function repoCard(link, data) {
+      const chips = [data.language, data.license?.spdx_id].filter(Boolean);
+      const updated = data.pushed_at || data.updated_at;
+      return `
+        <article class="repo-card reveal" role="listitem">
+          <div class="repo-top">
+            <h3><a href="${escapeHTML(link)}" target="_blank" rel="noopener">${escapeHTML(data.name || 'Repository')}</a></h3>
+            <a class="link-pill" href="${escapeHTML(link)}" target="_blank" rel="noopener" aria-label="Open repository"><i class="fa-brands fa-github" aria-hidden="true"></i>View</a>
+          </div>
+          <p>${escapeHTML(data.description || 'Open-source research code and tools.')}</p>
+          <div class="repo-meta">
+            <span><i class="fa-regular fa-star" aria-hidden="true"></i>${data.stargazers_count ?? 0}</span>
+            <span><i class="fa-solid fa-code-fork" aria-hidden="true"></i>${data.forks_count ?? 0}</span>
+            ${updated ? `<span><i class="fa-regular fa-clock" aria-hidden="true"></i>${new Date(updated).toLocaleDateString()}</span>` : ''}
+          </div>
+          ${chips.length ? `<div class="repo-tags">${chips.map(c => `<span class="repo-tag">${escapeHTML(c)}</span>`).join('')}</div>` : ''}
+        </article>`;
+    }
+    function repoErrorCard(link, name) {
+      return `<article class="repo-card reveal" role="listitem"><div class="repo-top"><h3><a href="${escapeHTML(link)}" target="_blank" rel="noopener">${escapeHTML(name)}</a></h3></div><p>Repository details are temporarily unavailable. The GitHub link still works.</p><div class="repo-meta"><span><i class="fa-solid fa-circle-info" aria-hidden="true"></i>GitHub API unavailable</span></div></article>`;
+    }
 
+    async function loadRepos() {
+      const box = document.getElementById('repos');
+      const cards = [];
+      for (const link of repoLinks) {
+        const parsed = parseRepo(link);
+        if (!parsed) continue;
+        const { owner, repo } = parsed;
+        let data = getCached(owner, repo);
+        if (!data) {
+          try {
+            const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, { headers: { 'Accept':'application/vnd.github+json', 'X-GitHub-Api-Version':'2022-11-28' } });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            data = await response.json();
+            setCached(owner, repo, data);
+          } catch {
+            cards.push(repoErrorCard(link, repo));
+            continue;
+          }
+        }
+        cards.push(repoCard(link, data));
+      }
+      box.innerHTML = cards.join('');
+      observeReveals();
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme) {
+      document.documentElement.dataset.theme = storedTheme;
+    } else {
+      document.documentElement.dataset.theme = 'light';
+    }
+
+    function syncThemeIcon() {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      themeToggle.innerHTML = `<i class="fa-regular ${dark ? 'fa-sun' : 'fa-moon'}" aria-hidden="true"></i>`;
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#0b1020' : '#f6f7fb');
+    }
+    syncThemeIcon();
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+      syncThemeIcon();
+    });
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      const open = navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+    navMenu.addEventListener('click', e => {
+      if (e.target.closest('a') && innerWidth <= 900) {
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded','false');
+        navToggle.querySelector('i').className = 'fa-solid fa-bars';
+      }
+    });
+
+    function observeReveals() {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+        return;
+      }
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); } });
+      }, { threshold: .08 });
+      document.querySelectorAll('.reveal:not(.in)').forEach(el => observer.observe(el));
+    }
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const navLinks = [...document.querySelectorAll('.nav-menu a[href^="#"]')];
+    const sectionObserver = new IntersectionObserver(entries => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${visible.target.id}`));
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0,.1,.5] });
+    sections.forEach(s => sectionObserver.observe(s));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderNews();
+    observeReveals();
+    loadRepos();
+  </script>
 </body>
 </html>
